@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta content="text/html; charset=ISO-8859-1"
+      http-equiv="Content-Type">
+    <title>QB Plus</title>
+  </head>
+  <body>
+    <meta charset="utf-8">
+    <h1 class="title" id="title" style="text-align: left; color: rgb(0,
+      90, 156); background-color: white; font-family: sans-serif;
+      font-size: 27px; font-style: normal; font-variant: normal;
+      font-weight: normal; line-height: normal; margin-top: 2em; clear:
+      both; letter-spacing: normal; orphans: 2; text-indent: 0px;
+      text-transform: none; white-space: normal; widows: 2;
+      word-spacing: 0px;">The QB+ Vocabulary</h1>
+    <div class="head" style="margin-bottom: 1em; color: rgb(0, 0, 0);
+      font-family: sans-serif; font-style: normal; font-variant: normal;
+      font-weight: normal; letter-spacing: normal; line-height: 24px;
+      orphans: 2; text-align: -webkit-auto; text-indent: 0px;
+      text-transform: none; white-space: normal; widows: 2;
+      word-spacing: 0px; -webkit-text-size-adjust: auto;
+      -webkit-text-stroke-width: 0px; font-size: medium; ">
+      <dl class="frontmatter">
+        <dt style="background-color: white; color: black; text-align:
+          left; font-weight: bold; font-size: 16px; background-position:
+          initial initial; background-repeat: initial initial; ">Last
+          update:</dt>
+        <dd style="margin-top: 0px; margin-bottom: 0.5em; ">2012-07-06</dd>
+        <dt style="background-color: white; color: black; text-align:
+          left; font-weight: bold; font-size: 16px; background-position:
+          initial initial; background-repeat: initial initial; ">Editors:</dt>
+        <dd style="margin-top: 0px; margin-bottom: 0.5em;">Lorena
+          Etcheverry (Instituto de Computaci&oacute;n, Universidad de la
+          Rep&uacute;blica, Uruguay)</dd>
+        <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Alejandro
+          A. Vaisman (ULB, Belgium)</dt>
+      </dl>
+      <hr></div>
+    <h2 id="abstract" style="background-color: rgb(255, 255, 255);
+      color: rgb(0, 90, 156); text-align: left; font-family: sans-serif;
+      font-size: 22px; font-style: normal; font-variant: normal;
+      font-weight: normal; line-height: normal; margin-top: 1.4em;
+      letter-spacing: normal; orphans: 2; text-indent: 0px;
+      text-transform: none; white-space: normal; widows: 2;
+      word-spacing: 0px;">Abstract</h2>
+    <p style="color: rgb(0, 0, 0); font-family: sans-serif; font-style:
+      normal; font-variant: normal; font-weight: normal; letter-spacing:
+      normal; line-height: 24px; orphans: 2; text-align: -webkit-auto;
+      text-indent: 0px; text-transform: none; white-space: normal;
+      widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto;
+      -webkit-text-stroke-width: 0px; font-size: medium; ">The <a
+        href="http://www.w3.org/TR/vocab-data-cube/">Data Cube</a>
+      vocabulary allows to publish statistical data on the web,
+      using&nbsp;the W3C<span class="Apple-converted-space">&nbsp;</span><a
+        href="http://www.w3.org/TR/REC-rdf-syntax/"
+        style="background-color: transparent; color: rgb(102, 0, 153);
+        background-position: initial initial; background-repeat: initial
+        initial; ">RDF</a><span class="Apple-converted-space">&nbsp;</span>(Resource
+
+
+      Description Framework) standard. The QB+ vocabulary is an
+      extension to the Data Cube vocabulary that allows to represent
+      OLAP cubes in RDF, and also allows to implement OLAP operators
+      (such as Roll-up, Slice, and Dice) as <a
+        href="http://www.w3.org/TR/rdf-sparql-query/">SPARQL</a> queries
+      on this RDF representation.<br>
+    </p>
+    <h2 id="status" style="background-color: rgb(255, 255, 255); color:
+      rgb(0, 90, 156); text-align: left; font-family: sans-serif;
+      font-size: 22px; font-style: normal; font-variant: normal;
+      font-weight: normal; line-height: normal; margin-top: 1.4em;
+      letter-spacing: normal; orphans: 2; text-indent: 0px;
+      text-transform: none; white-space: normal; widows: 2;
+      word-spacing: 0px; -webkit-text-size-adjust: auto;
+      -webkit-text-stroke-width: 0px; background-position: initial
+      initial; background-repeat: initial initial; ">Status of this
+      document</h2>
+    <p style="color: rgb(0, 0, 0); font-family: sans-serif; font-style:
+      normal; font-variant: normal; font-weight: normal; letter-spacing:
+      normal; line-height: 24px; orphans: 2; text-align: -webkit-auto;
+      text-indent: 0px; text-transform: none; white-space: normal;
+      widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto;
+      -webkit-text-stroke-width: 0px; font-size: medium; ">This is an
+      editor's draft without any formal standing. It is not endorsed by
+      any organisation. Anything in this document is still subject to
+      change at this point. The editors seek feedback on the document.
+      Please send any comments to the<span class="Apple-converted-space">&nbsp;</span><a
+href="http://groups.google.com/group/publishing-multidimensional-data"
+        style=" background-color: transparent; color: rgb(102, 0, 153);">project's
+
+        Google Group</a>.</p>
+    <hr style="color: rgb(0, 0, 0); font-family: sans-serif; font-style:
+      normal; font-variant: normal; font-weight: normal; letter-spacing:
+      normal; line-height: 24px; orphans: 2; text-align: -webkit-auto;
+      text-indent: 0px; text-transform: none; white-space: normal;
+      widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto;
+      -webkit-text-stroke-width: 0px; font-size: medium; ">
+    <h2 id="toc" style="background-color: rgb(255, 255, 255); color:
+      rgb(0, 90, 156); text-align: left; font-family: sans-serif;
+      font-size: 22px; font-style: normal; font-variant: normal;
+      font-weight: normal; line-height: normal; margin-top: 1.4em;
+      letter-spacing: normal; orphans: 2; text-indent: 0px;
+      text-transform: none; white-space: normal; widows: 2;
+      word-spacing: 0px; -webkit-text-size-adjust: auto;
+      -webkit-text-stroke-width: 0px; background-position: initial
+      initial; background-repeat: initial initial; ">Table of Contents</h2>
+    <ul class="toc" style="list-style-type: none; color: rgb(0, 0, 0);
+      font-family: sans-serif; font-style: normal; font-variant: normal;
+      font-weight: normal; letter-spacing: normal; line-height: 24px;
+      orphans: 2; text-align: -webkit-auto; text-indent: 0px;
+      text-transform: none; white-space: normal; widows: 2;
+      word-spacing: 0px; -webkit-text-size-adjust: auto;
+      -webkit-text-stroke-width: 0px; font-size: medium; ">
+      <li><span style="background-color: transparent; color: rgb(102, 0,
+          153); background-position: initial initial; background-repeat:
+          initial initial; ">1. Introduction</span>
+        <ul class="toc" style="list-style-type: none; ">
+          <li><span style="background-color: transparent; color:
+              rgb(102, 0, 153);">1.1 A vocabulary for BI on the semantic
+              web</span></li>
+          <li><span style=" background-color: transparent; color:
+              rgb(102, 0, 153);">1.2 The Data Cube Vocabulary<br>
+            </span></li>
+          <li><span style="background-color: transparent; color:
+              rgb(102, 0, 153); background-position: initial initial;
+              background-repeat: initial initial; ">1.2 RDF and Linked
+              Data</span></li>
+          <li><span style="background-color: transparent; color:
+              rgb(102, 0, 153); background-position: initial initial;
+              background-repeat: initial initial; ">1.5 Audience and
+              scope</span></li>
+          <li><span style="background-color: transparent; color:
+              rgb(102, 0, 153); background-position: initial initial;
+              background-repeat: initial initial; ">1.6 Document
+              conventions</span></li>
+        </ul>
+      </li>
+      <li><span style="background-color: transparent; color: rgb(102, 0,
+          153); background-position: initial initial; background-repeat:
+          initial initial; ">2. OLAP Data cubes</span>
+        <ul class="toc" style="list-style-type: none; ">
+          <li><span style="background-color: transparent; color:
+              rgb(102, 0, 153); background-position: initial initial;
+              background-repeat: initial initial; ">2.1 The cube model -
+              dimensions, attributes, measures</span></li>
+        </ul>
+      </li>
+      <li><span style="background-color: transparent; color: rgb(102, 0,
+          153); background-position: initial initial; background-repeat:
+          initial initial; ">3. Some examples</span></li>
+      <li><span style="background-color: transparent; color: rgb(102, 0,
+          153); background-position: initial initial; background-repeat:
+          initial initial; ">4. Outline of the vocabulary</span></li>
+      <li><span style="background-color: transparent; color: rgb(102, 0,
+          153); background-position: initial initial; background-repeat:
+          initial initial; ">5. Creating data structure definitions</span>
+        <ul class="toc" style="list-style-type: none; ">
+          <li><span style="background-color: transparent; color:
+              rgb(102, 0, 153);">5.1 Dimensions and levels</span></li>
+          <li><span style=" background-color: transparent; color:
+              rgb(102, 0, 153);">5.2 Measures and aggregate functions<br>
+            </span></li>
+          <li><span style="background-color: transparent; color:
+              rgb(102, 0, 153); background-position: initial initial;
+              background-repeat: initial initial; ">5.3 Example</span></li>
+          <li><span style="background-color: transparent; color:
+              rgb(102, 0, 153); background-position: initial initial;
+              background-repeat: initial initial; ">5.4
+              ComponentSpecifications and DataStructureDefinitions</span></li>
+        </ul>
+      </li>
+      <li><span style="background-color: transparent; color: rgb(102, 0,
+          153); background-position: initial initial; background-repeat:
+          initial initial; ">6. Datasets and instances<br>
+        </span></li>
+      <ul class="toc" style="list-style-type: none; ">
+        <li><span style="background-color: transparent; color: rgb(102,
+            0, 153); background-position: initial initial;
+            background-repeat: initial initial; ">6.1 The datasets and
+            observations</span></li>
+      </ul>
+      <li><span style="background-color: transparent; color: rgb(102, 0,
+          153); background-position: initial initial; background-repeat:
+          initial initial; ">7. Dimensions structure<br>
+        </span></li>
+      <ul class="toc" style="list-style-type: none; ">
+        <li><span style="background-color: transparent; color: rgb(102,
+            0, 153); background-position: initial initial;
+            background-repeat: initial initial; ">7.1 Levels, level
+            members and rollup relations<br>
+          </span></li>
+      </ul>
+      <li><span style="background-color: transparent; color: rgb(102, 0,
+          153); background-position: initial initial; background-repeat:
+          initial initial; ">Acknowledgements</span></li>
+      <li><span style="background-color: transparent; color: rgb(102, 0,
+          153); background-position: initial initial; background-repeat:
+          initial initial; ">References</span></li>
+      <li><span style="background-color: transparent; color: rgb(102, 0,
+          153); background-position: initial initial; background-repeat:
+          initial initial; ">Appendix 1: namespaces used in this
+          document</span></li>
+      <li><span style="background-color: transparent; color: rgb(102, 0,
+          153); background-position: initial initial; background-repeat:
+          initial initial; ">Appendix 2: vocabulary reference</span></li>
+    </ul>
+    <hr style="color: rgb(0, 0, 0); font-family: sans-serif; font-style:
+      normal; font-variant: normal; font-weight: normal; letter-spacing:
+      normal; line-height: 24px; orphans: 2; text-align: -webkit-auto;
+      text-indent: 0px; text-transform: none; white-space: normal;
+      widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto;
+      -webkit-text-stroke-width: 0px; font-size: medium; "><br
+      class="Apple-interchange-newline">
+    <p><br>
+    </p>
+  </body>
+</html>
