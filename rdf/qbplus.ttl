@@ -10,7 +10,7 @@
 @prefix qbp:            <http://purl.org/olap#> .
 @prefix dcterms:        <http://purl.org/dc/terms/> .
 
-<http://purl.org/linked-data/olap>
+<http://purl.org/olap>
     a owl:Ontology;
     owl:versionInfo "0.1";
     rdfs:label "The OLAP cube vocabulary";
