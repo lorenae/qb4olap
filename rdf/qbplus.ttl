@@ -9,7 +9,7 @@
 @prefix qb:             <http://purl.org/linked-data/cube#> .
 @prefix qbp:            <http://purl.org/olap#> .
 @prefix dcterms:        <http://purl.org/dc/terms/> .
-@prefix dbpedia:        <http://dbpedia.org/resource/>
+@prefix dbpedia:        <http://dbpedia.org/resource/> .
 
 <http://purl.org/olap>
     a owl:Ontology;
