@@ -9,6 +9,7 @@
 @prefix qb:             <http://purl.org/linked-data/cube#> .
 @prefix qbp:            <http://purl.org/olap#> .
 @prefix dcterms:        <http://purl.org/dc/terms/> .
+@prefix dbpedia:        <http://dbpedia.org/resource/>
 
 <http://purl.org/olap>
     a owl:Ontology;
@@ -80,6 +81,36 @@ qbp:AggregateFunction a rdfs:Class, owl:Class;
     rdfs:comment "The class of components which represent aggregate functions that are applied to compute measure aggregate values"@en;
     rdfs:isDefinedBy <http://purl.org/olap>;
     .
+    
+qbp:sum a qbp:AggregateFunction;
+    rdfs:label "SUM"@en;
+    rdfs:comment "Returns the numeric value obtained by adding a set of numeric values."@en;
+    owl:sameAs dbpedia:Summation;
+    .
+
+qbp:avg a qbp:AggregateFunction;
+    rdfs:label "AVG"@en;
+    rdfs:comment "Returns the arithmetic mean of a set of numeric values."@en;
+    owl:sameAs dbpedia:Average;
+    .
+    
+qbp:count a qbp:AggregateFunction;
+    rdfs:label "COUNT"@en;
+    rdfs:comment "Returns the number of elements in a set of elements (the cardinality of the set)."@en;
+    owl:sameAs dbpedia:Counting;
+    .
+    
+qbp:min a qbp:AggregateFunction;
+    rdfs:label "MIN"@en;
+    rdfs:comment "Returns the minimum element in a set of elements, where a partial order is defined."@en;
+    owl:sameAs dbpedia:Min;
+    .
+    
+qbp:max a qbp:AggregateFunction;
+    rdfs:label "MAX"@en;
+    rdfs:comment "Returns the maximum element in a set of elements, where a partial order is defined."@en;
+    owl:sameAs dbpedia:Max;
+    .  
     
 qbp:hasAggregateFunction a rdf:Property, owl:ObjectProperty;
     rdfs:label "has aggregate function"@en;
