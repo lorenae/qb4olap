@@ -1,0 +1,3 @@
+group DiceCondition; 
+levelNode(level, member) ::= "<level> rdfs:label ?label. ?label <oper> <member>"
+

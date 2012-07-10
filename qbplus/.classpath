@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jsr311-api-1.1.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jersey-client-1.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jersey-core-1.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jersey-json-1.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jersey-server-1.9-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jettison-1.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/asm-3.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-core-asl-1.8.3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-jaxrs-1.8.3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-mapper-asl-1.8.3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jackson-xc-1.8.3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-codec-1.5.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/junit-4.5.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/lucene-core-2.3.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-api-1.6.4.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-log4j12-1.6.4.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/wstx-asl-3.2.9.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/xercesImpl-2.10.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/xercesImpl-2.7.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jena-arq-2.9.0-incubating.jar" sourcepath="/home/lorena/Downloads/jena-arq-2.9.0-incubating-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jena-core-2.7.0-incubating.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jena-iri-0.9.0-incubating.jar"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/App Engine (1)"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/antlr-3.4-complete.jar"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>
