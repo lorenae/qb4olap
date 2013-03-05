@@ -119,3 +119,4 @@ qb4o:hasAggregateFunction a rdf:Property, owl:ObjectProperty;
     rdfs:domain qb4o:AggregateFunction;
     rdfs:isDefinedBy <http://purl.org/olap>;
     .
+    
