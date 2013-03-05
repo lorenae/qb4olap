@@ -1,0 +1,394 @@
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/qb4olap/dimensions/time/2008>
+    rdfs:label "2008"@en;
+    skos:prefLabel "2008"@en;
+    skos:notation "2008";
+    .
+
+<http://purl.org/qb4olap/dimensions/time/2009>
+    rdfs:label "2009"@en;
+    skos:prefLabel "2009"@en;
+    skos:notation "2009";
+	.
+
+<http://purl.org/qb4olap/dimensions/time/2010>
+    rdfs:label "2010"@en;
+    skos:prefLabel "2010"@en;
+    skos:notation "2010";
+	.
+
+<http://purl.org/qb4olap/dimensions/time/2011>
+    rdfs:label "2011"@en;
+    skos:prefLabel "2011"@en;
+    skos:notation "2011";
+	.
+	
+<http://purl.org/qb4olap/dimensions/time/2012>
+    rdfs:label "2012"@en;
+    skos:prefLabel "2012"@en;
+    skos:notation "2012";
+	.
+	
+<http://purl.org/qb4olap/dimensions/time/j2008m>
+    rdfs:label "January 2008"@en;
+    skos:prefLabel "January 2008"@en;
+    skos:notation "j2008m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/j2009m>
+    rdfs:label "January 2009"@en;
+    skos:prefLabel "January 2009"@en;
+    skos:notation "j2009m";    
+    .
+		
+<http://purl.org/qb4olap/dimensions/time/j2010m>
+    rdfs:label "January 2010"@en;
+    skos:prefLabel "January 2010"@en;
+    skos:notation "j2010m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/j2011m>
+    rdfs:label "January 2011"@en;
+    skos:prefLabel "January 2011"@en;
+    skos:notation "j2011m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/j2012m>
+    rdfs:label "January 2012"@en;
+    skos:prefLabel "January 2012"@en;
+    skos:notation "j2012m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/f2008m>
+    rdfs:label "February 2008"@en;
+    skos:prefLabel "February 2008"@en;
+    skos:notation "f2008m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/f2009m>
+    rdfs:label "February 2009"@en;
+    skos:prefLabel "February 2009"@en;
+    skos:notation "f2009m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/f2010m>
+    rdfs:label "February 2010"@en;
+    skos:prefLabel "February 2010"@en;
+    skos:notation "f2010m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/f2011m>
+    rdfs:label "February 2011"@en;
+    skos:prefLabel "February 2011"@en;
+    skos:notation "f2011m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/f2012m>
+    rdfs:label "February 2012"@en;
+    skos:prefLabel "February 2012"@en;
+    skos:notation "f2012m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/m2008m>
+    rdfs:label "March 2008"@en;
+    skos:prefLabel "March 2008"@en;
+    skos:notation "m2008m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/m2009m>
+    rdfs:label "March 2009"@en;
+    skos:prefLabel "March 2009"@en;
+    skos:notation "m2009m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/m2010m>
+    rdfs:label "March 2010"@en;
+    skos:prefLabel "March 2010"@en;
+    skos:notation "m2010m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/m2011m>
+    rdfs:label "March 2011"@en;
+    skos:prefLabel "March 2011"@en;
+    skos:notation "m2011m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/m2012m>
+    rdfs:label "March 2012"@en;
+    skos:prefLabel "March 2012"@en;
+    skos:notation "m2012m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/a2008m>
+    rdfs:label "April 2008"@en;
+    skos:prefLabel "April 2008"@en;
+    skos:notation "a2008m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/a2009m>
+    rdfs:label "April 2009"@en;
+    skos:prefLabel "April 2009"@en;
+    skos:notation "a2009m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/a2010m>
+    rdfs:label "April 2010"@en;
+    skos:prefLabel "April 2010"@en;
+    skos:notation "a2010m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/a2011m>
+    rdfs:label "April 2011"@en;
+    skos:prefLabel "April 2011"@en;
+    skos:notation "a2011m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/a2012m>
+    rdfs:label "April 2012"@en;
+    skos:prefLabel "April 2012"@en;
+    skos:notation "a2012m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/m2008m1>
+    rdfs:label "May 2008"@en;
+    skos:prefLabel "May 2008"@en;
+    skos:notation "m2008m1";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/m2009m1>
+    rdfs:label "May 2009"@en;
+    skos:prefLabel "May 2009"@en;
+    skos:notation "m2009m1";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/m2010m1>
+    rdfs:label "May 2010"@en;
+    skos:prefLabel "May 2010"@en;
+    skos:notation "m2010m1";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/m2011m1>
+    rdfs:label "May 2011"@en;
+    skos:prefLabel "May 2011"@en;
+    skos:notation "m2011m1";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/m2012m1>
+    rdfs:label "May 2012"@en;
+    skos:prefLabel "May 2012"@en;
+    skos:notation "m2012m1";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/j2008m>
+    rdfs:label "June 2008"@en;
+    skos:prefLabel "June 2008"@en;
+    skos:notation "j2008m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/j2009m>
+    rdfs:label "June 2009"@en;
+    skos:prefLabel "June 2009"@en;
+    skos:notation "j2009m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/j2010m>
+    rdfs:label "June 2010"@en;
+    skos:prefLabel "June 2010"@en;
+    skos:notation "j2010m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/j2011m>
+    rdfs:label "June 2011"@en;
+    skos:prefLabel "June 2011"@en;
+    skos:notation "j2011m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/j2012m>
+    rdfs:label "June 2012"@en;
+    skos:prefLabel "June 2012"@en;
+    skos:notation "j2012m";    
+    .	
+	
+<http://purl.org/qb4olap/dimensions/time/j2008m1>
+    rdfs:label "July 2008"@en;
+    skos:prefLabel "July 2008"@en;
+    skos:notation "j2008m1";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/j2009m1>
+    rdfs:label "July 2009"@en;
+    skos:prefLabel "July 2009"@en;
+    skos:notation "j2009m1";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/j2010m1>
+    rdfs:label "July 2010"@en;
+    skos:prefLabel "July 2010"@en;
+    skos:notation "j2010m1";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/j2011m1>
+    rdfs:label "July 2011"@en;
+    skos:prefLabel "July 2011"@en;
+    skos:notation "j2011m1";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/j2012m1>
+    rdfs:label "July 2012"@en;
+    skos:prefLabel "July 2012"@en;
+    skos:notation "j2012m1";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/a2008m1>
+    rdfs:label "August 2008"@en;
+    skos:prefLabel "August 2008"@en;
+    skos:notation "a2008m1";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/a2009m1>
+    rdfs:label "August 2009"@en;
+    skos:prefLabel "August 2009"@en;
+    skos:notation "a2009m1";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/a2010m1>
+    rdfs:label "August 2010"@en;
+    skos:prefLabel "August 2010"@en;
+    skos:notation "a2010m1";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/a2011m1>
+    rdfs:label "August 2011"@en;
+    skos:prefLabel "August 2011"@en;
+    skos:notation "a2011m1";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/a2012m1>
+    rdfs:label "August 2012"@en;
+    skos:prefLabel "August 2012"@en;
+    skos:notation "a2012m1";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/s2008m>
+    rdfs:label "September 2008"@en;
+    skos:prefLabel "September 2008"@en;
+    skos:notation "s2008m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/s2009m>
+    rdfs:label "September 2009"@en;
+    skos:prefLabel "September 2009"@en;
+    skos:notation "s2009m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/s2010m>
+    rdfs:label "September 2010"@en;
+    skos:prefLabel "September 2010"@en;
+    skos:notation "s2010m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/s2011m>
+    rdfs:label "September 2011"@en;
+    skos:prefLabel "September 2011"@en;
+    skos:notation "s2011m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/s2012m>
+    rdfs:label "September 2012"@en;
+    skos:prefLabel "September 2012"@en;
+    skos:notation "s2012m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/o2008m>
+    rdfs:label "October 2008"@en;
+    skos:prefLabel "October 2008"@en;
+    skos:notation "o2008m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/o2009m>
+    rdfs:label "October 2009"@en;
+    skos:prefLabel "October 2009"@en;
+    skos:notation "o2009m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/o2010m>
+    rdfs:label "October 2010"@en;
+    skos:prefLabel "October 2010"@en;
+    skos:notation "o2010m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/o2011m>
+    rdfs:label "October 2011"@en;
+    skos:prefLabel "October 2011"@en;
+    skos:notation "o2011m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/o2012m>
+    rdfs:label "October 2012"@en;
+    skos:prefLabel "October 2012"@en;
+    skos:notation "o2012m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/n2008m>
+    rdfs:label "November 2008"@en;
+    skos:prefLabel "November 2008"@en;
+    skos:notation "n2008m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/n2009m>
+    rdfs:label "November 2009"@en;
+    skos:prefLabel "November 2009"@en;
+    skos:notation "n2009m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/n2010m>
+    rdfs:label "November 2010"@en;
+    skos:prefLabel "November 2010"@en;
+    skos:notation "n2010m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/n2011m>
+    rdfs:label "November 2011"@en;
+    skos:prefLabel "November 2011"@en;
+    skos:notation "n2011m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/n2012m>
+    rdfs:label "November 2012"@en;
+    skos:prefLabel "November 2012"@en;
+    skos:notation "n2012m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/d2008m>
+    rdfs:label "December 2008"@en;
+    skos:prefLabel "December 2008"@en;
+    skos:notation "d2008m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/d2009m>
+    rdfs:label "December 2009"@en;
+    skos:prefLabel "December 2009"@en;
+    skos:notation "d2009m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/d2010m>
+    rdfs:label "December 2010"@en;
+    skos:prefLabel "December 2010"@en;
+    skos:notation "d2010m";    
+    .
+
+<http://purl.org/qb4olap/dimensions/time/d2011m>
+    rdfs:label "December 2011"@en;
+    skos:prefLabel "December 2011"@en;
+    skos:notation "d2011m";    
+    .
+	
+<http://purl.org/qb4olap/dimensions/time/d2012m>
+    rdfs:label "December 2012"@en;
+    skos:prefLabel "December 2012"@en;
+    skos:notation "d2012m";    
+    .
