@@ -183,61 +183,61 @@
     skos:notation "m2012m1";    
     .
 	
-<http://purl.org/qb4olap/dimensions/time/j2008m>
+<http://purl.org/qb4olap/dimensions/time/j2008m1>
     rdfs:label "June 2008"@en;
     skos:prefLabel "June 2008"@en;
     skos:notation "j2008m1";    
     .
 	
-<http://purl.org/qb4olap/dimensions/time/j2009m>
+<http://purl.org/qb4olap/dimensions/time/j2009m1>
     rdfs:label "June 2009"@en;
     skos:prefLabel "June 2009"@en;
     skos:notation "j2009m1";    
     .
 	
-<http://purl.org/qb4olap/dimensions/time/j2010m>
+<http://purl.org/qb4olap/dimensions/time/j2010m1>
     rdfs:label "June 2010"@en;
     skos:prefLabel "June 2010"@en;
     skos:notation "j2010m1";    
     .
 	
-<http://purl.org/qb4olap/dimensions/time/j2011m>
+<http://purl.org/qb4olap/dimensions/time/j2011m1>
     rdfs:label "June 2011"@en;
     skos:prefLabel "June 2011"@en;
     skos:notation "j2011m1";    
     .
 	
-<http://purl.org/qb4olap/dimensions/time/j2012m>
+<http://purl.org/qb4olap/dimensions/time/j2012m1>
     rdfs:label "June 2012"@en;
     skos:prefLabel "June 2012"@en;
     skos:notation "j2012m1";    
     .	
 	
-<http://purl.org/qb4olap/dimensions/time/j2008m1>
+<http://purl.org/qb4olap/dimensions/time/j2008m2>
     rdfs:label "July 2008"@en;
     skos:prefLabel "July 2008"@en;
     skos:notation "j2008m2";    
     .
 	
-<http://purl.org/qb4olap/dimensions/time/j2009m1>
+<http://purl.org/qb4olap/dimensions/time/j2009m2>
     rdfs:label "July 2009"@en;
     skos:prefLabel "July 2009"@en;
     skos:notation "j2009m2";    
     .
 	
-<http://purl.org/qb4olap/dimensions/time/j2010m1>
+<http://purl.org/qb4olap/dimensions/time/j2010m2>
     rdfs:label "July 2010"@en;
     skos:prefLabel "July 2010"@en;
     skos:notation "j2010m2";    
     .
 	
-<http://purl.org/qb4olap/dimensions/time/j2011m1>
+<http://purl.org/qb4olap/dimensions/time/j2011m2>
     rdfs:label "July 2011"@en;
     skos:prefLabel "July 2011"@en;
     skos:notation "j2011m2";    
     .
 	
-<http://purl.org/qb4olap/dimensions/time/j2012m1>
+<http://purl.org/qb4olap/dimensions/time/j2012m2>
     rdfs:label "July 2012"@en;
     skos:prefLabel "July 2012"@en;
     skos:notation "j2012m2";    
