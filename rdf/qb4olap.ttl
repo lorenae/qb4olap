@@ -7,17 +7,17 @@
 @prefix scovo:          <http://purl.org/NET/scovo#> .
 @prefix void:           <http://rdfs.org/ns/void#> .
 @prefix qb:             <http://purl.org/linked-data/cube#> .
-@prefix qb4o:            <http://purl.org/olap#> .
+@prefix qb4o:            <http://purl.org/qb4olap/cubes#> .
 @prefix dcterms:        <http://purl.org/dc/terms/> .
 @prefix dbpedia:        <http://dbpedia.org/resource/> .
 
 <http://purl.org/olap>
     a owl:Ontology;
-    owl:versionInfo "0.1";
-    rdfs:label "The QB4OLAP cube vocabulary";
+    owl:versionInfo "0.1.1";
+    rdfs:label "The QB4OLAP cube vocabulary, an extension to QB";
     rdfs:comment "This vocabulary allows to publish and operate with OLAP cubes in RDF";
     dcterms:created "2012-12-06"^^xsd:date;
-    dcterms:modified "2012-12-06"^^xsd:date;
+    dcterms:modified "2014-10-03"^^xsd:date;
     dcterms:title "Vocabulary for publishing OLAP data cubes";
     dcterms:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ;
     dcterms:contributor [foaf:mbox "lorenae@fing.edu.uy"],
@@ -29,58 +29,95 @@
 
 qb4o:LevelProperty a rdfs:Class, owl:Class;
     rdfs:label "Level property"@en;
-    rdfs:comment "The class of components which represent the levels of a dimension"@en;
+    rdfs:comment "The class of components which represent the levels of a hierarchy"@en;
     rdfs:subClassOf qb:ComponentProperty;
     rdfs:subClassOf qb:CodedProperty;
-    rdfs:isDefinedBy <http://purl.org/olap>;
-    .
+    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes#>.
 
 qb4o:LevelMember a rdfs:Class, owl:Class;
     rdfs:label "Level member"@en;
     rdfs:comment "The class of components which represent the members of a level"@en;
     rdfs:subClassOf skos:Concept;
-    rdfs:isDefinedBy <http://purl.org/olap>;
-    .
-
+    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes#>.
+    
 qb4o:level a rdf:Property, owl:ObjectProperty;
     rdfs:label "level"@en;
     rdfs:comment "An alternative to qb:componentProperty which makes explicit that the component is a level"@en;
     rdfs:subPropertyOf qb:componentProperty;
     rdfs:range qb4o:LevelProperty;
-    rdfs:isDefinedBy <http://purl.org/olap>;
-    .
-
-qb4o:inDimension a rdf:Property, owl:ObjectProperty;
-    rdfs:label "level in dimension"@en;
-    rdfs:comment "Indicates to which dimension the level belongs"@en;
-    rdfs:range qb4o:LevelProperty;
-    rdfs:domain qb:DimensionProperty;
-    rdfs:isDefinedBy <http://purl.org/olap>;
-    .
+    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes#>.
 
 qb4o:inLevel a rdf:Property, owl:ObjectProperty;
     rdfs:label "level member in level"@en;
     rdfs:comment "Indicates to which level the level member belongs"@en;
     rdfs:range qb4o:LevelMember;
     rdfs:domain qb4o:LevelProperty;
-    rdfs:isDefinedBy <http://purl.org/olap>;
-    .
-
+    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes#>.
+    
 qb4o:parentLevel a rdf:Property, owl:ObjectProperty;
     rdfs:label "is parent of"@en;
     rdfs:comment "Indicates which is the parent level of each level"@en;
     rdfs:range qb4o:LevelProperty;
+    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes#>.
+
+# --- Hierarchies---------------------------
+
+qb4o:HierarchyProperty a rdfs:Class, owl:Class;
+    rdfs:label "Level property"@en;
+    rdfs:comment "The class of components which represent the hierarchies of a dimension"@en;
+    rdfs:subClassOf qb:ComponentProperty;
+    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes#>.
+
+
+# --- Relationship between Dimensions, Hierarchies and Levels ---------------
+
+qb4o:inHierarchy a rdf:Property, owl:ObjectProperty;
+    rdfs:label "level belongs to hierarchy"@en;
+    rdfs:comment "Indicates to which hierarchy the level belongs"@en;
+    rdfs:range qb4o:LevelProperty;
+    rdfs:domain qb4o:HierarchyProperty;
+    owl:inverseOf qb4o:hasLevel;
+    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes#>.
+
+qb4o:hasLevel a rdf:Property, owl:ObjectProperty;
+    rdfs:label "set of levels in hierarchy"@en;
+    rdfs:comment "Indicates the levels that compose the hierarchy"@en;
+    rdfs:range qb4o:HierarchyProperty;
     rdfs:domain qb4o:LevelProperty;
-    rdfs:isDefinedBy <http://purl.org/olap>;
-    .
+    owl:inverseOf qb4o:inHierarchy;
+    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes#>.
+
+qb4o:inDimension a rdf:Property, owl:ObjectProperty;
+    rdfs:label "hierarchy belongs to dimension"@en;
+    rdfs:comment "Indicates to which dimension the hierarchy belongs"@en;
+    rdfs:range qb4o:HierarchyProperty;
+    rdfs:domain qb:DimensionProperty;
+    owl:inverseOf qb4o:hasHierarchy;
+    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes#>.
+
+qb4o:hasHierarchy a rdf:Property, owl:ObjectProperty;
+    rdfs:label "set of hierarchies in a dimensoin"@en;
+    rdfs:comment "Indicates the hierarchies that compose the dimension"@en;
+    rdfs:range qb4o:DimensionProperty;
+    rdfs:domain qb4o:HierarchyProperty;
+    owl:inverseOf qb4o:inDimension;
+    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes#>.
+
 
 # --- Aggregate Functions ---------------------------
 
 qb4o:AggregateFunction a rdfs:Class, owl:Class;
     rdfs:label "Aggregate function"@en;
     rdfs:comment "The class of components which represent aggregate functions that are applied to compute measure aggregate values"@en;
-    rdfs:isDefinedBy <http://purl.org/olap>;
-    .
+    rdfs:isDefinedBy <http://purl.org/olap> .
+    
+qb4o:aggregateFunction a rdf:Property, owl:ObjectProperty;
+    rdfs:label "aggregate function"@en;
+    rdfs:comment "An alternative to qb:componentProperty which makes explicit that the component is an aggregate function"@en;
+    rdfs:subPropertyOf qb:componentProperty;
+    rdfs:range qb4o:AggregateFunction;
+    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes#>.
+    
     
 qb4o:sum a qb4o:AggregateFunction;
     rdfs:label "SUM"@en;
@@ -119,4 +156,3 @@ qb4o:hasAggregateFunction a rdf:Property, owl:ObjectProperty;
     rdfs:domain qb4o:AggregateFunction;
     rdfs:isDefinedBy <http://purl.org/olap>;
     .
-    
