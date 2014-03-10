@@ -11,7 +11,7 @@
 @prefix dcterms:        <http://purl.org/dc/terms/> .
 @prefix dbpedia:        <http://dbpedia.org/resource/> .
 
-<http://purl.org/olap>
+<http://purl.org/qb4olap/cubes#>
     a owl:Ontology;
     owl:versionInfo "0.1.1";
     rdfs:label "The QB4OLAP cube vocabulary, an extension to QB";
