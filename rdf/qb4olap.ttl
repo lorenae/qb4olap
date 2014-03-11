@@ -16,6 +16,7 @@
     owl:versionInfo "0.1.1";
     rdfs:label "The QB4OLAP cube vocabulary, an extension to QB";
     rdfs:comment "This vocabulary allows to publish and operate with OLAP cubes in RDF";
+    owl:imports <http://purl.org/linked-data/cube> ;
     dcterms:created "2012-12-06"^^xsd:date;
     dcterms:modified "2014-10-03"^^xsd:date;
     dcterms:title "Vocabulary for publishing OLAP data cubes";
