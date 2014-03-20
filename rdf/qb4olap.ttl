@@ -63,17 +63,18 @@ qb4o:aggregateFunction rdf:type owl:ObjectProperty ;
 
 qb4o:cardinality rdf:type owl:ObjectProperty ;
                  
-                 rdfs:label "step cardinality"@en ;
+                 rdfs:label "cardinality"@en ,
+                            "cardinality constraint"@en ;
                  
-                 rdfs:comment "Indicates the cardinality of the relationship between level members from one level and its correspondants in the parent level. Since a level may have different parent levels in different hierarchies this cardinality restriction corresponds to a pair of levels within a certain hierarchy"@en ;
+                 rdfs:comment "An alternative to qb:componentProperty which allows to specify a cardinality constraint in a relationship"@en ;
+                 
+                 rdfs:subPropertyOf qb:componentProperty ;
                  
                  rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
                  
                  rdfs:range qb4o:Cardinality ;
                  
-                 rdfs:domain qb4o:HierarchyStep ;
-                 
-                 rdfs:subPropertyOf qb4o:topLevel .
+                 rdfs:domain qb4o:HierarchyStep .
 
 
 
@@ -108,20 +109,6 @@ qb4o:hasLevel rdf:type owl:ObjectProperty ;
               rdfs:domain qb4o:HierarchyProperty ;
               
               rdfs:range qb4o:LevelProperty .
-
-
-
-###  http://purl.org/qb4olap/cubes#hierarchy
-
-qb4o:hierarchy rdf:type owl:ObjectProperty ;
-               
-               rdfs:label "hierarchy"@en ;
-               
-               rdfs:comment "An alternative to qb:componentProperty which makes explicit that the component is a hierarchy"@en ;
-               
-               rdfs:subPropertyOf qb:componentProperty ;
-               
-               rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
 
 
 
@@ -201,7 +188,9 @@ qb4o:parentLevel rdf:type owl:ObjectProperty ;
                  
                  rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
                  
-                 rdfs:domain qb4o:LevelProperty .
+                 rdfs:range qb4o:InHierarchy ;
+                 
+                 rdfs:domain qb4o:InHierarchy .
 
 
 
@@ -331,6 +320,16 @@ qb4o:HierarchyStep rdf:type owl:Class ;
 
 
 
+###  http://purl.org/qb4olap/cubes#InHierarchy
+
+qb4o:InHierarchy rdf:type owl:Class ;
+                 
+                 rdfs:comment "A class that represents the reification of the property inHierarchy"@en ;
+                 
+                 rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+
+
 ###  http://purl.org/qb4olap/cubes#LevelMember
 
 qb4o:LevelMember rdf:type owl:Class ;
@@ -367,9 +366,23 @@ qb4o:ManyToMany rdf:type owl:Class ;
                 
                 rdfs:subClassOf qb4o:Cardinality ;
                 
-                rdfs:comment "Represents N-M cardinality"@en ;
+                rdfs:comment "Represents N-M cardinality constraint"@en ;
                 
                 rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+
+
+###  http://purl.org/qb4olap/cubes#ManyToOne
+
+qb4o:ManyToOne rdf:type owl:Class ;
+               
+               rdfs:label "N-1 cardinality"@en ;
+               
+               rdfs:subClassOf qb4o:Cardinality ;
+               
+               rdfs:comment "Represents N-1 cardinality constraint"@en ;
+               
+               rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
 
 
 
@@ -409,7 +422,7 @@ qb4o:OneToMany rdf:type owl:Class ;
                
                rdfs:subClassOf qb4o:Cardinality ;
                
-               rdfs:comment "Represents 1-N cardinality"@en ;
+               rdfs:comment "Represents 1-N cardinality constraint"@en ;
                
                rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
 
@@ -423,9 +436,19 @@ qb4o:OneToOne rdf:type owl:Class ;
               
               rdfs:subClassOf qb4o:Cardinality ;
               
-              rdfs:comment "Represents 1-1 cardinality"@en ;
+              rdfs:comment "Represents 1-1 cardinality constraint"@en ;
               
               rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+
+
+###  http://purl.org/qb4olap/cubes#ParentLevel
+
+qb4o:ParentLevel rdf:type owl:Class ;
+                 
+                 rdfs:comment "A class that represents the reification of the property ParentLevel"@en ;
+                 
+                 rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
 
 
 
