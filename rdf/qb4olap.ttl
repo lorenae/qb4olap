@@ -78,6 +78,22 @@ qb4o:cardinality rdf:type owl:ObjectProperty ;
 
 
 
+###  http://purl.org/qb4olap/cubes#childLevel
+
+qb4o:childLevel rdf:type owl:ObjectProperty ;
+                
+                rdfs:label "child level"@en ;
+                
+                rdfs:comment "Child level component of a HierarchyStep"@en ;
+                
+                rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+                
+                rdfs:domain qb4o:HierarchyStep ;
+                
+                rdfs:range qb4o:LevelInHierarchy .
+
+
+
 ###  http://purl.org/qb4olap/cubes#hasHierarchy
 
 qb4o:hasHierarchy rdf:type owl:ObjectProperty ;
@@ -112,6 +128,22 @@ qb4o:hasLevel rdf:type owl:ObjectProperty ;
 
 
 
+###  http://purl.org/qb4olap/cubes#hierarchyComponent
+
+qb4o:hierarchyComponent rdf:type owl:ObjectProperty ;
+                        
+                        rdfs:label "level component"@en ;
+                        
+                        rdfs:comment "Indicates the hierarchy component of a pair (hierarchy,level) represented by a resource of type LevelInHierarchy"@en ;
+                        
+                        rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+                        
+                        rdfs:range qb4o:HierarchyProperty ;
+                        
+                        rdfs:domain qb4o:LevelInHierarchy .
+
+
+
 ###  http://purl.org/qb4olap/cubes#inDimension
 
 qb4o:inDimension rdf:type owl:ObjectProperty ;
@@ -125,24 +157,6 @@ qb4o:inDimension rdf:type owl:ObjectProperty ;
                  rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
                  
                  rdfs:domain qb4o:HierarchyProperty .
-
-
-
-###  http://purl.org/qb4olap/cubes#inHierarchy
-
-qb4o:inHierarchy rdf:type owl:ObjectProperty ;
-                 
-                 rdfs:label "level belongs to hierarchy"@en ;
-                 
-                 rdfs:comment "Indicates to which hierarchy the level belongs"@en ;
-                 
-                 rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
-                 
-                 rdfs:range qb4o:HierarchyProperty ;
-                 
-                 rdfs:domain qb4o:LevelProperty ;
-                 
-                 owl:inverseOf qb4o:hasLevel .
 
 
 
@@ -178,31 +192,35 @@ qb4o:level rdf:type owl:ObjectProperty ;
 
 
 
+###  http://purl.org/qb4olap/cubes#levelComponent
+
+qb4o:levelComponent rdf:type owl:ObjectProperty ;
+                    
+                    rdfs:label "level component"@en ;
+                    
+                    rdfs:comment "Indicates the level component of a pair (hierarchy,level) represented by a resource of type LevelInHierarchy"@en ;
+                    
+                    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+                    
+                    rdfs:domain qb4o:LevelInHierarchy ;
+                    
+                    rdfs:range qb4o:LevelProperty .
+
+
+
 ###  http://purl.org/qb4olap/cubes#parentLevel
 
 qb4o:parentLevel rdf:type owl:ObjectProperty ;
                  
-                 rdfs:label "is parent of"@en ;
+                 rdfs:label "parent level"@en ;
                  
-                 rdfs:comment "Indicates which is the parent level of each level in a specific hierarchy"@en ;
+                 rdfs:comment "Parent level component of a HierarchyStep"@en ;
                  
                  rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
                  
-                 rdfs:range qb4o:InHierarchy ;
+                 rdfs:domain qb4o:HierarchyStep ;
                  
-                 rdfs:domain qb4o:InHierarchy .
-
-
-
-###  http://purl.org/qb4olap/cubes#topLevel
-
-qb4o:topLevel rdf:type owl:ObjectProperty ;
-              
-              rdfs:label "top level"@en ;
-              
-              rdfs:comment "Indicates which is the top level in a hierarchy"@en ;
-              
-              rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+                 rdfs:range qb4o:LevelInHierarchy .
 
 
 
@@ -320,13 +338,13 @@ qb4o:HierarchyStep rdf:type owl:Class ;
 
 
 
-###  http://purl.org/qb4olap/cubes#InHierarchy
+###  http://purl.org/qb4olap/cubes#LevelInHierarchy
 
-qb4o:InHierarchy rdf:type owl:Class ;
-                 
-                 rdfs:comment "A class that represents the reification of the property inHierarchy"@en ;
-                 
-                 rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+qb4o:LevelInHierarchy rdf:type owl:Class ;
+                      
+                      rdfs:comment "A class that represents the reification of the property inHierarchy"@en ;
+                      
+                      rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
 
 
 
@@ -439,16 +457,6 @@ qb4o:OneToOne rdf:type owl:Class ;
               rdfs:comment "Represents 1-1 cardinality constraint"@en ;
               
               rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
-
-
-
-###  http://purl.org/qb4olap/cubes#ParentLevel
-
-qb4o:ParentLevel rdf:type owl:Class ;
-                 
-                 rdfs:comment "A class that represents the reification of the property ParentLevel"@en ;
-                 
-                 rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
 
 
 
