@@ -126,6 +126,7 @@ qb4o:hasLevel rdf:type owl:ObjectProperty ;
               
               rdfs:range qb4o:LevelProperty .
               
+
 ###  http://purl.org/qb4olap/cubes#hasAttribute
 
 qb4o:hasAttribute rdf:type owl:ObjectProperty ;
@@ -138,7 +139,21 @@ qb4o:hasAttribute rdf:type owl:ObjectProperty ;
               
               rdfs:domain qb4o:LevelProperty ;
               
-              rdfs:range qb4o:AttributeProperty .              
+              rdfs:range qb4o:AttributeProperty . 
+ 
+###  http://purl.org/qb4olap/cubes#hasID
+
+qb4o:hasID rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "Level has ID attribute"@en ;
+              
+              rdfs:comment "Indicates the attribute that identifies level members"@en ;
+              
+              rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+              
+              rdfs:domain qb4o:LevelProperty ;
+              
+              rdfs:range qb4o:AttributeProperty .  
 
 
 ###  http://purl.org/qb4olap/cubes#hierarchyComponent
