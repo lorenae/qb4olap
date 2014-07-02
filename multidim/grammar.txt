@@ -1,10 +1,9 @@
 /* Multidim Abstract Syntax */
 
-schemaDecl 		::= dimensionDecl ';' levelDecl ';' pcRelsDecl ';' factDecl ';' iConstraintsDecl
-
-dimensionDecl 		::= dimensionDecl +
-                	| 'Dimension' DIMENSION_NAME 'includes level' LEVEL_NAME ';'
-			| 'Dimension' DIMENSION_NAME 'includes' hierarchyDecl ';'
+schemaDecl		::= dimensionDecl levelDecl pcRelsDecl factDecl iConstraintsDecl
+dimensionDecl		::= dimensionDecl +
+                        | 'Dimension' DIMENSION_NAME 'includes level' LEVEL_NAME ';'
+                        | 'Dimension' DIMENSION_NAME 'includes' hierarchyDecl ';'
 
 levelDecl	 	::= levelDecl+
                 	| 'Level' LEVEL_NAME 'has' attributeDecl ';'
@@ -34,17 +33,9 @@ measureDecl 		::= measureDecl+
 
 iConstraintsDecl	::= iConstraintsDecl+
 			| ATTRIBUTE_NAME 'is primary key of' LEVEL_NAME ';' 	
-			| 'Participation of' LEVEL_NAME 'in' PC_NAME 'is (' minCard ',' maxCard ');'
+			| 'Participation of' LEVEL_NAME 'in' PC_NAME 'is (' MIN_CARD ',' MAX_CARD ');'
 			| 'Exclusive participation of' LEVEL_NAME 'in' pcRelsSet ';'
 
-
-attributeType	::= INTEGER | REAL | STRING
-measureType	::= INTEGER | REAL | STRING
-additivityType	::= ADDITIVE | SEMIADDITIVE | NONADDITIVE
-minCard		::= INTEGER
-maxCard		::= INTEGER
-
-INTEGER		::= [+-]? [0-9]+
-STRING		::= [a-zA-Z0-9]+
-REAL		::= [+-]? [0-9]* '.' [0-9]+
-
+attributeType		::= INTEGER | REAL | STRING
+measureType		::= INTEGER | REAL | STRING
+additivityType		::= ADDITIVE | SEMIADDITIVE | NONADDITIVE
