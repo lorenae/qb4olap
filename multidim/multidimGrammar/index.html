@@ -1,0 +1,538 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta content="Railroad Diagram Generator 1.35.837" name="generator"><style type="text/css" xml:space="preserve">
+    ::-moz-selection
+    {
+      color: #F0F5FF;
+      background: #00050F;
+    }
+    ::selection
+    {
+      color: #F0F5FF;
+      background: #00050F;
+    }      
+    .ebnf a
+    {
+      text-decoration: none;
+    }
+    .ebnf a:hover
+    {
+      color: #000205;
+      text-decoration: underline;
+    }    
+    .signature
+    {
+      color: #002B80;
+      font-size: 11px;
+      text-align: right;
+    }
+    body
+    {
+      font: normal 12px Verdana, sans-serif;
+      color: #00050F;
+      background: #F0F5FF;
+    }
+    a:link, a:visited
+    {
+      color: #00050F;
+    }
+    a:link.signature, a:visited.signature
+    {
+      color: #002B80;
+    }
+    a.button, #tabs li a
+    {
+      padding: 0.25em 0.5em;
+      border: 1px solid #002B80;
+      background: #C6D4F1;
+      color: #002B80;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.button:hover, #tabs li a:hover
+    {
+      color: #000205;
+      background: #D1E0FF;
+      border-color: #000205;       
+    }     
+    #tabs
+    {
+      padding: 3px 10px;
+      margin-left: 0;
+      margin-top: 58px;
+      border-bottom: 1px solid #00050F;
+    }  
+    #tabs li
+    {
+      list-style: none;
+      margin-left: 5px;
+      display: inline;
+    }
+    #tabs li a
+    {     
+      border-bottom: 1px solid #00050F;
+    }
+    #tabs li a.active
+    {
+      color: #00050F;
+      background: #F0F5FF;
+      border-color: #00050F;
+      border-bottom: 1px solid #F0F5FF;
+      outline: none;
+    }
+    #divs div
+    {
+      display: none;
+      overflow:auto;
+    }
+    #divs div.active
+    {
+      display: block;
+    }
+    #text
+    {
+      border-color: #002B80;
+      background: #FAFCFF;
+      color: #000205;
+    }
+    .small
+    {
+      vertical-align: top;
+      text-align: right;
+      font-size: 9px;
+      font-weight: normal;
+      line-height: 120%;
+    }
+    td.small
+    {
+      padding-top: 0px;
+    }
+    .hidden
+    {
+      visibility: hidden;
+    }
+    td:hover .hidden 
+    {
+      visibility: visible;
+    }
+    div.download
+    {
+      display: none;
+      background: #F0F5FF;
+      position: absolute;
+      right: 34px;
+      top: 94px;
+      padding: 10px;
+      border: 1px dotted #00050F;
+    }
+    #divs div.ebnf, div.ebnf
+    {
+      display: block;
+      padding-left: 16px;
+      padding-top: 2px; 
+      padding-bottom: 2px; 
+      background: #D1E0FF;
+    }
+    table.palette
+    {
+      border-top: 1px solid #000205;
+      border-right: 1px solid #000205;
+      margin-bottom: 4px
+    }
+    td.palette
+    {
+      border-bottom: 1px solid #000205;
+      border-left: 1px solid #000205;
+    }
+    a.palette
+    {
+      padding: 2px 3px 2px 10px;
+      text-decoration: none;
+    }
+    .palette
+    {
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -o-user-select: none;
+      -ms-user-select: none;
+    }
+  </style></head>
+   <body>
+      
+      <p style="font-size: 14px; font-weight:bold"><a name="schemaDecl">schemaDecl:</a></p>
+      <img border="0" height="36" src="diagram/schemaDecl.png" usemap="#schemaDecl.map" width="598"><map name="schemaDecl.map">
+         <area coords="29,1,139,33" href="#dimensionDecl" shape="rect" title="dimensionDecl">
+         <area coords="159,1,233,33" href="#levelDecl" shape="rect" title="levelDecl">
+         <area coords="253,1,339,33" href="#pcRelsDecl" shape="rect" title="pcRelsDecl">
+         <area coords="359,1,427,33" href="#factDecl" shape="rect" title="factDecl">
+         <area coords="447,1,569,33" href="#iConstraintsDecl" shape="rect" title="iConstraintsDecl"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#schemaDecl" shape="rect" title="schemaDecl">schemaDecl</a>
+         ::= <a href="#dimensionDecl" shape="rect" title="dimensionDecl">dimensionDecl</a> <a href="#levelDecl" shape="rect" title="levelDecl">levelDecl</a> <a href="#pcRelsDecl" shape="rect" title="pcRelsDecl">pcRelsDecl</a> <a href="#factDecl" shape="rect" title="factDecl">factDecl</a> <a href="#iConstraintsDecl" shape="rect" title="iConstraintsDecl">iConstraintsDecl</a></pre></div>
+         
+      </p>
+      
+      <p>no references</p><br><p style="font-size: 14px; font-weight:bold"><a name="dimensionDecl">dimensionDecl:</a></p>
+      <img border="0" height="140" src="diagram/dimensionDecl.png" usemap="#dimensionDecl.map" width="636"><map name="dimensionDecl.map">
+         <area coords="69,17,179,49" href="#dimensionDecl" shape="rect" title="dimensionDecl">
+         <area coords="157,61,293,93" href="#DIMENSION_NAME" shape="rect" title="DIMENSION_NAME">
+         <area coords="443,61,543,93" href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">
+         <area coords="157,105,293,137" href="#DIMENSION_NAME" shape="rect" title="DIMENSION_NAME">
+         <area coords="407,105,511,137" href="#hierarchyDecl" shape="rect" title="hierarchyDecl"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#dimensionDecl" shape="rect" title="dimensionDecl">dimensionDecl</a>
+         ::= <a href="#dimensionDecl" shape="rect" title="dimensionDecl">dimensionDecl</a>+
+           | 'Dimension' <a href="#DIMENSION_NAME" shape="rect" title="DIMENSION_NAME">DIMENSION_NAME</a> 'includes level' <a href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">LEVEL_NAME</a> ';'
+           | 'Dimension' <a href="#DIMENSION_NAME" shape="rect" title="DIMENSION_NAME">DIMENSION_NAME</a> 'includes' <a href="#hierarchyDecl" shape="rect" title="hierarchyDecl">hierarchyDecl</a> ';'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#dimensionDecl" title="dimensionDecl">dimensionDecl</a></li>
+            
+            <li><a href="#schemaDecl" title="schemaDecl">schemaDecl</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="levelDecl">levelDecl:</a></p>
+      <img border="0" height="96" src="diagram/levelDecl.png" usemap="#levelDecl.map" width="500"><map name="levelDecl.map">
+         <area coords="69,17,143,49" href="#levelDecl" shape="rect" title="levelDecl">
+         <area coords="125,61,225,93" href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">
+         <area coords="307,61,407,93" href="#attributeDecl" shape="rect" title="attributeDecl"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#levelDecl" shape="rect" title="levelDecl">levelDecl</a>
+         ::= <a href="#levelDecl" shape="rect" title="levelDecl">levelDecl</a>+
+           | 'Level' <a href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">LEVEL_NAME</a> 'has' <a href="#attributeDecl" shape="rect" title="attributeDecl">attributeDecl</a> ';'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#levelDecl" title="levelDecl">levelDecl</a></li>
+            
+            <li><a href="#schemaDecl" title="schemaDecl">schemaDecl</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="attributeDecl">attributeDecl:</a></p>
+      <img border="0" height="96" src="diagram/attributeDecl.png" usemap="#attributeDecl.map" width="580"><map name="attributeDecl.map">
+         <area coords="69,17,169,49" href="#attributeDecl" shape="rect" title="attributeDecl">
+         <area coords="147,61,277,93" href="#ATTRIBUTE_NAME" shape="rect" title="ATTRIBUTE_NAME">
+         <area coords="383,61,487,93" href="#attributeType" shape="rect" title="attributeType"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#attributeDecl" shape="rect" title="attributeDecl">attributeDecl</a>
+         ::= <a href="#attributeDecl" shape="rect" title="attributeDecl">attributeDecl</a>+
+           | 'Attribute' <a href="#ATTRIBUTE_NAME" shape="rect" title="ATTRIBUTE_NAME">ATTRIBUTE_NAME</a> 'of type' <a href="#attributeType" shape="rect" title="attributeType">attributeType</a> ';'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#attributeDecl" title="attributeDecl">attributeDecl</a></li>
+            
+            <li><a href="#levelDecl" title="levelDecl">levelDecl</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="hierarchyDecl">hierarchyDecl:</a></p>
+      <img border="0" height="96" src="diagram/hierarchyDecl.png" usemap="#hierarchyDecl.map" width="602"><map name="hierarchyDecl.map">
+         <area coords="69,17,173,49" href="#hierarchyDecl" shape="rect" title="hierarchyDecl">
+         <area coords="153,61,287,93" href="#HIERARCHY_NAME" shape="rect" title="HIERARCHY_NAME">
+         <area coords="429,61,509,93" href="#pcRelsSet" shape="rect" title="pcRelsSet"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#hierarchyDecl" shape="rect" title="hierarchyDecl">hierarchyDecl</a>
+         ::= <a href="#hierarchyDecl" shape="rect" title="hierarchyDecl">hierarchyDecl</a>+
+           | 'Hierarchy' <a href="#HIERARCHY_NAME" shape="rect" title="HIERARCHY_NAME">HIERARCHY_NAME</a> 'composed of' <a href="#pcRelsSet" shape="rect" title="pcRelsSet">pcRelsSet</a> ';'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#dimensionDecl" title="dimensionDecl">dimensionDecl</a></li>
+            
+            <li><a href="#hierarchyDecl" title="hierarchyDecl">hierarchyDecl</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="pcRelsDecl">pcRelsDecl:</a></p>
+      <img border="0" height="140" src="diagram/pcRelsDecl.png" usemap="#pcRelsDecl.map" width="862"><map name="pcRelsDecl.map">
+         <area coords="69,17,155,49" href="#pcRelsDecl" shape="rect" title="pcRelsDecl">
+         <area coords="127,61,207,93" href="#PC_NAME" shape="rect" title="PC_NAME">
+         <area coords="321,61,421,93" href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">
+         <area coords="485,61,585,93" href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">
+         <area coords="127,105,207,137" href="#PC_NAME" shape="rect" title="PC_NAME">
+         <area coords="321,105,421,137" href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">
+         <area coords="485,105,585,137" href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#pcRelsDecl" shape="rect" title="pcRelsDecl">pcRelsDecl</a>
+         ::= <a href="#pcRelsDecl" shape="rect" title="pcRelsDecl">pcRelsDecl</a>+
+           | 'PCRel' <a href="#PC_NAME" shape="rect" title="PC_NAME">PC_NAME</a> 'involves' <a href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">LEVEL_NAME</a> ',' <a href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">LEVEL_NAME</a> ';'
+           | 'PCRel' <a href="#PC_NAME" shape="rect" title="PC_NAME">PC_NAME</a> 'involves' <a href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">LEVEL_NAME</a> ',' <a href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">LEVEL_NAME</a> 'has distributing factor' ';'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#pcRelsDecl" title="pcRelsDecl">pcRelsDecl</a></li>
+            
+            <li><a href="#schemaDecl" title="schemaDecl">schemaDecl</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="pcRelsSet">pcRelsSet:</a></p>
+      <img border="0" height="68" src="diagram/pcRelsSet.png" usemap="#pcRelsSet.map" width="362"><map name="pcRelsSet.map">
+         <area coords="29,17,109,49" href="#PC_NAME" shape="rect" title="PC_NAME">
+         <area coords="213,17,293,49" href="#pcRelsSet" shape="rect" title="pcRelsSet"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#pcRelsSet" shape="rect" title="pcRelsSet">pcRelsSet</a>
+         ::= <a href="#PC_NAME" shape="rect" title="PC_NAME">PC_NAME</a> ( ',' <a href="#pcRelsSet" shape="rect" title="pcRelsSet">pcRelsSet</a> )*</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#hierarchyDecl" title="hierarchyDecl">hierarchyDecl</a></li>
+            
+            <li><a href="#iConstraintsDecl" title="iConstraintsDecl">iConstraintsDecl</a></li>
+            
+            <li><a href="#pcRelsSet" title="pcRelsSet">pcRelsSet</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="factDecl">factDecl:</a></p>
+      <img border="0" height="140" src="diagram/factDecl.png" usemap="#factDecl.map" width="800"><map name="factDecl.map">
+         <area coords="69,17,137,49" href="#factDecl" shape="rect" title="factDecl">
+         <area coords="199,61,293,93" href="#FACT_NAME" shape="rect" title="FACT_NAME">
+         <area coords="407,61,525,93" href="#levelInvolvment" shape="rect" title="levelInvolvment">
+         <area coords="199,105,293,137" href="#FACT_NAME" shape="rect" title="FACT_NAME">
+         <area coords="407,105,525,137" href="#levelInvolvment" shape="rect" title="levelInvolvment">
+         <area coords="607,105,707,137" href="#measureDecl" shape="rect" title="measureDecl"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#factDecl" shape="rect" title="factDecl">factDecl</a> ::= <a href="#factDecl" shape="rect" title="factDecl">factDecl</a>+
+           | 'Fact relationship' <a href="#FACT_NAME" shape="rect" title="FACT_NAME">FACT_NAME</a> 'involves' <a href="#levelInvolvment" shape="rect" title="levelInvolvment">levelInvolvment</a> ';'
+           | 'Fact relationship' <a href="#FACT_NAME" shape="rect" title="FACT_NAME">FACT_NAME</a> 'involves' <a href="#levelInvolvment" shape="rect" title="levelInvolvment">levelInvolvment</a> 'has' <a href="#measureDecl" shape="rect" title="measureDecl">measureDecl</a> ';'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#factDecl" title="factDecl">factDecl</a></li>
+            
+            <li><a href="#schemaDecl" title="schemaDecl">schemaDecl</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="levelInvolvment">levelInvolvment:</a></p>
+      <img border="0" height="140" src="diagram/levelInvolvment.png" usemap="#levelInvolvment.map" width="414"><map name="levelInvolvment.map">
+         <area coords="69,17,187,49" href="#levelInvolvment" shape="rect" title="levelInvolvment">
+         <area coords="49,61,149,93" href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">
+         <area coords="49,105,149,137" href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">
+         <area coords="223,105,321,137" href="#LEVEL_ROLE" shape="rect" title="LEVEL_ROLE"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#levelInvolvment" shape="rect" title="levelInvolvment">levelInvolvment</a>
+         ::= <a href="#levelInvolvment" shape="rect" title="levelInvolvment">levelInvolvment</a>+
+           | <a href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">LEVEL_NAME</a> ';'
+           | <a href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">LEVEL_NAME</a> 'as' <a href="#LEVEL_ROLE" shape="rect" title="LEVEL_ROLE">LEVEL_ROLE</a> ';'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#factDecl" title="factDecl">factDecl</a></li>
+            
+            <li><a href="#levelInvolvment" title="levelInvolvment">levelInvolvment</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="measureDecl">measureDecl:</a></p>
+      <img border="0" height="96" src="diagram/measureDecl.png" usemap="#measureDecl.map" width="746"><map name="measureDecl.map">
+         <area coords="69,17,169,49" href="#measureDecl" shape="rect" title="measureDecl">
+         <area coords="145,61,267,93" href="#MEASURE_NAME" shape="rect" title="MEASURE_NAME">
+         <area coords="373,61,477,93" href="#measureType" shape="rect" title="measureType">
+         <area coords="547,61,653,93" href="#additivityType" shape="rect" title="additivityType"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#measureDecl" shape="rect" title="measureDecl">measureDecl</a>
+         ::= <a href="#measureDecl" shape="rect" title="measureDecl">measureDecl</a>+
+           | 'Measure' <a href="#MEASURE_NAME" shape="rect" title="MEASURE_NAME">MEASURE_NAME</a> 'of type' <a href="#measureType" shape="rect" title="measureType">measureType</a> 'is' <a href="#additivityType" shape="rect" title="additivityType">additivityType</a> ';'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#factDecl" title="factDecl">factDecl</a></li>
+            
+            <li><a href="#measureDecl" title="measureDecl">measureDecl</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="iConstraintsDecl">iConstraintsDecl:</a></p>
+      <img border="0" height="184" src="diagram/iConstraintsDecl.png" usemap="#iConstraintsDecl.map" width="862"><map name="iConstraintsDecl.map">
+         <area coords="69,17,191,49" href="#iConstraintsDecl" shape="rect" title="iConstraintsDecl">
+         <area coords="49,61,179,93" href="#ATTRIBUTE_NAME" shape="rect" title="ATTRIBUTE_NAME">
+         <area coords="351,61,451,93" href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">
+         <area coords="189,105,289,137" href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">
+         <area coords="361,105,441,137" href="#PC_NAME" shape="rect" title="PC_NAME">
+         <area coords="523,105,609,137" href="#MIN_CARD" shape="rect" title="MIN_CARD">
+         <area coords="673,105,761,137" href="#MAX_CARD" shape="rect" title="MAX_CARD">
+         <area coords="255,149,355,181" href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">
+         <area coords="427,149,507,181" href="#pcRelsSet" shape="rect" title="pcRelsSet"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#iConstraintsDecl" shape="rect" title="iConstraintsDecl">iConstraintsDecl</a>
+         ::= <a href="#iConstraintsDecl" shape="rect" title="iConstraintsDecl">iConstraintsDecl</a>+
+           | <a href="#ATTRIBUTE_NAME" shape="rect" title="ATTRIBUTE_NAME">ATTRIBUTE_NAME</a> 'is primary key of' <a href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">LEVEL_NAME</a> ';'
+           | 'Participation of' <a href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">LEVEL_NAME</a> 'in' <a href="#PC_NAME" shape="rect" title="PC_NAME">PC_NAME</a> 'is (' <a href="#MIN_CARD" shape="rect" title="MIN_CARD">MIN_CARD</a> ',' <a href="#MAX_CARD" shape="rect" title="MAX_CARD">MAX_CARD</a> ');'
+           | 'Exclusive participation of' <a href="#LEVEL_NAME" shape="rect" title="LEVEL_NAME">LEVEL_NAME</a> 'in' <a href="#pcRelsSet" shape="rect" title="pcRelsSet">pcRelsSet</a> ';'</pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#iConstraintsDecl" title="iConstraintsDecl">iConstraintsDecl</a></li>
+            
+            <li><a href="#schemaDecl" title="schemaDecl">schemaDecl</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="attributeType">attributeType:</a></p>
+      <img border="0" height="124" src="diagram/attributeType.png" usemap="#attributeType.map" width="172"><map name="attributeType.map">
+         <area coords="49,1,123,33" href="#INTEGER" shape="rect" title="INTEGER">
+         <area coords="49,45,99,77" href="#REAL" shape="rect" title="REAL">
+         <area coords="49,89,115,121" href="#STRING" shape="rect" title="STRING"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#attributeType" shape="rect" title="attributeType">attributeType</a>
+         ::= <a href="#INTEGER" shape="rect" title="INTEGER">INTEGER</a>
+           | <a href="#REAL" shape="rect" title="REAL">REAL</a>
+           | <a href="#STRING" shape="rect" title="STRING">STRING</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#attributeDecl" title="attributeDecl">attributeDecl</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="measureType">measureType:</a></p>
+      <img border="0" height="124" src="diagram/measureType.png" usemap="#measureType.map" width="172"><map name="measureType.map">
+         <area coords="49,1,123,33" href="#INTEGER" shape="rect" title="INTEGER">
+         <area coords="49,45,99,77" href="#REAL" shape="rect" title="REAL">
+         <area coords="49,89,115,121" href="#STRING" shape="rect" title="STRING"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#measureType" shape="rect" title="measureType">measureType</a>
+         ::= <a href="#INTEGER" shape="rect" title="INTEGER">INTEGER</a>
+           | <a href="#REAL" shape="rect" title="REAL">REAL</a>
+           | <a href="#STRING" shape="rect" title="STRING">STRING</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#measureDecl" title="measureDecl">measureDecl</a></li>
+            
+         </ul>
+         
+      </p><br><p style="font-size: 14px; font-weight:bold"><a name="additivityType">additivityType:</a></p>
+      <img border="0" height="124" src="diagram/additivityType.png" usemap="#additivityType.map" width="208"><map name="additivityType.map">
+         <area coords="49,1,127,33" href="#ADDITIVE" shape="rect" title="ADDITIVE">
+         <area coords="49,45,159,77" href="#SEMIADDITIVE" shape="rect" title="SEMIADDITIVE">
+         <area coords="49,89,155,121" href="#NONADDITIVE" shape="rect" title="NONADDITIVE"></map>
+      
+      <p>
+         
+         <div class="ebnf"><pre><a href="#additivityType" shape="rect" title="additivityType">additivityType</a>
+         ::= <a href="#ADDITIVE" shape="rect" title="ADDITIVE">ADDITIVE</a>
+           | <a href="#SEMIADDITIVE" shape="rect" title="SEMIADDITIVE">SEMIADDITIVE</a>
+           | <a href="#NONADDITIVE" shape="rect" title="NONADDITIVE">NONADDITIVE</a></pre></div>
+         
+      </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#measureDecl" title="measureDecl">measureDecl</a></li>
+            
+         </ul>
+         
+      </p><br><hr>
+      
+      <p>
+         
+         <table border="0" class="signature">
+            
+            <tr>
+               
+               <td style="width: 100%">&nbsp;</td>
+               
+               <td valign="top">
+                  
+                  <nobr class="signature">... generated by <a class="signature" href="http://www.bottlecaps.de/rr/ui" name="Railroad-Diagram-Generator" target="_blank" title="http://www.bottlecaps.de/rr/ui">Railroad Diagram Generator</a></nobr>
+                  
+               </td>
+               
+               <td><a href="http://www.bottlecaps.de/rr/ui" name="Railroad-Diagram-Generator" target="_blank" title="http://www.bottlecaps.de/rr/ui">
+                     <img border="0" height="16" src="diagram/rr-1.35.837.png" width="16"></a></td>
+               
+            </tr>
+            
+         </table>
+         
+      </p>
+      
+   </body>
+</html>
