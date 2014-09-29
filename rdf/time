@@ -8,544 +8,460 @@
 time:2008
     rdfs:label "2008"@en;
     skos:prefLabel "2008"@en;
-    skos:notation "2008";
     .
 
 time:2009
     rdfs:label "2009"@en;
     skos:prefLabel "2009"@en;
-    skos:notation "2009";
 	.
 
 time:2010
     rdfs:label "2010"@en;
     skos:prefLabel "2010"@en;
-    skos:notation "2010";
 	.
 
 time:2011
     rdfs:label "2011"@en;
     skos:prefLabel "2011"@en;
-    skos:notation "2011";
 	.
 	
 time:2012
     rdfs:label "2012"@en;
     skos:prefLabel "2012"@en;
-    skos:notation "2012";
 	.
    
 time:2013
     rdfs:label "2013"@en;
     skos:prefLabel "2013"@en;
-    skos:notation "2013";
 	.
    
    
 time:2014
     rdfs:label "2014"@en;
     skos:prefLabel "2014"@en;
-    skos:notation "2014";
 	.   
 	
-time:j2008m
+time:200801
     rdfs:label "January 2008"@en;
     skos:prefLabel "January 2008"@en;
-    skos:notation "j2008m";    
     .
 
-time:j2009m
+time:200901
     rdfs:label "January 2009"@en;
     skos:prefLabel "January 2009"@en;
-    skos:notation "j2009m";    
     .
 		
-time:j2010m
+time:201001
     rdfs:label "January 2010"@en;
     skos:prefLabel "January 2010"@en;
-    skos:notation "j2010m";    
     .
 
-time:j2011m
+time:201101
     rdfs:label "January 2011"@en;
     skos:prefLabel "January 2011"@en;
-    skos:notation "j2011m";    
-    .
+   .
 
-time:j2012m
+time:201201
     rdfs:label "January 2012"@en;
     skos:prefLabel "January 2012"@en;
-    skos:notation "j2012m";    
     .
 
-time:j2013m
+time:201301
     rdfs:label "January 2013"@en;
     skos:prefLabel "January 2013"@en;
-    skos:notation "j2013m";    
     .
 
-time:j2014m
+time:201401
     rdfs:label "January 2014"@en;
     skos:prefLabel "January 2014"@en;
-    skos:notation "j2014m";    
     .
 
-time:f2008m
+time:200802
     rdfs:label "February 2008"@en;
     skos:prefLabel "February 2008"@en;
-    skos:notation "f2008m";    
     .
 
-time:f2009m
+time:200902
     rdfs:label "February 2009"@en;
     skos:prefLabel "February 2009"@en;
-    skos:notation "f2009m";    
     .
 
-time:f2010m
+time:201002
     rdfs:label "February 2010"@en;
     skos:prefLabel "February 2010"@en;
-    skos:notation "f2010m";    
     .
 
-time:f2011m
+time:201102
     rdfs:label "February 2011"@en;
     skos:prefLabel "February 2011"@en;
-    skos:notation "f2011m";    
     .
 
-time:f2012m
+time:201202
     rdfs:label "February 2012"@en;
     skos:prefLabel "February 2012"@en;
-    skos:notation "f2012m";    
     .
-time:f2013m
+time:201302
     rdfs:label "February 2013"@en;
     skos:prefLabel "February 2013"@en;
-    skos:notation "f2013m";    
     .
-time:f2014m
+time:201402
     rdfs:label "February 2014"@en;
     skos:prefLabel "February 2014"@en;
-    skos:notation "f2014m";    
     .
 
-time:m2008m
+time:200803
     rdfs:label "March 2008"@en;
     skos:prefLabel "March 2008"@en;
-    skos:notation "m2008m";    
     .
 
-time:m2009m
+time:200903
     rdfs:label "March 2009"@en;
     skos:prefLabel "March 2009"@en;
-    skos:notation "m2009m";    
     .
 
-time:m2010m
+time:201003
     rdfs:label "March 2010"@en;
     skos:prefLabel "March 2010"@en;
-    skos:notation "m2010m";    
     .
 
-time:m2011m
+time:201103
     rdfs:label "March 2011"@en;
     skos:prefLabel "March 2011"@en;
-    skos:notation "m2011m";    
     .
 
-time:m2012m
+time:201203
     rdfs:label "March 2012"@en;
     skos:prefLabel "March 2012"@en;
     skos:notation "m2012m";    
     .
 
-time:m2013m
+time:201303
     rdfs:label "March 2013"@en;
     skos:prefLabel "March 2013"@en;
     skos:notation "m2013m";    
     .
 
-time:m2014m
+time:201403
     rdfs:label "March 2014"@en;
     skos:prefLabel "March 2014"@en;
-    skos:notation "m2014m";    
     .
 
-time:a2008m
+time:200804
     rdfs:label "April 2008"@en;
     skos:prefLabel "April 2008"@en;
-    skos:notation "a2008m";    
     .
 
-time:a2009m
+time:200904
     rdfs:label "April 2009"@en;
     skos:prefLabel "April 2009"@en;
-    skos:notation "a2009m";    
     .
 	
-time:a2010m
+time:201004
     rdfs:label "April 2010"@en;
     skos:prefLabel "April 2010"@en;
-    skos:notation "a2010m";    
     .
 
-time:a2011m
+time:201104
     rdfs:label "April 2011"@en;
     skos:prefLabel "April 2011"@en;
-    skos:notation "a2011m";    
     .
 	
-time:a2012m
+time:201204
     rdfs:label "April 2012"@en;
     skos:prefLabel "April 2012"@en;
-    skos:notation "a2012m";    
     .
 
-time:a2013m
+time:201304
     rdfs:label "April 2013"@en;
     skos:prefLabel "April 2013"@en;
-    skos:notation "a2013m";    
     .
 
-time:a2014m
+time:201404
     rdfs:label "April 2014"@en;
     skos:prefLabel "April 2014"@en;
     skos:notation "a2014m";    
     .
 
-time:m2008m1
+time:200805
     rdfs:label "May 2008"@en;
     skos:prefLabel "May 2008"@en;
     skos:notation "m2008m1";    
     .
 	
-time:m2009m1
+time:200905
     rdfs:label "May 2009"@en;
     skos:prefLabel "May 2009"@en;
-    skos:notation "m2009m1";    
     .
 
-time:m2010m1
+time:201005
     rdfs:label "May 2010"@en;
     skos:prefLabel "May 2010"@en;
-    skos:notation "m2010m1";    
     .
 	
-time:m2011m1
+time:201105
     rdfs:label "May 2011"@en;
     skos:prefLabel "May 2011"@en;
-    skos:notation "m2011m1";    
     .
 	
-time:m2012m1
+time:201205
     rdfs:label "May 2012"@en;
     skos:prefLabel "May 2012"@en;
-    skos:notation "m2012m1";    
     .
 	
-time:m2013m1
+time:201305
     rdfs:label "May 2013"@en;
     skos:prefLabel "May 2013"@en;
-    skos:notation "m2013m1";    
     .
 
-time:m2014m1
+time:201405
     rdfs:label "May 2014"@en;
     skos:prefLabel "May 2014"@en;
     skos:notation "m2014m1";    
     .
 
-time:j2008m1
+time:200806
     rdfs:label "June 2008"@en;
     skos:prefLabel "June 2008"@en;
     skos:notation "j2008m1";    
     .
 	
-time:j2009m1
+time:200906
     rdfs:label "June 2009"@en;
     skos:prefLabel "June 2009"@en;
-    skos:notation "j2009m1";    
     .
 	
-time:j2010m1
+time:201006
     rdfs:label "June 2010"@en;
     skos:prefLabel "June 2010"@en;
-    skos:notation "j2010m1";    
     .
 	
-time:j2011m1
+time:201106
     rdfs:label "June 2011"@en;
     skos:prefLabel "June 2011"@en;
-    skos:notation "j2011m1";    
     .
 	
-time:j2012m1
+time:201206
     rdfs:label "June 2012"@en;
     skos:prefLabel "June 2012"@en;
-    skos:notation "j2012m1";    
     .	
 
-time:j2013m1
+time:201306
     rdfs:label "June 2013"@en;
     skos:prefLabel "June 2013"@en;
-    skos:notation "j2013m1";    
     .	
 
-time:j2014m1
+time:201406
     rdfs:label "June 2014"@en;
     skos:prefLabel "June 2014"@en;
-    skos:notation "j2014m1";    
     .	
 
 	
-time:j2008m2
+time:200807
     rdfs:label "July 2008"@en;
     skos:prefLabel "July 2008"@en;
-    skos:notation "j2008m2";    
     .
 	
-time:j2009m2
+time:200907
     rdfs:label "July 2009"@en;
     skos:prefLabel "July 2009"@en;
-    skos:notation "j2009m2";    
     .
 	
-time:j2010m2
+time:201007
     rdfs:label "July 2010"@en;
     skos:prefLabel "July 2010"@en;
-    skos:notation "j2010m2";    
     .
 	
-time:j2011m2
+time:201107
     rdfs:label "July 2011"@en;
     skos:prefLabel "July 2011"@en;
-    skos:notation "j2011m2";    
     .
 	
-time:j2012m2
+time:201207
     rdfs:label "July 2012"@en;
     skos:prefLabel "July 2012"@en;
-    skos:notation "j2012m2";    
     .
 	
-time:j2013m2
+time:201307
     rdfs:label "July 2013"@en;
     skos:prefLabel "July 2013"@en;
-    skos:notation "j2013m2";    
-    .
+   .
 
-time:j2014m2
+time:201407
     rdfs:label "July 2014"@en;
     skos:prefLabel "July 2014"@en;
-    skos:notation "j2014m2";    
     .
 
-time:a2008m1
+time:200808
     rdfs:label "August 2008"@en;
     skos:prefLabel "August 2008"@en;
-    skos:notation "a2008m1";    
     .
 
-time:a2009m1
+time:200908
     rdfs:label "August 2009"@en;
     skos:prefLabel "August 2009"@en;
-    skos:notation "a2009m1";    
     .
 	
-time:a2010m1
+time:201008
     rdfs:label "August 2010"@en;
     skos:prefLabel "August 2010"@en;
-    skos:notation "a2010m1";    
     .
 
-time:a2011m1
+time:201108
     rdfs:label "August 2011"@en;
     skos:prefLabel "August 2011"@en;
-    skos:notation "a2011m1";    
     .
 	
-time:a2012m1
+time:201208
     rdfs:label "August 2012"@en;
     skos:prefLabel "August 2012"@en;
-    skos:notation "a2012m1";    
     .
 	
-time:a2013m1
+time:201308
     rdfs:label "August 2013"@en;
     skos:prefLabel "August 2013"@en;
-    skos:notation "a2013m1";    
     .
 
-time:a2014m1
+time:201408
     rdfs:label "August 2014"@en;
     skos:prefLabel "August 2014"@en;
-    skos:notation "a2014m1";    
     .
 
-time:s2008m
+time:200809
     rdfs:label "September 2008"@en;
     skos:prefLabel "September 2008"@en;
-    skos:notation "s2008m";    
     .
 
-time:s2009m
+time:200909
     rdfs:label "September 2009"@en;
     skos:prefLabel "September 2009"@en;
-    skos:notation "s2009m";    
     .
 	
-time:s2010m
+time:201009
     rdfs:label "September 2010"@en;
     skos:prefLabel "September 2010"@en;
-    skos:notation "s2010m";    
     .
 
-time:s2011m
+time:201109
     rdfs:label "September 2011"@en;
     skos:prefLabel "September 2011"@en;
-    skos:notation "s2011m";    
     .
 	
-time:s2012m
+time:201209
     rdfs:label "September 2012"@en;
     skos:prefLabel "September 2012"@en;
-    skos:notation "s2012m";    
     .
  
-time:s2013m
+time:201309
     rdfs:label "September 2013"@en;
     skos:prefLabel "September 2013"@en;
-    skos:notation "s2013m";    
     .
  
-time:s2014m
+time:201409
     rdfs:label "September 2014"@en;
     skos:prefLabel "September 2014"@en;
-    skos:notation "s2014m";    
     .
 	
-time:o2008m
+time:200810
     rdfs:label "October 2008"@en;
     skos:prefLabel "October 2008"@en;
-    skos:notation "o2008m";    
     .
 
-time:o2009m
+time:200910
     rdfs:label "October 2009"@en;
     skos:prefLabel "October 2009"@en;
-    skos:notation "o2009m";    
     .
 	
-time:o2010m
+time:201010
     rdfs:label "October 2010"@en;
     skos:prefLabel "October 2010"@en;
-    skos:notation "o2010m";    
     .
 
-time:o2011m
+time:201110
     rdfs:label "October 2011"@en;
     skos:prefLabel "October 2011"@en;
-    skos:notation "o2011m";    
     .
 	
-time:o2012m
+time:201210
     rdfs:label "October 2012"@en;
     skos:prefLabel "October 2012"@en;
-    skos:notation "o2012m";    
     .
 
-time:o2013m
+time:201310
     rdfs:label "October 2013"@en;
     skos:prefLabel "October 2013"@en;
-    skos:notation "o2013m";    
     .
 
-time:o2014m
+time:201410
     rdfs:label "October 2014"@en;
     skos:prefLabel "October 2014"@en;
-    skos:notation "o2014m";    
     .
 	
-time:n2008m
+time:200811
     rdfs:label "November 2008"@en;
     skos:prefLabel "November 2008"@en;
-    skos:notation "n2008m";    
     .
 
-time:n2009m
+time:200911
     rdfs:label "November 2009"@en;
     skos:prefLabel "November 2009"@en;
-    skos:notation "n2009m";    
     .
 	
-time:n2010m
+time:201011
     rdfs:label "November 2010"@en;
     skos:prefLabel "November 2010"@en;
-    skos:notation "n2010m";    
     .
 
-time:n2011m
+time:201111
     rdfs:label "November 2011"@en;
     skos:prefLabel "November 2011"@en;
-    skos:notation "n2011m";    
     .
 	
-time:n2012m
+time:201211
     rdfs:label "November 2012"@en;
     skos:prefLabel "November 2012"@en;
-    skos:notation "n2012m";    
     .
  
-time:n2013m
+time:201311
     rdfs:label "November 2013"@en;
     skos:prefLabel "November 2013"@en;
-    skos:notation "n2013m";    
     .
 
-time:n2014m
+time:201411
     rdfs:label "November 2014"@en;
     skos:prefLabel "November 2014"@en;
-    skos:notation "n2014m";    
     .  
-time:d2008m
+time:200812
     rdfs:label "December 2008"@en;
     skos:prefLabel "December 2008"@en;
-    skos:notation "d2008m";    
     .
 
-time:d2009m
+time:200912
     rdfs:label "December 2009"@en;
     skos:prefLabel "December 2009"@en;
-    skos:notation "d2009m";    
     .
 	
-time:d2010m
+time:201012
     rdfs:label "December 2010"@en;
     skos:prefLabel "December 2010"@en;
-    skos:notation "d2010m";    
+
     .
 
-time:d2011m
+time:201112
     rdfs:label "December 2011"@en;
     skos:prefLabel "December 2011"@en;
-    skos:notation "d2011m";    
     .
 	
-time:d2012m
+time:201212
     rdfs:label "December 2012"@en;
     skos:prefLabel "December 2012"@en;
-    skos:notation "d2012m";    
     .
 
-time:d2013m
+time:201312
     rdfs:label "December 2013"@en;
     skos:prefLabel "December 2013"@en;
-    skos:notation "d2013m";    
     .
 
-time:d2014m
+time:201412
     rdfs:label "December 2014"@en;
     skos:prefLabel "December 2014"@en;
-    skos:notation "d2014m";    
     .
