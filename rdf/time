@@ -5,6 +5,11 @@
 
 @prefix time: <http://purl.org/qb4olap/dimensions/time#> .
 
+time:TOTAL
+  rdfs:label "All years"@en;
+  skos:prefLabel "All years"@en;
+.
+
 time:2008
     rdfs:label "2008"@en;
     skos:prefLabel "2008"@en;
