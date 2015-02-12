@@ -1,0 +1,62 @@
+<Schema name="miEsquema">
+	<Dimension name="Ubicacion">
+		<Hierarchy name="BarrioHogar" hasAll="false">
+			<Table name="ubicaciones"></Table>
+			<Level name="Barrio" column="BarrioId" nameColumn="BarrioNom">
+				<Property name="nombreBarrio" column="BarrioNom"/>
+			</Level>
+			<Level name="Hogar" column="HogarId"></Level>
+		</Hierarchy>
+		<Hierarchy name="RegionLocalidadHogar" hasAll="false">
+			<Table name="ubicaciones"></Table>
+			<Level name="Region" column="Region"></Level>
+			<Level name="Localidad" column="LocalidadId" nameColumn="LocalidadNom"></Level>
+			<Level name="Hogar" column="HogarId"></Level>
+		</Hierarchy>
+		<Hierarchy name="DepartamentoLocalidadHogar" hasAll="false">
+			<Table name="ubicaciones"></Table>
+			<Level name="Departamento" column="DepartamentoId" nameColumn="DepartamentoNom"></Level>
+			<Level name="Localidad" column="Localidad"></Level>
+			<Level name="Hogar" column="HogarId"></Level>
+		</Hierarchy>
+	</Dimension>
+	<Dimension name="Confort">
+		<Hierarchy name="Confort" hasAll="false">
+			<Table name="Confort"></Table>
+			<Level name="Confort" column="Confort"></Level>
+		</Hierarchy>
+	</Dimension>
+	<Dimension name="TipoDeVivienda">
+		<Hierarchy name="TipoDeVivienda"  hasAll="false">
+			<Table name="TipoVivienda"></Table>
+			<Level name="TipoVivienda" column="TipoVivienda"></Level>
+		</Hierarchy>
+	</Dimension>
+	<Cube name="cuboHogares">
+		<Table name="cuboHogares"></Table>
+		<DimensionUsage source="Ubicacion" name="Ubicacion" foreignKey="HogarId">
+		</DimensionUsage>
+		<DimensionUsage source="Confort" name="Confort" foreignKey="Confort">
+		</DimensionUsage>
+		<DimensionUsage source="TipoDeVivienda" name="TipoDeVivienda" foreignKey="TipoVivienda">
+		</DimensionUsage>
+		<Dimension name="Tiempo" foreignKey="MesId">
+			<Hierarchy name="AnioTrimestreMes" hasAll="false">
+				<Join leftKey="AnioId" rightAlias="Trimestre" rightKey="AnioId">
+					<Table name="Anio"/>
+					<Join leftKey="TrimestreId" rightAlias="Mes" rightKey="TrimestreId">
+						<Table name="Trimestre"/>
+						<Table name="Mes"/>
+					</Join>
+				</Join>
+				<Level name="Anio" column="AnioId"></Level>
+				<Level name="Trimestre" column="TrimestreId" nameColumn="TrimestreNum"></Level>
+				<Level name="Mes" column="MesId" nameColumn="MesNum">
+					<Property name="MesNom" column="MesNom"/>
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Measure name="Personas" column="Personas" aggregator="sum"></Measure>
+		<Measure name="Hogares" column="Hogares" aggregator="sum"></Measure>
+	</Cube>
+</Schema>

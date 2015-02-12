@@ -1,0 +1,69 @@
+
+http://publishing-statistical-data.googlecode.com/svn/trunk/specs/src/main/vocab/cube.ttl#
+
+MIRAAAAAR ESOOOO 
+
+#QB4ODBMap
+
+@prefix owl: http://www.w3.org/2002/07/owl#
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+@prefix rdfs: http://www.w3.org/2000/01/rdf-schema#
+@prefix xsd: http://www.w3.org/2001/XMLSchema#
+@prefix voc: http://www.example.com/vocabulary#
+@prefix info: http://www.example.com/information/
+@prefix qb4o:
+
+#IsDsc poner q es una object property de owl
+voc:isDsc rdf:type rdfs:property;
+	rdfs:domain qb4o:LevelProperty;
+	rdfs:range qb4o:AttributeProperty.
+
+#Column
+voc:Column rdf:type rdfs:class.
+voc:attributeColumn rdf:type rdfs:property;
+	rdfs:domain qb4o:AttributeProperty.
+	rdfs:range voc:Column. 
+voc:measureColumn rdf:type rdfs:property;
+	rdfs:domain qb4o:MeasureProperty.
+	rdfs:range voc:Column.
+
+#Source
+
+voc:Table rdf:type rdfs:class.
+voc:Join rdf:type rdfs:class.
+#Alternativa 1 (Source) nos quedamos con esta, restringir a una sola source, es decir cardnialidad N a 1, clase table y join son discjuntas, mirar ejemplo
+voc:Source rdf:type rdfs:class.
+voc:Table rdfs:subClassOf voc:Source.
+voc:Join rdfs:subClassOf voc:Source.
+voc:hasSource rdf:type rdfs:property;
+	rdfs:domain voc:Column.
+	rdfs:range voc:Source.
+voc:joinLeftColumn rdf:type rdfs:property;
+	rdfs:domain voc:Join.
+	rdfs:range voc:Column.
+voc:joinRightColumn rdf:type rdfs:property;
+	rdfs:domain voc:Join.
+	rdfs:range voc:Column.
+	
+#Conection
+voc:Conection rdf:type rdfs:class.
+voc:dbName rdf:type rdfs:property;
+	rdfs:domain voc:Conection.
+	rdfs:range rdfs:literal.
+voc:server rdf:type rdfs:property;
+	rdfs:domain voc:Conection.
+	rdfs:range rdfs:literal.
+voc:port rdf:type rdfs:property;
+	rdfs:domain voc:Conection.
+	rdfs:range rdfs:literal.
+voc:driver rdf:type rdfs:property;
+	rdfs:domain voc:Conection.
+	rdfs:range rdfs:literal.
+voc:schema rdf:type rdfs:property;
+	rdfs:domain voc:Conection.
+	rdfs:range rdfs:literal.
+voc:tableInConection rdf:type rdfs:property;
+	rdfs:domain voc:Conection.
+	rdfs:range voc:Table.
+		
+		

@@ -1,0 +1,166 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix qb4o: <http://purl.org/qb4olap/cubes#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix qb: <http://purl.org/linked-data/cube#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix dim: <http://www.fing.edu.uy/inco/dsd/dimensions#>.
+@prefix cube: <http://www.fing.edu.uy/inco/dsd/cubes#> .
+#MAPEOS DE INSTANCIAS R2RML
+#--------------------------
+ <#UbicacionGeografica_HogarTableView> rr:sqlQuery """
+SELECT DISTINCT tabla.NUMERO ,tabla.BARRIO ,tabla.REGION,tabla.DPTO,tabla.LOCAGR  FROM ubicaciones as tabla
+""".
+<#UbicacionGeografica_HogarMap>
+rr:logicalTable  <#UbicacionGeografica_HogarTableView>;
+rr:subjectMap [rr:template "http://www.fing.edu.uy/inco/dic/UbicacionGeografica_Hogar#{NUMERO}"];
+rr:predicateObjectMap [rr:predicate qb4o:inLevel;
+rr:object <http://www.fing.edu.uy/inco/dsd/dimensions#UbicacionGeografica_Hogar>];
+rr:predicateObjectMap [ rr:predicate skos:broader; rr:objectMap [ rr:termType rr:IRI ;
+rr:template "http://www.fing.edu.uy/inco/dic/UbicacionGeografica_Barrio#{BARRIO}" ] ;] ;
+rr:predicateObjectMap [ rr:predicate skos:broader; rr:objectMap [ rr:termType rr:IRI ;
+rr:template "http://www.fing.edu.uy/inco/dic/UbicacionGeografica_Localidad#{LOCAGR}" ] ;] ;
+rr:predicateObjectMap [rr:predicate rdfs:label;rr:objectMap[ rr:column "NUMERO" ];
+].
+ <#UbicacionGeografica_RegionTableView> rr:sqlQuery """
+SELECT DISTINCT tabla.REGION FROM ubicaciones as tabla
+""".
+<#UbicacionGeografica_RegionMap>
+rr:logicalTable  <#UbicacionGeografica_RegionTableView>;
+rr:subjectMap [rr:template "http://www.fing.edu.uy/inco/dic/UbicacionGeografica_Region#{REGION}"];
+rr:predicateObjectMap [rr:predicate qb4o:inLevel;
+rr:object <http://www.fing.edu.uy/inco/dsd/dimensions#UbicacionGeografica_Region>];
+rr:predicateObjectMap [rr:predicate rdfs:label;rr:objectMap[ rr:column "REGION" ];
+].
+ <#UbicacionGeografica_BarrioTableView> rr:sqlQuery """
+SELECT DISTINCT tabla.BARRIO, tabla.NOMBARRIO , tabla.NOMBARRIO FROM ubicaciones as tabla
+""".
+<#UbicacionGeografica_BarrioMap>
+rr:logicalTable  <#UbicacionGeografica_BarrioTableView>;
+rr:subjectMap [rr:template "http://www.fing.edu.uy/inco/dic/UbicacionGeografica_Barrio#{BARRIO}"];
+rr:predicateObjectMap [rr:predicate qb4o:inLevel;
+rr:object <http://www.fing.edu.uy/inco/dsd/dimensions#UbicacionGeografica_Barrio>];
+rr:predicateObjectMap [rr:predicate rdfs:label;rr:objectMap[ rr:column "NOMBARRIO" ];
+];
+rr:predicateObjectMap [rr:predicate <http://www.fing.edu.uy/inco/dsd/atributes#nombre_Barrio>;
+rr:objectMap [rr:template "{NOMBARRIO}"];
+].
+ <#UbicacionGeografica_LocalidadTableView> rr:sqlQuery """
+SELECT DISTINCT tabla.LOCAGR, tabla.NOMLOCAGR ,tabla.REGION ,tabla.DPTO FROM ubicaciones as tabla
+""".
+<#UbicacionGeografica_LocalidadMap>
+rr:logicalTable  <#UbicacionGeografica_LocalidadTableView>;
+rr:subjectMap [rr:template "http://www.fing.edu.uy/inco/dic/UbicacionGeografica_Localidad#{LOCAGR}"];
+rr:predicateObjectMap [rr:predicate qb4o:inLevel;
+rr:object <http://www.fing.edu.uy/inco/dsd/dimensions#UbicacionGeografica_Localidad>];
+rr:predicateObjectMap [ rr:predicate skos:broader; rr:objectMap [ rr:termType rr:IRI ;
+rr:template "http://www.fing.edu.uy/inco/dic/UbicacionGeografica_Region#{REGION}" ] ;] ;
+rr:predicateObjectMap [ rr:predicate skos:broader; rr:objectMap [ rr:termType rr:IRI ;
+rr:template "http://www.fing.edu.uy/inco/dic/UbicacionGeografica_Departamento#{DPTO}" ] ;] ;
+rr:predicateObjectMap [rr:predicate rdfs:label;rr:objectMap[ rr:column "NOMLOCAGR" ];
+].
+ <#UbicacionGeografica_DepartamentoTableView> rr:sqlQuery """
+SELECT DISTINCT tabla.DPTO, tabla.NOMDPTO FROM ubicaciones as tabla
+""".
+<#UbicacionGeografica_DepartamentoMap>
+rr:logicalTable  <#UbicacionGeografica_DepartamentoTableView>;
+rr:subjectMap [rr:template "http://www.fing.edu.uy/inco/dic/UbicacionGeografica_Departamento#{DPTO}"];
+rr:predicateObjectMap [rr:predicate qb4o:inLevel;
+rr:object <http://www.fing.edu.uy/inco/dsd/dimensions#UbicacionGeografica_Departamento>];
+rr:predicateObjectMap [rr:predicate rdfs:label;rr:objectMap[ rr:column "NOMDPTO" ];
+].
+ <#Tiempo_AnioTableView> rr:sqlQuery """
+SELECT DISTINCT tabla.AnioId FROM (SELECT   Trimestre.IDTIEMPO,Trimestre.TrimestreId,Trimestre.MesNombre,Trimestre.MesNro , Trimestre.TrimestreNombre,Trimestre.AnioId,Trimestre.TrimestreNum  ,  Anio.AnioDsc  FROM (SELECT  Mes.IDTIEMPO,Mes.TrimestreId,Mes.MesNombre,Mes.MesNro  ,  Trimestre.TrimestreNombre,Trimestre.AnioId,Trimestre.TrimestreNum  FROM  Mes  AS Mes JOIN  Trimestre  AS Trimestre ON Mes.TrimestreId=Trimestre.TrimestreId) AS Trimestre JOIN  Anio  AS Anio ON Trimestre.AnioId=Anio.AnioId) as tabla
+""".
+<#Tiempo_AnioMap>
+rr:logicalTable  <#Tiempo_AnioTableView>;
+rr:subjectMap [rr:template "http://www.fing.edu.uy/inco/dic/Tiempo_Anio#{AnioId}"];
+rr:predicateObjectMap [rr:predicate qb4o:inLevel;
+rr:object <http://www.fing.edu.uy/inco/dsd/dimensions#Tiempo_Anio>];
+rr:predicateObjectMap [rr:predicate rdfs:label;rr:objectMap[ rr:column "AnioId" ];
+].
+ <#Tiempo_TrimestreTableView> rr:sqlQuery """
+SELECT DISTINCT tabla.TrimestreId ,tabla.AnioId FROM (SELECT   Trimestre.IDTIEMPO,Trimestre.TrimestreId,Trimestre.MesNombre,Trimestre.MesNro , Trimestre.TrimestreNombre,Trimestre.AnioId,Trimestre.TrimestreNum  ,  Anio.AnioDsc  FROM (SELECT  Mes.IDTIEMPO,Mes.TrimestreId,Mes.MesNombre,Mes.MesNro  ,  Trimestre.TrimestreNombre,Trimestre.AnioId,Trimestre.TrimestreNum  FROM  Mes  AS Mes JOIN  Trimestre  AS Trimestre ON Mes.TrimestreId=Trimestre.TrimestreId) AS Trimestre JOIN  Anio  AS Anio ON Trimestre.AnioId=Anio.AnioId) as tabla
+""".
+<#Tiempo_TrimestreMap>
+rr:logicalTable  <#Tiempo_TrimestreTableView>;
+rr:subjectMap [rr:template "http://www.fing.edu.uy/inco/dic/Tiempo_Trimestre#{TrimestreId}"];
+rr:predicateObjectMap [rr:predicate qb4o:inLevel;
+rr:object <http://www.fing.edu.uy/inco/dsd/dimensions#Tiempo_Trimestre>];
+rr:predicateObjectMap [ rr:predicate skos:broader; rr:objectMap [ rr:termType rr:IRI ;
+rr:template "http://www.fing.edu.uy/inco/dic/Tiempo_Anio#{AnioId}" ] ;] ;
+rr:predicateObjectMap [rr:predicate rdfs:label;rr:objectMap[ rr:column "TrimestreId" ];
+].
+ <#Tiempo_MesTableView> rr:sqlQuery """
+SELECT DISTINCT tabla.IDTIEMPO, tabla.MesNro , tabla.MesNombre ,tabla.AnioId,tabla.TrimestreId  FROM (SELECT   Trimestre.IDTIEMPO,Trimestre.TrimestreId,Trimestre.MesNombre,Trimestre.MesNro , Trimestre.TrimestreNombre,Trimestre.AnioId,Trimestre.TrimestreNum  ,  Anio.AnioDsc  FROM (SELECT  Mes.IDTIEMPO,Mes.TrimestreId,Mes.MesNombre,Mes.MesNro  ,  Trimestre.TrimestreNombre,Trimestre.AnioId,Trimestre.TrimestreNum  FROM  Mes  AS Mes JOIN  Trimestre  AS Trimestre ON Mes.TrimestreId=Trimestre.TrimestreId) AS Trimestre JOIN  Anio  AS Anio ON Trimestre.AnioId=Anio.AnioId) as tabla
+""".
+<#Tiempo_MesMap>
+rr:logicalTable  <#Tiempo_MesTableView>;
+rr:subjectMap [rr:template "http://www.fing.edu.uy/inco/dic/Tiempo_Mes#{IDTIEMPO}"];
+rr:predicateObjectMap [rr:predicate qb4o:inLevel;
+rr:object <http://www.fing.edu.uy/inco/dsd/dimensions#Tiempo_Mes>];
+rr:predicateObjectMap [ rr:predicate skos:broader; rr:objectMap [ rr:termType rr:IRI ;
+rr:template "http://www.fing.edu.uy/inco/dic/Tiempo_Trimestre#{TrimestreId}" ] ;] ;
+rr:predicateObjectMap [rr:predicate rdfs:label;rr:objectMap[ rr:column "MesNro" ];
+];
+rr:predicateObjectMap [rr:predicate <http://www.fing.edu.uy/inco/dsd/atributes#nombre_mes>;
+rr:objectMap [rr:template "{MesNombre}"];
+].
+ <#Confort_ConfortTableView> rr:sqlQuery """
+SELECT DISTINCT tabla.CONFORT FROM confort as tabla
+""".
+<#Confort_ConfortMap>
+rr:logicalTable  <#Confort_ConfortTableView>;
+rr:subjectMap [rr:template "http://www.fing.edu.uy/inco/dic/Confort_Confort#{CONFORT}"];
+rr:predicateObjectMap [rr:predicate qb4o:inLevel;
+rr:object <http://www.fing.edu.uy/inco/dsd/dimensions#Confort_Confort>];
+rr:predicateObjectMap [rr:predicate rdfs:label;rr:objectMap[ rr:column "CONFORT" ];
+].
+ <#TipodeVivienda_TipoViviendaTableView> rr:sqlQuery """
+SELECT DISTINCT tabla.TIPOVIVIENDA FROM tipovivienda as tabla
+""".
+<#TipodeVivienda_TipoViviendaMap>
+rr:logicalTable  <#TipodeVivienda_TipoViviendaTableView>;
+rr:subjectMap [rr:template "http://www.fing.edu.uy/inco/dic/TipodeVivienda_TipoVivienda#{TIPOVIVIENDA}"];
+rr:predicateObjectMap [rr:predicate qb4o:inLevel;
+rr:object <http://www.fing.edu.uy/inco/dsd/dimensions#TipodeVivienda_TipoVivienda>];
+rr:predicateObjectMap [rr:predicate rdfs:label;rr:objectMap[ rr:column "TIPOVIVIENDA" ];
+].
+#FIN
+
+#MAPEOS DE HECHOS R2RML
+#--------------------------
+<#Factreq1Map>
+rr:logicalTable [ rr:tableName "req1" ];
+ rr:subjectMap [
+rr:template "http://www.fing.edu.uy/inco/data/req1#{NUMERO}_{IDTIEMPO}_{CONFORT}_{TIPOVIVIENDA}"];
+rr:predicateObjectMap [
+rr:predicate rdf:type;
+rr:object <http://purl.org/linked-data/cube#Observation>];
+rr:predicateObjectMap [ rr:predicate qb:dataSet ; rr:object <cube:dataset_req1> ; ] ;
+rr:predicateObjectMap [
+rr:predicate dim:UbicacionGeografica_Hogar;
+rr:objectMap [rr:template "http://www.fing.edu.uy/inco/dic/UbicacionGeografica_Hogar#{NUMERO}"];
+ ];
+rr:predicateObjectMap [
+rr:predicate dim:Tiempo_Mes;
+rr:objectMap [rr:template "http://www.fing.edu.uy/inco/dic/Tiempo_Mes#{IDTIEMPO}"];
+ ];
+rr:predicateObjectMap [
+rr:predicate dim:Confort_Confort;
+rr:objectMap [rr:template "http://www.fing.edu.uy/inco/dic/Confort_Confort#{CONFORT}"];
+ ];
+rr:predicateObjectMap [
+rr:predicate dim:TipodeVivienda_TipoVivienda;
+rr:objectMap [rr:template "http://www.fing.edu.uy/inco/dic/TipodeVivienda_TipoVivienda#{TIPOVIVIENDA}"];
+ ];
+rr:predicateObjectMap [
+rr:predicate <http://www.fing.edu.uy/inco/dsd/measures#Personas>;
+rr:objectMap [rr:column "PERSONAS"];
+ ];
+rr:predicateObjectMap [
+rr:predicate <http://www.fing.edu.uy/inco/dsd/measures#Hogares>;
+rr:objectMap [rr:column "HOGARES"];
+ ].
+#FIN
+
