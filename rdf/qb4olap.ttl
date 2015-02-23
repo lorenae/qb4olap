@@ -66,17 +66,30 @@ qb4o:cardinality rdf:type owl:ObjectProperty ;
                  rdfs:label "cardinality"@en ,
                             "cardinality constraint"@en ;
                  
-                 rdfs:comment "An alternative to qb:componentProperty which allows to specify a cardinality constraint in a relationship"@en ;
+                 rdfs:comment "An alternative to qb:componentProperty which allows to specify a cardinality constraint in fact-level relationship"@en ;
                  
                  rdfs:subPropertyOf qb:componentProperty ;
                  
                  rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
                  
+                 rdfs:range qb4o:Cardinality .
+
+
+###  http://purl.org/qb4olap/cubes#pcCardinality
+
+qb4o:pcCardinality rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:label "cardinality"@en ,
+                            "cardinality constraint"@en ;
+                 
+                 rdfs:comment "A property which allows to specify a cardinality constraint in a parent-child relationship"@en ;
+                                
+                 rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+                 
                  rdfs:range qb4o:Cardinality ;
                  
                  rdfs:domain qb4o:HierarchyStep .
-
-
+                 
 
 ###  http://purl.org/qb4olap/cubes#childLevel
 
