@@ -227,21 +227,21 @@ qb4o:Count rdf:type qb4o:AggregateFunction ;
 	   owl:sameAs dbpedia:Counting .
 
 ### http://purl.org/qb4olap/cubes#Max
-qb4o:Max rdf:type qb4o:Cardinality ;
+qb4o:Max rdf:type qb4o:AggregateFunction ;
 	 rdfs:label "MAX"@en ;
 	 rdfs:comment "Returns the maximum element in a set of elements, where a partial order is defined."@en ;
 	 rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
 	 owl:sameAs dbpedia:Max .
 
 ### http://purl.org/qb4olap/cubes#Min
-qb4o:Min rdf:type qb4o:Cardinality ;
+qb4o:Min rdf:type qb4o:AggregateFunction ;
 	 rdfs:label "MIN"@en ;
 	 rdfs:comment "Returns the minimum element in a set of elements, where a partial order is defined."@en ;
 	 rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
 	 owl:sameAs dbpedia:Min .
 
 ### http://purl.org/qb4olap/cubes#Sum
-qb4o:Sum rdf:type rdf:type qb4o:Cardinality ;
+qb4o:Sum rdf:type rdf:type qb4o:AggregateFunction ;
 	 rdfs:label "SUM"@en ;
 	 rdfs:comment "Returns the numeric value obtained by adding a set of numeric values."@en ;
 	 rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
