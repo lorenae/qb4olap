@@ -62,7 +62,7 @@ qb4o:hasHierarchy rdf:type rdf:Property, owl:ObjectProperty ;
 		rdfs:comment "Indicates the hierarchies that compose the dimension"@en ;
 		rdfs:domain qb:DimensionProperty ;
 		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
-		rdfs:range qb4o:HierarchyProperty ;
+		rdfs:range qb4o:Hierarchy ;
 		owl:inverseOf qb4o:inDimension .
 
 ### http://purl.org/qb4olap/cubes#hasLevel
@@ -70,7 +70,7 @@ qb4o:hasLevel rdf:type rdf:Property, owl:ObjectProperty ;
 	    rdfs:label "set of levels in hierarchy"@en ;
 	    rdfs:comment "Indicates the levels that compose the hierarchy"@en ;
 	    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
-	    rdfs:domain qb4o:HierarchyProperty ;
+	    rdfs:domain qb4o:Hierarchy ;
 	    rdfs:range qb4o:LevelProperty .
 
 ### http://purl.org/qb4olap/cubes#hasAttribute
@@ -95,7 +95,7 @@ qb4o:inDimension rdf:type rdf:Property, owl:ObjectProperty ;
 		rdfs:comment "Indicates to which dimension the hierarchy belongs"@en ;
 		rdfs:range qb:DimensionProperty ;
 		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
-		rdfs:domain qb4o:HierarchyProperty .
+		rdfs:domain qb4o:Hierarchy .
 
 ### http://purl.org/qb4olap/cubes#inHierarchy
 qb4o:inHierarchy rdf:type rdf:Property, owl:ObjectProperty ;
