@@ -22,7 +22,8 @@
 				owl:versionInfo "1.2" ;
 				owl:imports <http://purl.org/linked-data/cube> ;
 				dcterms:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ;
-				dcterms:contributor [ ] ,
+				dcterms:contributor [foaf:mbox "lorenae@fing.edu.uy"] ,
+				                    [foaf:mbox "avaisman@itba.edu.ar"] ;
 [ ] .
 
 #################################################################
