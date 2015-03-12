@@ -12,8 +12,12 @@
 @prefix scovo: <http://purl.org/NET/scovo#> .
 @prefix dbpedia: <http://dbpedia.org/resource/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@base <http://purl.org/qb4olap/cubes> .
-<http://purl.org/qb4olap/cubes> rdf:type owl:Ontology ;
+@prefix voaf: <http://purl.org/vocommons/voaf#>.
+@prefix vann: <http://purl.org/vocab/vann/>.
+
+<http://purl.org/qb4olap/cubes> rdf:type owl:Ontology, voaf:Vocabulary ;
+				vann:preferredNamespacePrefix "qb4o";
+				vann:preferredNamespaceUri "http://purl.org/qb4olap/cubes#"
 				rdfs:label "The QB4OLAP cube vocabulary, an extension to QB" ;
 				dcterms:created "2012-12-06"^^xsd:date ;
 				dcterms:modified "2015-02-23"^^xsd:date ;
@@ -22,9 +26,10 @@
 				owl:versionInfo "1.2" ;
 				owl:imports <http://purl.org/linked-data/cube> ;
 				dcterms:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ;
-				dcterms:contributor [foaf:mbox "lorenae@fing.edu.uy"] ,
+				dcterms:creator [foaf:mbox "lorenae@fing.edu.uy"] ,
 				                    [foaf:mbox "avaisman@itba.edu.ar"] ;
-[ ] .
+				dcterms:contributor [foaf:mbox "lorenae@fing.edu.uy"] ,
+				                    [foaf:mbox "avaisman@itba.edu.ar"] .
 
 #################################################################
 #
