@@ -1,0 +1,282 @@
+@prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix qb4o: <http://purl.org/qb4olap/cubes#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix scovo: <http://purl.org/NET/scovo#> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#>.
+@prefix vann: <http://purl.org/vocab/vann/>.
+
+<http://purl.org/qb4olap/cubes> rdf:type owl:Ontology, voaf:Vocabulary ;
+				vann:preferredNamespacePrefix "qb4o";
+				vann:preferredNamespaceUri "http://purl.org/qb4olap/cubes#"
+				rdfs:label "The QB4OLAP cube vocabulary, an extension to QB" ;
+				dcterms:created "2012-12-06"^^xsd:date ;
+				dcterms:modified "2015-02-23"^^xsd:date ;
+				dcterms:title "Vocabulary for publishing OLAP data cubes" ;
+				rdfs:comment "This vocabulary allows to publish and operate with OLAP cubes in RDF" ;
+				owl:versionInfo "1.2" ;
+				owl:imports <http://purl.org/linked-data/cube> ;
+				dcterms:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ;
+				dcterms:creator [foaf:mbox "lorenae@fing.edu.uy"] ,
+				                    [foaf:mbox "avaisman@itba.edu.ar"] ;
+				dcterms:contributor [foaf:mbox "lorenae@fing.edu.uy"] ,
+				                    [foaf:mbox "avaisman@itba.edu.ar"] .
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+### http://purl.org/qb4olap/cubes#aggregateFunction
+qb4o:aggregateFunction rdf:type rdf:Property, owl:ObjectProperty ;
+		rdfs:label "aggregate function"@en ;
+		rdfs:comment "An alternative to qb:componentProperty which makes explicit that the component is an aggregate function"@en ;
+		rdfs:subPropertyOf qb:componentProperty ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+		rdfs:range qb4o:AggregateFunction .
+
+### http://purl.org/qb4olap/cubes#cardinality
+qb4o:cardinality rdf:type rdf:Property,owl:ObjectProperty ;
+		rdfs:label "cardinality"@en ,
+			    "cardinality constraint"@en ;
+		rdfs:comment "An alternative to qb:componentProperty which allows to specify a cardinality constraint in fact-level relationship"@en ;
+		rdfs:subPropertyOf qb:componentProperty ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+		rdfs:range qb4o:Cardinality .
+
+### http://purl.org/qb4olap/cubes#childLevel
+qb4o:childLevel rdf:type rdf:Property,owl:ObjectProperty ;
+		rdfs:label "child level"@en ;
+		rdfs:comment "Child level property in a HierarchyStep"@en ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+		rdfs:domain qb4o:HierarchyStep ;
+		rdfs:range qb4o:LevelProperty .
+
+### http://purl.org/qb4olap/cubes#hasHierarchy
+qb4o:hasHierarchy rdf:type rdf:Property, owl:ObjectProperty ;
+		rdfs:label "set of hierarchies in a dimensoin"@en ;
+		rdfs:comment "Indicates the hierarchies that compose the dimension"@en ;
+		rdfs:domain qb:DimensionProperty ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+		rdfs:range qb4o:Hierarchy ;
+		owl:inverseOf qb4o:inDimension .
+
+### http://purl.org/qb4olap/cubes#hasLevel
+qb4o:hasLevel rdf:type rdf:Property, owl:ObjectProperty ;
+	    rdfs:label "set of levels in hierarchy"@en ;
+	    rdfs:comment "Indicates the levels that compose the hierarchy"@en ;
+	    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+	    rdfs:domain qb4o:Hierarchy ;
+	    rdfs:range qb4o:LevelProperty .
+
+### http://purl.org/qb4olap/cubes#hasAttribute
+qb4o:hasAttribute rdf:type rdf:Property, owl:ObjectProperty ;
+	    rdfs:label "Level has attribute"@en ;
+	    rdfs:comment "Indicates the attributes in an level"@en ;
+	    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+	    rdfs:domain qb4o:LevelProperty ;
+	    rdfs:range qb4o:LevelAttribute .
+
+### http://purl.org/qb4olap/cubes#hasID
+qb4o:hasID rdf:type rdf:Property, owl:ObjectProperty ;
+	    rdfs:label "Level has ID attribute"@en ;
+	    rdfs:comment "Indicates the attribute that identifies level members. Necessary to automatize ROLAP to QB4OLAP"@en ;
+	    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+	    rdfs:domain qb4o:LevelProperty ;
+	    rdfs:range qb4o:AttributeProperty .  
+
+### http://purl.org/qb4olap/cubes#inDimension
+qb4o:inDimension rdf:type rdf:Property, owl:ObjectProperty ;
+		rdfs:label "hierarchy belongs to dimension"@en ;
+		rdfs:comment "Indicates to which dimension the hierarchy belongs"@en ;
+		rdfs:range qb:DimensionProperty ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+		rdfs:domain qb4o:Hierarchy .
+
+### http://purl.org/qb4olap/cubes#inHierarchy
+qb4o:inHierarchy rdf:type rdf:Property, owl:ObjectProperty ;
+		rdfs:label "hierarchy step belongs to hierarchy"@en ;
+		rdfs:comment "Indicates to which hierarchy a hierarchy step (pair of levels) belongs"@en ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+		rdfs:domain qb4o:HierarchyStep ;
+		rdfs:range qb4o:Hierarchy .
+
+### http://purl.org/qb4olap/cubes#inLevel
+qb4o:inLevel rdf:type rdf:Property, owl:ObjectProperty ;
+	    rdfs:label "level attribute in level"@en ;
+	    rdfs:comment "Indicates to which level the level attribute belongs"@en ;
+	    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+	    rdfs:domain qb4o:LevelAttribute ;
+	    rdfs:range qb4o:LevelProperty .
+
+### http://purl.org/qb4olap/cubes#isCuboidOf
+qb4o:isCuboidOf rdf:type rdf:Property, owl:ObjectProperty ;
+	    rdfs:label "is cuboid of"@en ;
+	    rdfs:comment "Indicates to which cube a cuboid corresponds"@en ;
+	    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+	    rdfs:domain qb:DataStructureDefinition ;
+	    rdfs:range qb:DataStructureDefinition .	     
+
+### http://purl.org/qb4olap/cubes#level
+qb4o:level rdf:type rdf:Property, owl:ObjectProperty ;
+		rdfs:label "level"@en ;
+	   	rdfs:comment "An alternative to qb:componentProperty which makes explicit that the component is a level"@en ;
+	   	rdfs:subPropertyOf qb:componentProperty ;
+	   	rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+	   	rdfs:range qb4o:LevelProperty .
+
+### http://purl.org/qb4olap/cubes#memberOf
+qb4o:memberOf rdf:type rdf:Property, owl:ObjectProperty ;
+	    rdfs:label "level member is member of level"@en ;
+	    rdfs:comment "Indicates the level to which the level member belongs"@en ;
+	    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+	    rdfs:domain qb4o:LevelMember ;
+	    rdfs:range qb4o:LevelProperty .
+
+### http://purl.org/qb4olap/cubes#parentLevel
+qb4o:parentLevel rdf:type rdf:Property, owl:ObjectProperty ;
+		rdfs:label "parent level"@en ;
+		rdfs:comment "Parent level property in a HierarchyStep"@en ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+		rdfs:domain qb4o:HierarchyStep ;
+		rdfs:range qb4o:LevelProperty .
+
+### http://purl.org/qb4olap/cubes#pcCardinality
+qb4o:pcCardinality rdf:type rdf:Property,owl:ObjectProperty ;
+		rdfs:label "cardinality"@en ,
+		    "cardinality constraint"@en ;
+		rdfs:comment "A property which allows to specify a cardinality constraint in a parent-child relationship"@en ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+		rdfs:range qb4o:Cardinality ;
+		rdfs:domain qb4o:HierarchyStep .
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+### http://purl.org/qb4olap/cubes#AggregateFunction
+qb4o:AggregateFunction rdf:type rdfs:Class, owl:Class ;
+    	rdfs:label "Aggregate function"@en ;
+		rdfs:subClassOf qb:ComponentProperty ;
+		rdfs:comment "Class that represents aggregate functions that are applied to compute measure aggregate values"@en ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+### http://purl.org/qb4olap/cubes#Cardinality
+qb4o:Cardinality rdf:type rdfs:Class, owl:Class ;
+		rdfs:label "Cardinality"@en ;
+		rdfs:comment "Class that represents different cardinalities restrictions. These may be applied to  hierarchy steps or to the relationship between facts and dimension levels"@en ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+### http://purl.org/qb4olap/cubes#Hierarchy
+qb4o:Hierarchy rdf:type rdfs:Class, owl:Class ;
+		rdfs:label "Hierarchy"@en ;
+		rdfs:comment "The class of components which represent the hierarchies of a dimension"@en ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+### http://purl.org/qb4olap/cubes#HierarchyStep
+qb4o:HierarchyStep rdf:type rdfs:Class, owl:Class ;
+		rdfs:label "hierarchy step"@en ;
+		rdfs:comment "Class that represents a pair of levels (childLevel, parentLevel) in a dimension hierarchy"@en ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+### http://purl.org/qb4olap/cubes#LevelAttribute
+qb4o:LevelAttribute rdf:type rdfs:Class, owl:Class ;
+		rdfs:label "Level attribute";
+		rdfs:subClassOf rdf:Property ;
+	    rdfs:comment "The class of properties that represent level attributes"@en ;
+	    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+###  http://purl.org/qb4olap/cubes#LevelMember
+qb4o:LevelMember rdf:type rdfs:Class, owl:Class ;
+		rdfs:label "Level member"@en ;
+		rdfs:subClassOf skos:Concept ;
+		rdfs:comment "The class of components which represent the members of a level"@en ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+### http://purl.org/qb4olap/cubes#LevelProperty
+qb4o:LevelProperty rdf:type rdfs:Class, owl:Class ;
+		rdfs:label "Level property"@en ;
+		rdfs:subClassOf qb:ComponentProperty ;
+		rdfs:comment "The class of components which represent the levels of a hierarchy"@en ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+#aggregate functions
+
+### http://purl.org/qb4olap/cubes#Avg
+qb4o:Avg rdf:type qb4o:AggregateFunction ;
+		rdfs:label "AVG"@en ;
+	 	rdfs:comment "Returns the arithmetic mean of a set of numeric values."@en ;
+	 	rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+	 	owl:sameAs dbpedia:Average .
+
+### http://purl.org/qb4olap/cubes#Count
+qb4o:Count rdf:type qb4o:AggregateFunction ;
+	   	rdfs:label "COUNT"@en ;
+	   	rdfs:comment "Returns the number of elements in a set of elements (the cardinality of the set)."@en ;
+	   	rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+	   	owl:sameAs dbpedia:Counting .
+
+### http://purl.org/qb4olap/cubes#Max
+qb4o:Max rdf:type qb4o:AggregateFunction ;
+	 	rdfs:label "MAX"@en ;
+	 	rdfs:comment "Returns the maximum element in a set of elements, where a partial order is defined."@en ;
+	 	rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+	 	owl:sameAs dbpedia:Max .
+
+### http://purl.org/qb4olap/cubes#Min
+qb4o:Min rdf:type qb4o:AggregateFunction ;
+	 	rdfs:label "MIN"@en ;
+	 	rdfs:comment "Returns the minimum element in a set of elements, where a partial order is defined."@en ;
+	 	rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+	 	owl:sameAs dbpedia:Min .
+
+### http://purl.org/qb4olap/cubes#Sum
+qb4o:Sum rdf:type rdf:type qb4o:AggregateFunction ;
+	 	rdfs:label "SUM"@en ;
+	 	rdfs:comment "Returns the numeric value obtained by adding a set of numeric values."@en ;
+	 	rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
+	 	owl:sameAs dbpedia:Summation.
+
+#cardinality constraints
+
+### http://purl.org/qb4olap/cubes#ManyToMany
+qb4o:ManyToMany rdf:type qb4o:Cardinality ;
+		rdfs:label "N-M cardinality"@en ;
+		rdfs:comment "Represents N-M cardinality constraint"@en ;
+		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+### http://purl.org/qb4olap/cubes#ManyToOne
+qb4o:ManyToOne rdf:type qb4o:Cardinality ;
+	    rdfs:label "N-1 cardinality"@en ;
+	    rdfs:comment "Represents N-1 cardinality constraint"@en ;
+	    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+### http://purl.org/qb4olap/cubes#OneToMany
+qb4o:OneToMany rdf:type qb4o:Cardinality  ;
+	    rdfs:label "1-N cardinality"@en ;
+	    rdfs:comment "Represents 1-N cardinality constraint"@en ;
+	    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
+
+### http://purl.org/qb4olap/cubes#OneToOne
+qb4o:OneToOne rdf:type qb4o:Cardinality ;
+	    rdfs:label "1_1 cardinality"@en ;
+	    rdfs:comment "Represents 1-1 cardinality constraint"@en ;
+	    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .  	
