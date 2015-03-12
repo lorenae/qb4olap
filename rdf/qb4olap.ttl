@@ -93,7 +93,7 @@ qb4o:hasID rdf:type rdf:Property, owl:ObjectProperty ;
 	    rdfs:comment "Indicates the attribute that identifies level members. Necessary to automatize ROLAP to QB4OLAP"@en ;
 	    rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
 	    rdfs:domain qb4o:LevelProperty ;
-	    rdfs:range qb4o:AttributeProperty .  
+	    rdfs:range qb:AttributeProperty .  
 
 ### http://purl.org/qb4olap/cubes#inDimension
 qb4o:inDimension rdf:type rdf:Property, owl:ObjectProperty ;
