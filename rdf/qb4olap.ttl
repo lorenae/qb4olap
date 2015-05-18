@@ -22,7 +22,7 @@
 				dcterms:created "2012-12-06"^^xsd:date ;
 				dcterms:modified "2015-02-23"^^xsd:date ;
 				dcterms:title "QB4OLAP: a vocabulary for publishing OLAP data cubes" ;
-				rdfs:comment "This vocabulary allows to publish and operate with OLAP cubes in RDF" ;
+				rdfs:comment "This vocabulary, named QB4OLAP, is an extension to the DataCube vocabulary that allows to represent OLAP cubes in RDF, and to implement OLAP operators (such as Roll-up, Slice, and Dice) as SPARQL queries directly on this RDF representation." ;
 				owl:versionInfo "1.2" ;
 				owl:imports <http://purl.org/linked-data/cube#> ;
 				dcterms:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ;
