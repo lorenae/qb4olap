@@ -23,7 +23,7 @@
 				dcterms:modified "2015-05-18"^^xsd:date ;
 				dcterms:title "QB4OLAP: a vocabulary for publishing OLAP data cubes" ;
 				rdfs:comment "This vocabulary, named QB4OLAP, is an extension to the DataCube vocabulary that allows to represent OLAP cubes in RDF, and to implement OLAP operators (such as Roll-up, Slice, and Dice) as SPARQL queries directly on this RDF representation." ;
-				owl:versionInfo "1.3" ;
+				owl:versionInfo "1.2" ;
 				owl:imports <http://purl.org/linked-data/cube#> ;
 				dcterms:license <http://www.opendatacommons.org/licenses/pddl/1.0/> ;
 				dcterms:creator [foaf:mbox "lorenae@fing.edu.uy"] ,
@@ -159,14 +159,6 @@ qb4o:pcCardinality rdf:type rdf:Property,owl:ObjectProperty ;
 		rdfs:range qb4o:Cardinality ;
 		rdfs:domain qb4o:HierarchyStep .
 
-### http://purl.org/qb4olap/cubes#rollup
-qb4o:rollup rdf:type rdf:Property,owl:ObjectProperty ;
-		rdfs:label "rollup function"@en;
-		rdfs:comment "A property which allows to specify the predicate that implements the rollup relationship in a hierarchy step."@en ;
-		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> ;
-		rdfs:range qb4o:HierarchyStep ;
-		rdfs:domain qb4o:RollupProperty .
-
 #################################################################
 #
 #    Classes
@@ -218,13 +210,6 @@ qb4o:LevelProperty rdf:type rdfs:Class, owl:Class ;
 		rdfs:subClassOf qb:ComponentProperty ;
 		rdfs:comment "The class of components which represent the levels of a hierarchy"@en ;
 		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .
-	
-### http://purl.org/qb4olap/cubes#RollupProperty
-qb4o:RollupProperty rdf:type rdfs:Class, owl:Class ;
-		rdfs:label "Rollup property"@en ;
-		rdfs:subClassOf owl:TransitiveProperty; ;
-		rdfs:comment "The class of properties which represent the rollup relationships."@en ;
-		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .		
 
 #################################################################
 #
