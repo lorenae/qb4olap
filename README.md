@@ -1,8 +1,7 @@
-#Intro
 
 QB4OLAP is a Vocabulary for Business Intelligence over Linked Data.
 
-It is an extension of the DataCube vocabulary that allows to represent OLAP cubes in RDF, 
+It is an extension of the [DataCube](http://www.w3.org/TR/vocab-data-cube/) vocabulary that allows to represent OLAP cubes in RDF, 
 and to implement OLAP operators (such as Roll-up, Slice, and Dice) as SPARQL queries directly on this RDF representation.
 
 #The vocabulary 
