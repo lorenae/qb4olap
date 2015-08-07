@@ -6,7 +6,10 @@ and to implement OLAP operators (such as Roll-up, Slice, and Dice) as SPARQL que
 
 #The vocabulary 
 
-You can find the current version of the vocabulary in Turtle format in this repository. The latest version (v1.3) is available [here](https://github.com/lorenae/qb4olap/blob/master/rdf/qb4olap.ttl). Previous stable version of the vocabulary (v1.2) is available [here](https://github.com/lorenae/qb4olap/tree/master/rdf).
+You can find the current version of the vocabulary in Turtle format in this repository. 
+The latest version (v1.3) is available [here](https://github.com/lorenae/qb4olap/blob/master/rdf/qb4olap.ttl). Previous stable version of the vocabulary (v1.2) is available [here](https://github.com/lorenae/qb4olap/tree/master/rdf).
+
+The main improvement in v1.3 is the ability to represent custom rollup relationships.
 
 We suggest to use dcterms:conformsTo property to indicate to which version of QB4OLAP is used in a dataset.
 
