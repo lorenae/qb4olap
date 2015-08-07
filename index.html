@@ -1,59 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="QB4OLAP : A RDF vocabulary to publish and operate with multidimensional data on the web.">
+    <title>QB4OLAP by lorenae</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>QB4OLAP</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">QB4OLAP</h1>
+        <p class="header">Business Intelligence over Linked Data</p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/lorenae/qb4olap">View on GitHub</a>
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/lorenae/qb4olap/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/lorenae/qb4olap/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/lorenae/qb4olap">View On GitHub</a></li>
+        </ul>
 
-          <h1 id="project_title">QB4OLAP</h1>
-          <h2 id="project_tagline">A RDF vocabulary to publish and operate with multidimensional data on the web.</h2>
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/lorenae">lorenae</a></p>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/lorenae/qb4olap/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/lorenae/qb4olap/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
+      </header>
+      <section>
+        <p>QB4OLAP is a Vocabulary for Business Intelligence over Linked Data.</p>
 
-<p><em>QB4OLAP</em> vocabulary is an extension to the <a href="http://www.w3.org/TR/vocab-data-cube/">DataCube vocabulary </a>  that allows to represent OLAP cubes in RDF, and to implement OLAP operators (such as Roll-up, Slice, and Dice) as SPARQL queries directly on this RDF representation.</p>
+<p>It is an extension of the DataCube vocabulary that allows to represent OLAP cubes in RDF, 
+and to implement OLAP operators (such as Roll-up, Slice, and Dice) as SPARQL queries directly on this RDF representation.</p>
 
-<p>You can find the current version of the vocabulary in Turtle format <a href="http://purl.org/qb4olap/cubes">here</a>.</p>
+<h1>
+<a id="the-vocabulary" class="anchor" href="#the-vocabulary" aria-hidden="true"><span class="octicon octicon-link"></span></a>The vocabulary</h1>
 
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<p>You can find the current version of the vocabulary in Turtle format in this repository. The latest version is available <a href="https://github.com/lorenae/qb4olap/blob/master/rdf/qb4olap.ttl">here</a>. Previous versions of the vocabulary are also available <a href="../rdf">here</a>.</p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="https://help.github.com/pages">https://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<h1>
+<a id="documentation-and-related-resources" class="anchor" href="#documentation-and-related-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation and related resources</h1>
+
+<p>Our <a href="https://github.com/lorenae/qb4olap/wiki">wiki</a> contains a detailed description of the elements of the vocabulary, examples of QB4OLAP in-use, and related publications.</p>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">QB4OLAP maintained by <a href="https://github.com/lorenae">lorenae</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
-
-              <script type="text/javascript">
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		          <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -63,7 +60,6 @@
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
