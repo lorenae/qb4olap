@@ -10,3 +10,6 @@ You can find the current version of the vocabulary in Turtle format in this repo
 
 #Documentation and related resources
 Our [wiki](https://github.com/lorenae/qb4olap/wiki) contains a detailed description of the elements of the vocabulary, examples of QB4OLAP in-use, and related publications.
+
+Check our [QB4OLAP-tools](https://github.com/lorenae/qb4olap-tools) project to see some examples of what can be done with this vocabulary.
+
