@@ -11,7 +11,7 @@ The latest version (v1.3) is available [here](https://github.com/lorenae/qb4olap
 
 The main improvement in v1.3 is the ability to represent custom rollup relationships.
 
-We suggest to use dcterms:conformsTo property to indicate to which version of QB4OLAP is used in a dataset.
+We suggest to use dcterms:conformsTo property to indicate which version of QB4OLAP is used in a dataset.
 
 #Documentation and related resources
 Our [wiki](https://github.com/lorenae/qb4olap/wiki) contains a detailed description of the elements of the vocabulary, examples of QB4OLAP in-use, and related publications.
