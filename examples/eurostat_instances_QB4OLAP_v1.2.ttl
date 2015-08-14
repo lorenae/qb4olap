@@ -1,0 +1,3489 @@
+@prefix cc:      		<http://creativecommons.org/ns#> .
+@prefix dcterms:  		<http://purl.org/dc/terms/> .
+@prefix foaf:			<http://xmlns.com/foaf/0.1/> .
+@prefix rdf:     		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    		<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    		<http://www.w3.org/2004/02/skos/core#> .
+@prefix void:    		<http://rdfs.org/ns/void#> .
+@prefix xsd:     		<http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#>.
+@prefix dct:      <http://purl.org/dc/terms/> .
+
+@prefix sdmx:    		<http://purl.org/linked-data/sdmx#> .
+@prefix sdmx-code:  	<http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix sdmx-concept:  	<http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix sdmx-dimension:	<http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-measure:	<http://purl.org/linked-data/sdmx/2009/measure#> .
+
+@prefix age:			<http://eurostat.linked-statistics.org/dic/age#> .
+@prefix citizen: 		<http://eurostat.linked-statistics.org/dic/citizen#> .
+@prefix concept:		<http://eurostat.linked-statistics.org/concept#> .
+@prefix dic:     		<http://eurostat.linked-statistics.org/dic/> .
+@prefix geo: 			<http://eurostat.linked-statistics.org/dic/geo#> .
+@prefix sex:			<http://eurostat.linked-statistics.org/dic/sex#> .
+@prefix title:   		<http://eurostat.linked-statistics.org/title#> .
+@prefix property:  		<http://eurostat.linked-statistics.org/property#> .
+
+@prefix qb:      		<http://purl.org/linked-data/cube#> .
+@prefix qb4o:			<http://purl.org/qb4olap/cubes#> .
+@prefix time:			<http://purl.org/qb4olap/dimensions/time#> .
+
+@prefix schema: <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#> .
+@prefix data: <http://eurostat.linked-statistics.org/data/>.
+@prefix instances: <http://www.fing.edu.uy/inco/cubes/instances/migr_asyapp> .
+@prefix ageDim: <http://www.fing.edu.uy/inco/cubes/dims/migr_asyapp/age#> .
+@prefix citDim: <http://www.fing.edu.uy/inco/cubes/dims/migr_asyapp/citizen#> .
+@prefix desDim: <http://www.fing.edu.uy/inco/cubes/dims/migr_asyapp/destination#> .
+@prefix timDim: <http://www.fing.edu.uy/inco/cubes/dims/migr_asyapp/time#> .
+@prefix sexDim: <http://www.fing.edu.uy/inco/cubes/dims/migr_asyapp/sex#> .
+@prefix appDim: <http://www.fing.edu.uy/inco/cubes/dims/migr_asyapp/appType#> .
+
+
+@prefix ns1:	<http://eurostat.linked-statistics.org/dic/geo#> .
+@prefix dbpedia:	<http://dbpedia.org/resource/> .
+@prefix ns3:	<http://purl.org/qb4olap/cubes#> .
+@prefix ns4:	<http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#> .
+
+  
+#----------------------------------------------------------
+# Age dimension instances
+
+age:Y_LT14
+      qb4o:memberOf property:age ;
+      skos:broader age:TOTAL ;
+      schema:ageGroup "Y_LT14" ;
+      skos:notation "Y_LT14" ;
+      skos:prefLabel "Moins de 14 ans"@fr , "Less than 14 years"@en , "Weniger als 14 Jahre"@de .
+
+age:Y14-17
+      qb4o:memberOf property:age ;
+      skos:broader age:TOTAL ;
+      schema:ageGroup "Y14-17" ;
+      skos:notation "Y14-17" ;
+      skos:prefLabel "14 bis 17 Jahre"@de , "De 14 à 17 ans"@fr , "From 14 to 17 years"@en .
+
+age:Y18-34
+      qb4o:memberOf property:age ;
+      skos:broader age:TOTAL ;
+      schema:ageGroup "Y18-34" ;
+      skos:notation "Y18-34" ;
+      skos:prefLabel "De 18 à 34 ans"@fr , "18 bis 34 Jahre"@de , "From 18 to 34 years"@en .
+
+
+age:Y35-64
+      qb4o:memberOf property:age ;
+      skos:broader age:TOTAL ;
+      schema:ageGroup "Y35-64" ;
+      skos:notation "Y35-64" ;
+      skos:prefLabel "From 35 to 64 years"@en , "De 35 à 64 ans"@fr , "35 bis 64 Jahre"@de .
+
+age:Y_GE65
+      qb4o:memberOf property:age ;
+      skos:broader age:TOTAL ;
+      schema:ageGroup "Y_GE65" ;
+      skos:notation "Y_GE65" ;
+      skos:prefLabel "65 Jahre und mehr"@de , "65 ans ou plus"@fr , "65 years or over"@en .
+
+age:UNK
+      qb4o:memberOf property:age ;
+      skos:broader age:TOTAL ;
+      schema:ageGroup "UNK" ;
+      skos:notation "UNK" ;
+      skos:prefLabel "Unbekannt"@de , "Inconnu"@fr , "Unknown"@en .
+
+age:TOTAL
+      rdf:type skos:Concept ;
+      qb4o:memberOf schema:ageAll;
+      skos:notation "TOTAL" ;
+      skos:prefLabel "Insgesamt"@de , "Total"@fr , "Total"@en .
+  
+#-----------------------------------------------------------------------------------------------------
+# Time Dimension instances
+
+time:TOTAL
+	qb4o:memberOf schema:timeAll.
+
+time:2008
+  	qb4o:memberOf schema:year;
+  	schema:yearNum 2008;
+  	skos:broader time:TOTAL.
+
+time:2009
+  	qb4o:memberOf schema:year;
+  	schema:yearNum 2009;
+  	skos:broader time:TOTAL.
+	
+time:2010
+	qb4o:memberOf schema:year;
+	schema:yearNum 2010;
+  	skos:broader time:TOTAL.
+	
+time:2011
+	qb4o:memberOf schema:year;
+	schema:yearNum 2011;
+  	skos:broader time:TOTAL.
+
+time:2012
+	qb4o:memberOf schema:year;
+	schema:yearNum 2012;
+  	skos:broader time:TOTAL.
+
+time:2013
+	qb4o:memberOf schema:year;
+	schema:yearNum 2013;
+  	skos:broader time:TOTAL.
+  	
+time:2014
+	qb4o:memberOf schema:year;
+	schema:yearNum 2014;
+  	skos:broader time:TOTAL.  		
+	    	
+time:200801
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "January";
+	skos:broader time:2008 .
+	
+time:200901
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "January";
+	skos:broader time:2009 .
+		
+time:201001
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "January";
+	skos:broader time:2010 .
+
+time:201101
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "January";
+	skos:broader time:2011 .
+
+time:201201
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "January";
+	skos:broader time:2012 .
+
+time:201301
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "January";
+	skos:broader time:2013 .
+
+time:201401
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "January";
+	skos:broader time:2014 .
+
+time:200802
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "February";
+	skos:broader time:2008 .
+
+time:200902
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "February";
+	skos:broader time:2009 .
+  
+time:201002
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "February";
+	skos:broader time:2010 .
+
+time:201102
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "February";
+	skos:broader time:2011 .
+
+time:201202
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "February";
+	skos:broader time:2012 .
+
+time:201302
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "February";
+	skos:broader time:2013 .
+	
+time:201402
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "February";
+	skos:broader time:2014 .	
+
+time:200803
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "February";
+	skos:broader time:2008 .
+
+time:200903
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "March";
+	skos:broader time:2009 .
+
+time:201003
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "March";
+skos:broader time:2010 .
+
+time:201103
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "March";
+skos:broader time:2011 .
+
+time:201203
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "March";
+	skos:broader time:2012 .
+
+time:201303
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "March";
+	skos:broader time:2013 .
+	
+time:201403
+	qb4o:memberOf sdmx-dimension:refPeriod;
+	schema:monthName "March";
+	skos:broader time:2014 .	
+
+time:200804
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "April";
+skos:broader time:2008 .
+
+time:200904
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "April";
+skos:broader time:2009 .
+
+time:201004
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "April";
+skos:broader time:2010 .
+
+time:201104
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "April";
+skos:broader time:2011 .
+
+time:201204
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "April";
+skos:broader time:2012 .
+
+time:201304
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "April";
+skos:broader time:2013 .
+
+time:201404
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "April";
+skos:broader time:2014 .
+
+time:200805
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "May";
+skos:broader time:2008 .
+
+time:200905
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "May";
+skos:broader time:2009 .
+
+time:201005
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "May";
+skos:broader time:2010 .
+
+time:201105
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "May";
+skos:broader time:2011 .
+
+time:201205
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "May";
+skos:broader time:2012 .
+
+time:201305
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "May";
+skos:broader time:2013 .
+
+time:201405
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "May";
+skos:broader time:2014 .
+
+
+time:200806
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "June";
+skos:broader time:2008 .
+
+time:200906
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "June";
+skos:broader time:2009 .
+
+time:201006
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "June";
+skos:broader time:2010 .
+
+time:201106
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "June";
+skos:broader time:2011 .
+
+time:201206
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "June";
+skos:broader time:2012 .
+
+time:201306
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "June";
+skos:broader time:2013 .
+
+time:201406
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "June";
+skos:broader time:2014 .
+
+time:200807
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "July";
+skos:broader time:2008 .
+
+time:200907
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "July";
+skos:broader time:2009 .
+
+time:201007
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "July";
+skos:broader time:2010 .
+
+time:201107
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "July";
+skos:broader time:2011 .
+
+time:201207
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "July";
+skos:broader time:2012 .
+
+time:201307
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "July";
+skos:broader time:2013 .
+
+time:201407
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "July";
+skos:broader time:2014 .
+
+
+time:200808
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "August";
+skos:broader time:2008 .
+
+time:200908
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "August";
+skos:broader time:2009 .
+
+time:201008
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "August";
+skos:broader time:2010 .
+
+time:201108
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "August";
+skos:broader time:2011 .
+
+time:201208
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "August";
+skos:broader time:2012 .
+
+time:201308
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "August";
+skos:broader time:2013 .
+
+time:201408
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "August";
+skos:broader time:2014 .
+
+
+time:200809
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "September";
+skos:broader time:2008 .
+
+time:200909
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "September";
+skos:broader time:2009 .
+
+time:201009
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "September";
+skos:broader time:2010 .
+
+time:201109
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "September";
+skos:broader time:2011 .
+
+time:201209
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "September";
+skos:broader time:2012 .
+
+time:201309
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "September";
+skos:broader time:2013 .
+
+time:201409
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "September";
+skos:broader time:2014 .
+
+time:200810
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "October";
+skos:broader time:2008 .
+
+time:200910
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "October";
+skos:broader time:2009 .
+
+time:201010
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "October";
+skos:broader time:2010 .
+
+time:201110
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "October";
+skos:broader time:2011 .
+
+time:201210
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "October";
+skos:broader time:2012 .
+
+time:201310
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "October";
+skos:broader time:2013 .
+
+time:201410
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "October";
+skos:broader time:2014 .
+
+time:200811
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "November";
+skos:broader time:2008 .
+
+time:200911
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "November";
+skos:broader time:2009 .
+
+time:201011
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "November";
+skos:broader time:2010 .
+
+time:201111
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "November";
+skos:broader time:2011 .
+
+time:201211
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "November";
+skos:broader time:2012 .
+
+time:201311
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "November";
+skos:broader time:2013 .
+
+time:201411
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "November";
+skos:broader time:2014 .
+
+time:200812
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "December";
+skos:broader time:2008 .
+
+time:200912
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "December";
+skos:broader time:2009 .
+
+time:201012
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "December";
+skos:broader time:2010 .
+
+time:201112
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "December";
+skos:broader time:2011 .
+
+time:201212
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "December";
+skos:broader time:2012 .
+
+time:201312
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "December";
+skos:broader time:2013 .
+
+
+time:201412
+qb4o:memberOf sdmx-dimension:refPeriod;
+schema:monthName "December";
+skos:broader time:2014 .
+
+#----------------------------------------------------------
+# Sex dimension instances
+
+sex:T
+      qb4o:memberOf schema:sexAll;
+      schema:sexName "Total";
+      skos:notation "T" ;
+      skos:prefLabel "Insgesamt"@de , "Total"@fr , "Total"@en .
+sex:F
+      qb4o:memberOf property:sex ;
+      skos:broader sex:T ;
+      schema:sexName "F";
+      skos:notation "F" ;
+      skos:prefLabel "Frauen"@de , "Femmes"@fr , "Females"@en .
+      
+sex:M
+      qb4o:memberOf property:sex ;
+      skos:broader sex:T ;
+      schema:sexName "M";
+      skos:notation "M" ;
+      skos:prefLabel "Hommes"@fr , "Males"@en , "Männer"@de .
+
+sex:UNK
+      qb4o:memberOf property:sex ;
+      skos:broader sex:T ;
+      schema:sexName "UNK";
+      skos:notation "UNK" ;
+      skos:prefLabel "Unbekannt"@de , "Inconnu"@fr , "Unknown"@en .
+
+#----------------------------------------------------------
+# Type of applicant dimension instances
+
+appDim:TOTAL 
+      qb4o:memberOf schema:asylappAll ;
+      skos:notation "TOTAL" ;
+      skos:prefLabel "All asylum applicants"@en .
+
+<http://eurostat.linked-statistics.org/dic/asyl_app#ASY_APP>
+	  qb4o:memberOf property:asyl_app ;
+	  skos:broader appDim:TOTAL;
+	  schema:asylappName "ASY_APP";
+      skos:notation "ASY_APP" ;
+      skos:prefLabel "Demandeur d'asile"@fr , "Asylbewerber"@de , "Asylum applicant"@en .
+
+<http://eurostat.linked-statistics.org/dic/asyl_app#NASY_APP>
+      qb4o:memberOf property:asyl_app ;
+      skos:broader appDim:TOTAL;
+      schema:asylappName "NASY_APP";
+      skos:notation "NASY_APP" ;
+      skos:prefLabel "Nouveau demandeur d'asile"@fr , "New asylum applicant"@en , "Erstmalige Asylbewerber"@de .
+
+
+# --------------------------------------------------------
+# Origin country (citizen) dimension instances
+
+
+citDim:TOTAL 
+	qb4o:memberOf schema:citAll;
+	skos:notation "All citizenships" ;
+    skos:prefLabel "All citizenships"@en .
+
+citDim:NONE
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:TOTAL;
+      skos:notation "NONE" ;
+      skos:prefLabel "None"@en .
+          
+
+citDim:AF
+      qb4o:memberOf schema:continent ;
+      skos:broader citDim:TOTAL;
+      skos:notation "AF" ;
+      schema:continentName "Africa" ; 
+      skos:prefLabel "Africa"@en .
+
+citDim:EU
+      qb4o:memberOf schema:continent ;
+      skos:broader citDim:TOTAL;
+      schema:continentName "Europe" ;
+      skos:notation "EU" ;
+      skos:prefLabel "Europe"@en .
+
+citDim:SA
+      qb4o:memberOf schema:continent ;
+      skos:broader citDim:TOTAL;
+      schema:continentName "South America" ;
+      skos:notation "SA" ;
+      skos:prefLabel "South America"@en .
+
+citDim:NA
+      qb4o:memberOf schema:continent ;
+      skos:broader citDim:TOTAL;
+      schema:continentName "Northern America" ;
+      skos:notation "NA" ;
+      skos:prefLabel "Northern America"@en .
+
+citDim:AS
+      qb4o:memberOf schema:continent ;
+      skos:broader citDim:TOTAL;
+      schema:continentName "Asia" ;
+      skos:notation "AS" ;
+      skos:prefLabel "Asia"@en .
+
+citDim:OC
+      qb4o:memberOf schema:continent ;
+      skos:broader citDim:TOTAL;
+      schema:continentName "Oceania" ;
+      skos:notation "OC" ;
+      skos:prefLabel "Oceania"@en .
+
+citDim:AQ
+      qb4o:memberOf schema:continent ;
+      skos:broader citDim:TOTAL;
+      schema:continentName "Antarctica" ;
+      skos:notation "AQ" ;
+      skos:prefLabel "Antarctica"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CF>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CF" ;
+      skos:prefLabel "Central African Republic"@en , "Zentralafrikanische Republik"@de , "République centrafricaine"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#NL>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "NL" ;
+      skos:prefLabel "Netherlands"@en , "Niederlande"@de , "Pays-Bas"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BY>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BY" ;
+      skos:prefLabel "Bélarus"@fr , "Belarus"@de , "Belarus"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#AU>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:OC ;
+      skos:inScheme dic:citizen ;
+      skos:notation "AU" ;
+      skos:prefLabel "Australie"@fr , "Australien"@de , "Australia"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#DJ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "DJ" ;
+      skos:prefLabel "Dschibuti"@de , "Djibouti"@fr , "Djibouti"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#ZM>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "ZM" ;
+      skos:prefLabel "Zambia"@en , "Zambie"@fr , "Sambia"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#EG>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "EG" ;
+      skos:prefLabel "Ägypten"@de , "Egypt"@en , "Égypte"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BJ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BJ" ;
+      skos:prefLabel "Bénin"@fr , "Benin"@de , "Benin"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#LI>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;     
+      skos:inScheme dic:citizen ;
+      skos:notation "LI" ;
+      skos:prefLabel "Liechtenstein"@de , "Liechtenstein"@fr , "Liechtenstein"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MY>
+      rdf:type skos:Concept ;      
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;    
+      skos:inScheme dic:citizen ;
+      skos:notation "MY" ;
+      skos:prefLabel "Malaisie"@fr , "Malaysia"@de , "Malaysia"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CU>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CU" ;
+      skos:prefLabel "Kuba"@de , "Cuba"@fr , "Cuba"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#PT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "PT" ;
+      skos:prefLabel "Portugal"@de , "Portugal"@fr , "Portugal"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#KI>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:OC ;
+      skos:inScheme dic:citizen ;
+      skos:notation "KI" ;
+      skos:prefLabel "Kiribati"@de , "Kiribati"@fr , "Kiribati"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BZ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BZ" ;
+      skos:prefLabel "Belize"@de , "Belize"@fr , "Belize"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#UG>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "UG" ;
+      skos:prefLabel "Ouganda"@fr , "Uganda"@de , "Uganda"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SO>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SO" ;
+      skos:prefLabel "Somalia"@de , "Somalia"@en , "Somalie"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#AF>
+      rdf:type skos:Concept ;
+      skos:inScheme dic:citizen ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:notation "AF" ;
+      skos:prefLabel "Afghanistan"@de , "Afghanistan"@fr , "Afghanistan"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#GW>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "GW" ;
+      skos:prefLabel "Guinée-Bissau"@fr , "Guinea-Bissau"@de , "Guinea-Bissau"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#VN>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "VN" ;
+      skos:prefLabel "Vietnam"@de , "Vietnam"@en , "Viêt Nam"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#TT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "TT" ;
+      skos:prefLabel "Trinité-et-Tobago"@fr , "Trinidad und Tobago"@de , "Trinidad and Tobago"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#EH>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "EH" ;
+      skos:prefLabel "Western Sahara"@en , "Westsahara"@de , "Sahara occidental"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MZ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MZ" ;
+      skos:prefLabel "Mosambik"@de , "Mozambique"@fr , "Mozambique"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#PS>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "PS" ;
+      skos:prefLabel "Territoire palestinien"@fr , "Palestinian territory"@en , "Palästinensisches Gebiet"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BI>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BI" ;
+      skos:prefLabel "Burundi"@de , "Burundi"@fr , "Burundi"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CV>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CV" ;
+      skos:prefLabel "Kap Verde"@de , "Cape Verde"@en , "Cap-Vert"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#GH>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "GH" ;
+      skos:prefLabel "Ghana"@de , "Ghana"@fr , "Ghana"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#DZ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "DZ" ;
+      skos:prefLabel "Algerien"@de , "Algérie"@fr , "Algeria"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#AE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "AE" ;
+      skos:prefLabel "Émirats arabes unis"@fr , "Vereinigte Arabische Emirate"@de , "United Arab Emirates"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BW>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BW" ;
+      skos:prefLabel "Botswana"@fr , "Botswana"@en , "Botsuana"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CH>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CH" ;
+      skos:prefLabel "Switzerland"@en , "Schweiz"@de , "Suisse"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#KW>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "KW" ;
+      skos:prefLabel "Kuwait"@de , "Kuwait"@en , "Koweït"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MK>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MK" ;
+      skos:prefLabel "Die ehemalige jugoslawische Republik Mazedonien"@de , "Ancienne République yougoslave de Macédoine"@fr , "Former Yugoslav Republic of Macedonia, the"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#FI>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "FI" ;
+      skos:prefLabel "Finlande"@fr , "Finnland"@de , "Finland"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#EE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "EE" ;
+      skos:prefLabel "Estonie"@fr , "Estonia"@en , "Estland"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#STLS>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NONE ;
+      skos:inScheme dic:citizen ;
+      skos:notation "STLS" ;
+      skos:prefLabel "Staatenlos"@de , "Stateless"@en , "Apatrides"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#YE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "YE" ;
+      skos:prefLabel "Yemen"@en , "Yémen"@fr , "Jemen"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BH>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BH" ;
+      skos:prefLabel "Bahreïn"@fr , "Bahrain"@de , "Bahrain"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SM>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SM" ;
+      skos:prefLabel "San Marino"@de , "San Marino"@en , "Saint-Marin"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#GE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "GE" ;
+      skos:prefLabel "Georgien"@de , "Géorgie"@fr , "Georgia"@en .
+
+
+<http://eurostat.linked-statistics.org/dic/citizen#CG>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CG" ;
+      skos:prefLabel "Kongo"@de , "Congo"@fr , "Congo"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#FJ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:OC;
+      skos:inScheme dic:citizen ;
+      skos:notation "FJ" ;
+      skos:prefLabel "Fidji"@fr , "Fiji"@en , "Fidschi"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#TV>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:OC ;
+      skos:inScheme dic:citizen ;
+      skos:notation "TV" ;
+      skos:prefLabel "Tuvalu"@de , "Tuvalu"@fr , "Tuvalu"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#PE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "PE" ;
+      skos:prefLabel "Pérou"@fr , "Peru"@de , "Peru"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#ML>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "ML" ;
+      skos:prefLabel "Mali"@de , "Mali"@fr , "Mali"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#OM>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "OM" ;
+      skos:prefLabel "Oman"@de , "Oman"@fr , "Oman"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#LY>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "LY" ;
+      skos:prefLabel "Libye"@fr , "Libya"@en , "Libyen"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#TD>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "TD" ;
+      skos:prefLabel "Chad"@en , "Tchad"@fr , "Tschad"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BG>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BG" ;
+      skos:prefLabel "Bulgarien"@de , "Bulgaria"@en , "Bulgarie"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SN>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SN" ;
+      skos:prefLabel "Senegal"@de , "Senegal"@en , "Sénégal"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#AG>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "AG" ;
+      skos:prefLabel "Antigua and Barbuda"@en , "Antigua-et-Barbuda"@fr , "Antigua und Barbuda"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#TO>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "TO" ;
+      skos:prefLabel "Tonga"@de , "Tonga"@fr , "Tonga"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#NP>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "NP" ;
+      skos:prefLabel "Nepal"@de , "Nepal"@en , "Népal"@fr .
+
+
+
+<http://eurostat.linked-statistics.org/dic/citizen#MM>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MM" ;
+      skos:prefLabel "Birmanie/Myanmar"@fr , "Birma/Myanmar"@de , "Burma/Myanmar"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#US>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "US" ;
+      skos:prefLabel "United States"@en , "Vereinigte Staaten"@de , "États-Unis"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SC>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SC" ;
+      skos:prefLabel "Seychelles"@fr , "Seychelles"@en , "Seychellen"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#EC>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "EC" ;
+      skos:prefLabel "Ecuador"@de , "Ecuador"@en , "Équateur"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#IT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "IT" ;
+      skos:prefLabel "Italie"@fr , "Italien"@de , "Italy"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#KE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "KE" ;
+      skos:prefLabel "Kenya"@fr , "Kenya"@en , "Kenia"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BF>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BF" ;
+      skos:prefLabel "Burkina Faso"@de , "Burkina Faso"@fr , "Burkina Faso"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CY>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CY" ;
+      skos:prefLabel "Zypern"@de , "Cyprus"@en , "Chypre"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#ET>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "ET" ;
+      skos:prefLabel "Ethiopia"@en , "Éthiopie"@fr , "Äthiopien"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SS>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SS" ;
+      skos:prefLabel "South Sudan"@en , "Südsudan"@de , "Soudan du Sud"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#RO>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "RO" ;
+      skos:prefLabel "Romania"@en , "Rumänien"@de , "Roumanie"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#NO>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "NO" ;
+      skos:prefLabel "Norvège"@fr , "Norway"@en , "Norwegen"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SB>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SB" ;
+      skos:prefLabel "Salomonen"@de , "Îles Salomon"@fr , "Solomon Islands"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MN>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MN" ;
+      skos:prefLabel "Mongolie"@fr , "Mongolei"@de , "Mongolia"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#AR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "AR" ;
+      skos:prefLabel "Argentine"@fr , "Argentina"@en , "Argentinien"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#IS>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "IS" ;
+      skos:prefLabel "Iceland"@en , "Islande"@fr , "Island"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CI>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CI" ;
+      skos:prefLabel "Elfenbeinküste"@de , "Côte d'Ivoire"@fr , "Côte d'Ivoire"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CZ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CZ" ;
+      skos:prefLabel "Tschechische Republik"@de , "République tchèque"@fr , "Czech Republic"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#DM>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "DM" ;
+      skos:prefLabel "Dominica"@de , "Dominique"@fr , "Dominica"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#ST>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "ST" ;
+      skos:prefLabel "São Tomé und Príncipe"@de , "São Tomé and Príncipe"@en , "São Tomé e Príncipe"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#ES>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "ES" ;
+      skos:prefLabel "Espagne"@fr , "Spanien"@de , "Spain"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BE" ;
+      skos:prefLabel "Belgique"@fr , "Belgien"@de , "Belgium"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#LK>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "LK" ;
+      skos:prefLabel "Sri Lanka"@de , "Sri Lanka"@fr , "Sri Lanka"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#NR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:OC ;
+      skos:inScheme dic:citizen ;
+      skos:notation "NR" ;
+      skos:prefLabel "Nauru"@de , "Nauru"@fr , "Nauru"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SA>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SA" ;
+      skos:prefLabel "Arabie Saoudite"@fr , "Saudi-Arabien"@de , "Saudi Arabia"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#WS>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "WS" ;
+      skos:prefLabel "Samoa"@de , "Samoa"@fr , "Samoa"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#IR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "IR" ;
+      skos:prefLabel "Iran"@de , "Iran"@fr , "Iran"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BS>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BS" ;
+      skos:prefLabel "Bahamas"@de , "Bahamas"@fr , "Bahamas"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#AD>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "AD" ;
+      skos:prefLabel "Andorra"@de , "Andorra"@en , "Andorre"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#KG>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "KG" ;
+      skos:prefLabel "Kirghizistan"@fr , "Kirgisistan"@de , "Kyrgyzstan"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#KZ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "KZ" ;
+      skos:prefLabel "Kazakhstan"@fr , "Kazakhstan"@en , "Kasachstan"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CL>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CL" ;
+      skos:prefLabel "Chile"@de , "Chile"@en , "Chili"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#UA>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "UA" ;
+      skos:prefLabel "Ukraine"@de , "Ukraine"@fr , "Ukraine"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BD>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BD" ;
+      skos:prefLabel "Bangladesch"@de , "Bangladesh"@fr , "Bangladesh"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#ER>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "ER" ;
+      skos:prefLabel "Eritrea"@de , "Eritrea"@en , "Érythrée"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#AT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "AT" ;
+      skos:prefLabel "Austria"@en , "Autriche"@fr , "Österreich"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#TR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "TR" ;
+      skos:prefLabel "Turquie"@fr , "Türkei"@de , "Turkey"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#DK>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "DK" ;
+      skos:prefLabel "Dänemark"@de , "Danemark"@fr , "Denmark"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#QA>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "QA" ;
+      skos:prefLabel "Qatar"@fr , "Qatar"@en , "Katar"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#PA>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "PA" ;
+      skos:prefLabel "Panama"@de , "Panama"@fr , "Panama"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#IQ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "IQ" ;
+      skos:prefLabel "Iraq"@fr , "Iraq"@en , "Irak"@de .
+	  
+<http://eurostat.linked-statistics.org/dic/citizen#BT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BT" ;
+      skos:prefLabel "Bhutan"@de , "Bhutan"@en , "Bhoutan"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#GY>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "GY" ;
+      skos:prefLabel "Guyana"@de , "Guyana"@fr , "Guyana"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#HN>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "HN" ;
+      skos:prefLabel "Honduras"@de , "Honduras"@fr , "Honduras"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#NA>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "NA" ;
+      skos:prefLabel "Namibia"@de , "Namibia"@en , "Namibie"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#KH>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "KH" ;
+      skos:prefLabel "Cambodge"@fr , "Cambodia"@en , "Kambodscha"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SR" ;
+      skos:prefLabel "Suriname"@de , "Suriname"@fr , "Suriname"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BB>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BB" ;
+      skos:prefLabel "Barbados"@de , "Barbados"@en , "Barbade"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#JP>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "JP" ;
+      skos:prefLabel "Japon"@fr , "Japan"@de , "Japan"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#RS>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "RS" ;
+      skos:prefLabel "Serbie"@fr , "Serbien"@de , "Serbia"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CM>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CM" ;
+      skos:prefLabel "Kamerun"@de , "Cameroun"@fr , "Cameroon"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#PL>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "PL" ;
+      skos:prefLabel "Poland"@en , "Polen"@de , "Pologne"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#AM>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "AM" ;
+      skos:prefLabel "Armenien"@de , "Armenia"@en , "Arménie"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#KP>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "KP" ;
+      skos:prefLabel "Nordkorea"@de , "Corée du Nord"@fr , "North Korea"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SG>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SG" ;
+      skos:prefLabel "Singapur"@de , "Singapour"@fr , "Singapore"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#TL>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "TL" ;
+      skos:prefLabel "Timor-Leste"@de , "Timor-Leste"@en , "Timor-Oriental"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#TJ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "TJ" ;
+      skos:prefLabel "Tadschikistan"@de , "Tadjikistan"@fr , "Tajikistan"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#VA>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "VA" ;
+      skos:prefLabel "Vatican City State"@en , "Vatikanstadt"@de , "État de la Cité du Vatican"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#VE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "VE" ;
+      skos:prefLabel "Venezuela"@de , "Venezuela"@fr , "Venezuela"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#JO>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "JO" ;
+      skos:prefLabel "Jordanie"@fr , "Jordanien"@de , "Jordan"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#LA>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "LA" ;
+      skos:prefLabel "Laos"@de , "Laos"@fr , "Laos"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#PK>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "PK" ;
+      skos:prefLabel "Pakistan"@de , "Pakistan"@fr , "Pakistan"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BA>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BA" ;
+      skos:prefLabel "Bosnie-et-Herzégovine"@fr , "Bosnia and Herzegovina"@en , "Bosnien und Herzegowina"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MA>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MA" ;
+      skos:prefLabel "Maroc"@fr , "Marokko"@de , "Morocco"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CN>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CN" ;
+      skos:prefLabel "China (including Hong Kong)"@en , "China (einschließlich Hongkong)"@de , "Chine (Hong-Kong inclus)"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BR" ;
+      skos:prefLabel "Brasilien"@de , "Brésil"@fr , "Brazil"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#VU>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:OC ;
+      skos:inScheme dic:citizen ;
+      skos:notation "VU" ;
+      skos:prefLabel "Vanuatu"@de , "Vanuatu"@fr , "Vanuatu"@en .
+      
+
+<http://eurostat.linked-statistics.org/dic/citizen#MR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MR" ;
+      skos:prefLabel "Mauritania"@en , "Mauritanie"@fr , "Mauretanien"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#GA>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "GA" ;
+      skos:prefLabel "Gabon"@fr , "Gabon"@en , "Gabun"@de .
+
+
+
+<http://eurostat.linked-statistics.org/dic/citizen#UNK>
+      rdf:type skos:Concept ;
+      skos:inScheme dic:citizen ;
+      skos:notation "UNK" ;
+      skos:prefLabel "Unbekannt"@de , "Inconnu(s)"@fr , "Unknown"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#ID>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "ID" ;
+      skos:prefLabel "Indonesien"@de , "Indonésie"@fr , "Indonesia"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#DO>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "DO" ;
+      skos:prefLabel "Dominikanische Republik"@de , "Dominican Republic"@en , "République dominicaine"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#GM>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "GM" ;
+      skos:prefLabel "Gambia"@de , "Gambie"@fr , "Gambia, The"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#ZA>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "ZA" ;
+      skos:prefLabel "South Africa"@en , "Südafrika"@de , "Afrique du Sud"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#NE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "NE" ;
+      skos:prefLabel "Niger"@de , "Niger"@fr , "Niger"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#RU>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "RU" ;
+      skos:prefLabel "Russia"@en , "Russie"@fr , "Russland"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#IN>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "IN" ;
+      skos:prefLabel "India"@en , "Inde"@fr , "Indien"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CO>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CO" ;
+      skos:prefLabel "Colombie"@fr , "Colombia"@en , "Kolumbien"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#KN>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "KN" ;
+      skos:prefLabel "Saint Kitts and Nevis"@en , "St. Kitts und Nevis"@de , "Saint-Christophe-et-Nevis"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#EXT_EU27>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NONE ;
+      skos:inScheme dic:citizen ;
+      skos:notation "EXT_EU27" ;
+      skos:prefLabel "Extra EU-27"@en , "Extra-UE-27"@fr , "Extra-EU-27"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SE" ;
+      skos:prefLabel "Suède"@fr , "Sweden"@en , "Schweden"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#AO>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "AO" ;
+      skos:prefLabel "Angola"@de , "Angola"@fr , "Angola"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#TN>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "TN" ;
+      skos:prefLabel "Tunisie"@fr , "Tunisia"@en , "Tunesien"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#LR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "LR" ;
+      skos:prefLabel "Libéria"@fr , "Liberia"@de , "Liberia"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BO>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "BO" ;
+      skos:prefLabel "Bolivia"@en , "Bolivien"@de , "Bolivie"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#GD>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "GD" ;
+      skos:prefLabel "Grenada"@de , "Grenada"@en , "Grenade"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SV>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SV" ;
+      skos:prefLabel "El Salvador"@de , "El Salvador"@fr , "El Salvador"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#VC>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "VC" ;
+      skos:prefLabel "Saint Vincent and the Grenadines"@en , "St. Vincent und die Grenadinen"@de , "Saint-Vincent-et-les-Grenadines"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#GN>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "GN" ;
+      skos:prefLabel "Guinea"@de , "Guinea"@en , "Guinée"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#FR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "FR" ;
+      skos:prefLabel "Frankreich"@de , "France"@fr , "France"@en .
+	  
+<http://eurostat.linked-statistics.org/dic/citizen#MC>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MC" ;
+      skos:prefLabel "Monaco"@de , "Monaco"@fr , "Monaco"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#KM>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "KM" ;
+      skos:prefLabel "Comores"@fr , "Komoren"@de , "Comoros"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#XK>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "XK" ;
+      skos:prefLabel "Kosovo (gemäß der Resolution 1244/99 des Sicherheitsrates der Vereinten Nationen)"@de , "Kosovo (under United Nations Security Council Resolution 1244/99)"@en , "Kosovo (selon la résolution 1244/99 du Conseil de sécurité des Nations Unies)"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SD>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SD" ;
+      skos:prefLabel "Sudan"@de , "Soudan"@fr , "Sudan"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#HR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "HR" ;
+      skos:prefLabel "Kroatien"@de , "Croatie"@fr , "Croatia"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#TM>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "TM" ;
+      skos:prefLabel "Turkmenistan"@de , "Turkmenistan"@en , "Turkménistan"@fr .
+	  
+<http://eurostat.linked-statistics.org/dic/citizen#TH>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "TH" ;
+      skos:prefLabel "Thaïlande"@fr , "Thailand"@de , "Thailand"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SZ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SZ" ;
+      skos:prefLabel "Swaziland"@fr , "Swaziland"@en , "Swasiland"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#LU>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "LU" ;
+      skos:prefLabel "Luxemburg"@de , "Luxembourg"@fr , "Luxembourg"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#EU27>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "EU27" ;
+      skos:prefLabel "Union européenne (27 pays)"@fr , "Europäische Union (27 Länder)"@de , "European Union (27 countries)"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#JM>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "JM" ;
+      skos:prefLabel "Jamaika"@de , "Jamaïque"@fr , "Jamaica"@en .
+
+
+<http://eurostat.linked-statistics.org/dic/citizen#UZ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "UZ" ;
+      skos:prefLabel "Usbekistan"@de , "Uzbekistan"@en , "Ouzbékistan"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MH>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:OC ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MH" ;
+      skos:prefLabel "Îles Marshall"@fr , "Marshall Islands"@en , "Marshallinseln"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#TZ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:OC ;
+      skos:inScheme dic:citizen ;
+      skos:notation "TZ" ;
+      skos:prefLabel "Tanzanie"@fr , "Tanzania"@en , "Tansania"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#AL>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "AL" ;
+      skos:prefLabel "Albanie"@fr , "Albania"@en , "Albanien"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#NI>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA;
+      skos:inScheme dic:citizen ;
+      skos:notation "NI" ;
+      skos:prefLabel "Nicaragua"@de , "Nicaragua"@fr , "Nicaragua"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MT" ;
+      skos:prefLabel "Malta"@de , "Malta"@en , "Malte"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#PH>
+      rdf:type skos:Concept ;
+      skos:inScheme dic:citizen ;
+      skos:notation "PH" ;
+      skos:prefLabel "Philippines"@fr , "Philippines"@en , "Philippinen"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SL>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SL" ;
+      skos:prefLabel "Sierra Leone"@de , "Sierra Leone"@fr , "Sierra Leone"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MD>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MD" ;
+      skos:prefLabel "Moldavie"@fr , "Moldova"@en , "Moldau"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#UK>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU; 
+      skos:inScheme dic:citizen ;
+      skos:notation "UK" ;
+      skos:prefLabel "Royaume-Uni"@fr , "United Kingdom"@en , "Vereinigtes Königreich"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#RW>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "RW" ;
+      skos:prefLabel "Ruanda"@de , "Rwanda"@fr , "Rwanda"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#IL>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS;
+      skos:inScheme dic:citizen ;
+      skos:notation "IL" ;
+      skos:prefLabel "Israël"@fr , "Israel"@de , "Israel"@en .
+
+
+<http://eurostat.linked-statistics.org/dic/citizen#LT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU;
+      skos:inScheme dic:citizen ;
+      skos:notation "LT" ;
+      skos:prefLabel "Litauen"@de , "Lituanie"@fr , "Lithuania"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#TG>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF;
+      skos:inScheme dic:citizen ;
+      skos:notation "TG" ;
+      skos:prefLabel "Togo"@de , "Togo"@fr , "Togo"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MU>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MU" ;
+      skos:prefLabel "Maurice"@fr , "Mauritius"@de , "Mauritius"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#PY>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA;
+      skos:inScheme dic:citizen ;
+      skos:notation "PY" ;
+      skos:prefLabel "Paraguay"@de , "Paraguay"@fr , "Paraguay"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#TW>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS;
+      skos:inScheme dic:citizen ;
+      skos:notation "TW" ;
+      skos:prefLabel "Taiwan"@de , "Taiwan"@en , "Taïwan"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#ME>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU;
+      skos:inScheme dic:citizen ;
+      skos:notation "ME" ;
+      skos:prefLabel "Montenegro"@de , "Montenegro"@en , "Monténégro"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#PG>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:OC;
+      skos:inScheme dic:citizen ;
+      skos:notation "PG" ;
+      skos:prefLabel "Papua-Neuguinea"@de , "Papua New Guinea"@en , "Papouasie - Nouvelle-Guinée"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SK>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SK" ;
+      skos:prefLabel "Slovaquie"@fr , "Slowakei"@de , "Slovakia"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CR" ;
+      skos:prefLabel "Costa Rica"@de , "Costa Rica"@fr , "Costa Rica"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#NZ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:OC ;
+      skos:inScheme dic:citizen ;
+      skos:notation "NZ" ;
+      skos:prefLabel "New Zealand"@en , "Nouvelle-Zélande"@fr , "Neuseeland"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#IE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "IE" ;
+      skos:prefLabel "Irland"@de , "Irlande"@fr , "Ireland"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MV>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MV" ;
+      skos:prefLabel "Maldives"@fr , "Maldives"@en , "Malediven"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#GT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "GT" ;
+      skos:prefLabel "Guatemala"@de , "Guatemala"@fr , "Guatemala"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#EL>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "EL" ;
+      skos:prefLabel "Griechenland"@de , "Greece"@en , "Grèce"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CA>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "CA" ;
+      skos:prefLabel "Kanada"@de , "Canada"@fr , "Canada"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#BN>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS;
+      skos:inScheme dic:citizen ;
+      skos:notation "BN" ;
+      skos:prefLabel "Brunéi Darussalam"@fr , "Brunei Darussalam"@de , "Brunei Darussalam"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#DE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "DE" ;
+      skos:prefLabel "Deutschland (einschließlich der ehemaligen DDR seit 1991)"@de , "Allemagne (incluant l'ancienne RDA à partir de 1991)"@fr , "Germany (including  former GDR from 1991)"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#LS>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF;
+      skos:inScheme dic:citizen ;
+      skos:notation "LS" ;
+      skos:prefLabel "Lesotho"@de , "Lesotho"@fr , "Lesotho"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#NG>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "NG" ;
+      skos:prefLabel "Nigeria"@de , "Nigeria"@en , "Nigéria"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#HT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "HT" ;
+      skos:prefLabel "Haiti"@de , "Haiti"@en , "Haïti"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#PW>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS;
+      skos:inScheme dic:citizen ;
+      skos:notation "PW" ;
+      skos:prefLabel "Palau"@de , "Palau"@fr , "Palau"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MW>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MW" ;
+      skos:prefLabel "Malawi"@de , "Malawi"@fr , "Malawi"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#LB>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "LB" ;
+      skos:prefLabel "Libanon"@de , "Lebanon"@en , "Liban"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#LV>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "LV" ;
+      skos:prefLabel "Latvia"@en , "Lettland"@de , "Lettonie"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SY>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS ;
+      skos:inScheme dic:citizen ;
+      skos:notation "SY" ;
+      skos:prefLabel "Syrie"@fr , "Syria"@en , "Syrien"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#GQ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "GQ" ;
+      skos:prefLabel "Equatorial Guinea"@en , "Äquatorialguinea"@de , "Guinée équatoriale"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#UY>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:SA;
+      skos:inScheme dic:citizen ;
+      skos:notation "UY" ;
+      skos:prefLabel "Uruguay"@de , "Uruguay"@fr , "Uruguay"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#FM>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:OC ;
+      skos:inScheme dic:citizen ;
+      skos:notation "FM" ;
+      skos:prefLabel "Föderierte Staaten von Mikronesien"@de , "États fédérés de Micronésie"@fr , "Federated States of Micronesia"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#SI>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU;
+      skos:inScheme dic:citizen ;
+      skos:notation "SI" ;
+      skos:prefLabel "Slowenien"@de , "Slovénie"@fr , "Slovenia"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#HU>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "HU" ;
+      skos:prefLabel "Ungarn"@de , "Hongrie"@fr , "Hungary"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MG>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MG" ;
+      skos:prefLabel "Madagaskar"@de , "Madagascar"@fr , "Madagascar"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#KR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AS;
+      skos:inScheme dic:citizen ;
+      skos:notation "KR" ;
+      skos:prefLabel "Südkorea"@de , "South Korea"@en , "Corée du Sud"@fr .
+
+<http://eurostat.linked-statistics.org/dic/citizen#CD>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF;
+      skos:inScheme dic:citizen ;
+      skos:notation "CD" ;
+      skos:prefLabel "République démocratique du Congo"@fr , "Democratic Republic of the Congo"@en , "Demokratische Republik Kongo"@de .
+
+<http://eurostat.linked-statistics.org/dic/citizen#UK_OCT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NONE ;
+      skos:inScheme dic:citizen ;
+      skos:notation "UK_OCT" ;
+      skos:prefLabel "Überseeische Länder und Hoheitsgebiete"@de , "Pays et territoires britanniques d'outre-mer"@fr , "British overseas countries and territories"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#AZ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:EU ;
+      skos:inScheme dic:citizen ;
+      skos:notation "AZ" ;
+      skos:prefLabel "Aserbaidschan"@de , "Azerbaïdjan"@fr , "Azerbaijan"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#LC>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "LC" ;
+      skos:prefLabel "Sainte-Lucie"@fr , "St. Lucia"@de , "Saint Lucia"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#ZW>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:AF;
+      skos:inScheme dic:citizen ;
+      skos:notation "ZW" ;
+      skos:prefLabel "Simbabwe"@de , "Zimbabwe"@fr , "Zimbabwe"@en .
+
+<http://eurostat.linked-statistics.org/dic/citizen#MX>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:citizen ;
+      skos:broader citDim:NA ;
+      skos:inScheme dic:citizen ;
+      skos:notation "MX" ;
+      skos:prefLabel "Mexiko"@de , "Mexico"@en , "Mexique"@fr .
+
+
+#----------------------------------------------------------
+# Destination country dimension instances
+
+
+desDim:TOTAL 
+	qb4o:memberOf schema:destAll;
+	skos:notation "All destinations" ;
+    skos:prefLabel "All destinations"@en .
+
+desDim:AF
+      qb4o:memberOf schema:continent ;
+      skos:broader desDim:TOTAL;
+      skos:notation "AF" ;
+      skos:prefLabel "Africa"@en .
+
+desDim:EU
+      qb4o:memberOf schema:continent ;
+      skos:broader desDim:TOTAL;
+      skos:notation "EU" ;
+      skos:prefLabel "Europe"@en .
+
+desDim:SA
+      qb4o:memberOf schema:continent ;
+      skos:broader desDim:TOTAL;
+      skos:notation "SA" ;
+      skos:prefLabel "South America"@en .
+
+desDim:NA
+      qb4o:memberOf schema:continent ;
+      skos:broader desDim:TOTAL;
+      skos:notation "NA" ;
+      skos:prefLabel "Northern America"@en .
+
+desDim:AS
+      qb4o:memberOf schema:continent ;
+      skos:broader desDim:TOTAL;
+      skos:notation "AS" ;
+      skos:prefLabel "Asia"@en .
+
+desDim:OC
+      qb4o:memberOf schema:continent ;
+      skos:broader desDim:TOTAL;
+      skos:notation "OC" ;
+      skos:prefLabel "Oceania"@en .
+
+desDim:AQ
+      qb4o:memberOf schema:continent ;
+      skos:broader desDim:TOTAL;
+      skos:notation "AQ" ;
+      skos:prefLabel "Antarctica"@en .
+
+desDim:NONE
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:TOTAL;
+      skos:notation "NONE" ;
+      skos:prefLabel "None"@en .
+
+
+<http://eurostat.linked-statistics.org/dic/geo#CY>
+       qb4o:memberOf property:geo ;
+       skos:broader desDim:EU ;
+	   skos:inScheme dic:geo ;
+       skos:notation "CY" ;
+	   skos:prefLabel "Zypern"@de , "Cyprus"@en , "Chypre"@fr .
+
+<http://eurostat.linked-statistics.org/dic/geo#CZ>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "CZ" ;
+      skos:prefLabel "Tschechische Republik"@de , "République tchèque"@fr , "Czech Republic"@en .
+
+
+<http://eurostat.linked-statistics.org/dic/geo#SK>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "SK" ;
+      skos:prefLabel "Slovaquie"@fr , "Slowakei"@de , "Slovakia"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#NO>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "NO" ;
+      skos:prefLabel "Norvège"@fr , "Norway"@en , "Norwegen"@de .
+
+<http://eurostat.linked-statistics.org/dic/geo#NL>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "NL" ;
+      skos:prefLabel "Netherlands"@en , "Niederlande"@de , "Pays-Bas"@fr .
+
+<http://eurostat.linked-statistics.org/dic/geo#PL>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "PL" ;
+      skos:prefLabel "Poland"@en , "Polen"@de , "Pologne"@fr .
+
+<http://eurostat.linked-statistics.org/dic/geo#SI>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:notation "SI" ;
+      skos:prefLabel "Slowenien"@de , "Slovénie"@fr , "Slovenia"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#EL>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "EL" ;
+      skos:prefLabel "Griechenland"@de , "Greece"@en , "Grèce"@fr .
+
+<http://eurostat.linked-statistics.org/dic/geo#FI>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "FI" ;
+      skos:prefLabel "Finlande"@fr , "Finnland"@de , "Finland"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#IE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "IE" ;
+      skos:prefLabel "Irland"@de , "Irlande"@fr , "Ireland"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#RO>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "RO" ;
+      skos:prefLabel "Romania"@en , "Rumänien"@de , "Roumanie"@fr .
+
+<http://eurostat.linked-statistics.org/dic/geo#MT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "MT" ;
+      skos:prefLabel "Malta"@de , "Malta"@en , "Malte"@fr .
+
+<http://eurostat.linked-statistics.org/dic/geo#ES>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "ES" ;
+      skos:prefLabel "Espagne"@fr , "Spanien"@de , "Spain"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#LU>
+      rdf:type skos:Concept ;
+	  qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "LU" ;
+      skos:prefLabel "Luxemburg"@de , "Luxembourg"@fr , "Luxembourg"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#EU27>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "EU27" ;
+      skos:prefLabel "Union européenne (27 pays)"@fr , "Europäische Union (27 Länder)"@de , "European Union (27 countries)"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#PT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "PT" ;
+      skos:prefLabel "Portugal"@de , "Portugal"@fr , "Portugal"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#BG>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "BG" ;
+      skos:prefLabel "Bulgarien"@de , "Bulgaria"@en , "Bulgarie"@fr .
+
+<http://eurostat.linked-statistics.org/dic/geo#LT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "LT" ;
+      skos:prefLabel "Litauen"@de , "Lituanie"@fr , "Lithuania"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#AT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "AT" ;
+      skos:prefLabel "Austria"@en , "Autriche"@fr , "Österreich"@de .
+
+<http://eurostat.linked-statistics.org/dic/geo#DE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "DE" ;
+      skos:prefLabel "Deutschland (einschließlich der ehemaligen DDR seit 1991)"@de , "Allemagne (incluant l'ancienne RDA à partir de 1991)"@fr , "Germany (including  former GDR from 1991)"@en .
+
+
+<http://eurostat.linked-statistics.org/dic/geo#BE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "BE" ;
+      skos:prefLabel "Belgique"@fr , "Belgien"@de , "Belgium"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#HU>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "HU" ;
+      skos:prefLabel "Ungarn"@de , "Hongrie"@fr , "Hungary"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#IS>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "IS" ;
+      skos:prefLabel "Iceland"@en , "Islande"@fr , "Island"@de .
+
+<http://eurostat.linked-statistics.org/dic/geo#LV>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "LV" ;
+      skos:prefLabel "Latvia"@en , "Lettland"@de , "Lettonie"@fr .
+
+<http://eurostat.linked-statistics.org/dic/geo#FR>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "FR" ;
+      skos:prefLabel "Frankreich"@de , "France"@fr , "France"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#DK>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "DK" ;
+      skos:prefLabel "Dänemark"@de , "Danemark"@fr , "Denmark"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#LI>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "LI" ;
+      skos:prefLabel "Liechtenstein"@de , "Liechtenstein"@fr , "Liechtenstein"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#CH>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "CH" ;
+      skos:prefLabel "Switzerland"@en , "Schweiz"@de , "Suisse"@fr .
+
+<http://eurostat.linked-statistics.org/dic/geo#SE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "SE" ;
+      skos:prefLabel "Suède"@fr , "Sweden"@en , "Schweden"@de .
+      
+<http://eurostat.linked-statistics.org/dic/geo#EE>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "EE" ;
+      skos:prefLabel "Estonie"@fr , "Estonia"@en , "Estland"@de .      
+
+<http://eurostat.linked-statistics.org/dic/geo#IT>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "IT" ;
+      skos:prefLabel "Italie"@fr , "Italien"@de , "Italy"@en .
+
+<http://eurostat.linked-statistics.org/dic/geo#UK>
+      rdf:type skos:Concept ;
+      qb4o:memberOf property:geo ;
+      skos:broader desDim:EU ;
+      skos:inScheme dic:geo ;
+      skos:notation "UK" ;
+      skos:prefLabel "Royaume-Uni"@fr , "United Kingdom"@en , "Vereinigtes Königreich"@de .      
+
+<http://eurostat.linked-statistics.org/dic/geo#TOTAL>
+      rdf:type skos:Concept ;
+      skos:inScheme dic:geo ;
+      skos:notation "TOTAL" ;
+      skos:prefLabel "Insgesamt"@de , "Total"@fr , "Total"@en .
+
+concept:geo
+      rdf:type sdmx:Concept ;
+      skos:inScheme concept: ;
+      skos:notation "geo" ;
+      skos:prefLabel "Geopolitische Meldeeinheit"@de , "Entité géopolitique (déclarante)"@fr , "Geopolitical entity (declaring)"@en .
+
+property:geo
+      rdf:type qb:DimensionProperty , qb:CodedProperty ;
+      rdfs:domain qb:Observation ;
+      rdfs:range skos:Concept ;
+      qb:codeList dic:geo ;
+      qb:concept concept:geo .
+
+dic:geo
+      rdf:type skos:ConceptScheme ;
+      rdfs:label "Entité géopolitique (déclarante)"@fr , "Geopolitische Meldeeinheit"@de , "Geopolitical entity (declaring)"@en ;
+      skos:hasTopConcept <http://eurostat.linked-statistics.org/dic/geo#RO> , <http://eurostat.linked-statistics.org/dic/geo#EE> , <http://eurostat.linked-statistics.org/dic/geo#DE> , <http://eurostat.linked-statistics.org/dic/geo#AT> , <http://eurostat.linked-statistics.org/dic/geo#MT> , <http://eurostat.linked-statistics.org/dic/geo#ES> , <http://eurostat.linked-statistics.org/dic/geo#DK> , <http://eurostat.linked-statistics.org/dic/geo#LU> , <http://eurostat.linked-statistics.org/dic/geo#NL> , <http://eurostat.linked-statistics.org/dic/geo#EU27> , <http://eurostat.linked-statistics.org/dic/geo#PL> , <http://eurostat.linked-statistics.org/dic/geo#SI> , <http://eurostat.linked-statistics.org/dic/geo#SK> , <http://eurostat.linked-statistics.org/dic/geo#NO> , <http://eurostat.linked-statistics.org/dic/geo#EL> , <http://eurostat.linked-statistics.org/dic/geo#PT> , <http://eurostat.linked-statistics.org/dic/geo#LI> , <http://eurostat.linked-statistics.org/dic/geo#HU> , <http://eurostat.linked-statistics.org/dic/geo#BE> , <http://eurostat.linked-statistics.org/dic/geo#IS> , <http://eurostat.linked-statistics.org/dic/geo#BG> , <http://eurostat.linked-statistics.org/dic/geo#LT> , <http://eurostat.linked-statistics.org/dic/geo#CZ> , <http://eurostat.linked-statistics.org/dic/geo#CH> , <http://eurostat.linked-statistics.org/dic/geo#TOTAL> , <http://eurostat.linked-statistics.org/dic/geo#SE> , <http://eurostat.linked-statistics.org/dic/geo#LV> , <http://eurostat.linked-statistics.org/dic/geo#FR> , <http://eurostat.linked-statistics.org/dic/geo#CY> , <http://eurostat.linked-statistics.org/dic/geo#FI> , <http://eurostat.linked-statistics.org/dic/geo#IE> , <http://eurostat.linked-statistics.org/dic/geo#UK> , <http://eurostat.linked-statistics.org/dic/geo#IT> ;
+      skos:notation "cl_geo" .
+      
+<http://eurostat.linked-statistics.org/dic/citizen#AD>	owl:sameAs	<http://dbpedia.org/resource/Andorra>.
+<http://eurostat.linked-statistics.org/dic/citizen#AE>	owl:sameAs	<http://dbpedia.org/resource/United_Arab_Emirates>.
+<http://eurostat.linked-statistics.org/dic/citizen#AF>	owl:sameAs	<http://dbpedia.org/resource/Afghanistan>.
+<http://eurostat.linked-statistics.org/dic/citizen#AG>	owl:sameAs	<http://dbpedia.org/resource/Antigua_and_Barbuda>.
+<http://eurostat.linked-statistics.org/dic/citizen#AI>	owl:sameAs	<http://dbpedia.org/resource/Anguilla>.
+<http://eurostat.linked-statistics.org/dic/citizen#AM>	owl:sameAs	<http://dbpedia.org/resource/Armenia>.
+<http://eurostat.linked-statistics.org/dic/citizen#AO>	owl:sameAs	<http://dbpedia.org/resource/Angola>.
+<http://eurostat.linked-statistics.org/dic/citizen#AR>	owl:sameAs	<http://dbpedia.org/resource/Argentina>.
+<http://eurostat.linked-statistics.org/dic/citizen#AU>	owl:sameAs	<http://dbpedia.org/resource/Australia>.
+<http://eurostat.linked-statistics.org/dic/citizen#AZ>	owl:sameAs	<http://dbpedia.org/resource/Azerbaijan>.
+<http://eurostat.linked-statistics.org/dic/citizen#BA>	owl:sameAs	<http://dbpedia.org/resource/Bosnia_and_Herzegovina>.
+<http://eurostat.linked-statistics.org/dic/citizen#BB>	owl:sameAs	<http://dbpedia.org/resource/Barbados>.
+<http://eurostat.linked-statistics.org/dic/citizen#BD>	owl:sameAs	<http://dbpedia.org/resource/Bangladesh>.
+<http://eurostat.linked-statistics.org/dic/citizen#BE>	owl:sameAs	<http://dbpedia.org/resource/Belgium>.
+<http://eurostat.linked-statistics.org/dic/citizen#BF>	owl:sameAs	<http://dbpedia.org/resource/Burkina_Faso>.
+<http://eurostat.linked-statistics.org/dic/citizen#BG>	owl:sameAs	<http://dbpedia.org/resource/Bulgaria>.
+<http://eurostat.linked-statistics.org/dic/citizen#BH>	owl:sameAs	<http://dbpedia.org/resource/Bahrain>.
+<http://eurostat.linked-statistics.org/dic/citizen#BI>	owl:sameAs	<http://dbpedia.org/resource/Burundi>.
+<http://eurostat.linked-statistics.org/dic/citizen#BJ>	owl:sameAs	<http://dbpedia.org/resource/Benin>.
+<http://eurostat.linked-statistics.org/dic/citizen#BM>	owl:sameAs	<http://dbpedia.org/resource/Bermuda>.
+<http://eurostat.linked-statistics.org/dic/citizen#BN>	owl:sameAs	<http://dbpedia.org/resource/Brunei_Darussalam>.
+<http://eurostat.linked-statistics.org/dic/citizen#BO>	owl:sameAs	<http://dbpedia.org/resource/Bolivia,_Plurinational_State_of>.
+<http://eurostat.linked-statistics.org/dic/citizen#BR>	owl:sameAs	<http://dbpedia.org/resource/Brazil>.
+<http://eurostat.linked-statistics.org/dic/citizen#BS>	owl:sameAs	<http://dbpedia.org/resource/Bahamas>.
+<http://eurostat.linked-statistics.org/dic/citizen#BT>	owl:sameAs	<http://dbpedia.org/resource/Bhutan>.
+<http://eurostat.linked-statistics.org/dic/citizen#BW>	owl:sameAs	<http://dbpedia.org/resource/Botswana>.
+<http://eurostat.linked-statistics.org/dic/citizen#BY>	owl:sameAs	<http://dbpedia.org/resource/Belarus>.
+<http://eurostat.linked-statistics.org/dic/citizen#BZ>	owl:sameAs	<http://dbpedia.org/resource/Belize>.
+<http://eurostat.linked-statistics.org/dic/citizen#CA>	owl:sameAs	<http://dbpedia.org/resource/Canada>.
+<http://eurostat.linked-statistics.org/dic/citizen#CC>	owl:sameAs	<http://dbpedia.org/resource/Cocos_(Keeling)_Islands>.
+<http://eurostat.linked-statistics.org/dic/citizen#CD>	owl:sameAs	<http://dbpedia.org/resource/Congo,_the_Democratic_Republic_of_the>.
+<http://eurostat.linked-statistics.org/dic/citizen#CF>	owl:sameAs	<http://dbpedia.org/resource/Central_African_Republic>.
+<http://eurostat.linked-statistics.org/dic/citizen#CG>	owl:sameAs	<http://dbpedia.org/resource/Congo>.
+<http://eurostat.linked-statistics.org/dic/citizen#CI>	owl:sameAs	<http://dbpedia.org/resource/Cote_dIvoire>.
+<http://eurostat.linked-statistics.org/dic/citizen#CK>	owl:sameAs	<http://dbpedia.org/resource/Cook_Islands>.
+<http://eurostat.linked-statistics.org/dic/citizen#CL>	owl:sameAs	<http://dbpedia.org/resource/Chile>.
+<http://eurostat.linked-statistics.org/dic/citizen#CM>	owl:sameAs	<http://dbpedia.org/resource/Cameroon>.
+<http://eurostat.linked-statistics.org/dic/citizen#CN>	owl:sameAs	<http://dbpedia.org/resource/China>.
+<http://eurostat.linked-statistics.org/dic/citizen#CO>	owl:sameAs	<http://dbpedia.org/resource/Colombia>.
+<http://eurostat.linked-statistics.org/dic/citizen#CR>	owl:sameAs	<http://dbpedia.org/resource/Costa_Rica>.
+<http://eurostat.linked-statistics.org/dic/citizen#CU>	owl:sameAs	<http://dbpedia.org/resource/Cuba>.
+<http://eurostat.linked-statistics.org/dic/citizen#CV>	owl:sameAs	<http://dbpedia.org/resource/Cape_Verde>.
+<http://eurostat.linked-statistics.org/dic/citizen#CZ>	owl:sameAs	<http://dbpedia.org/resource/Czech_Republic>.
+<http://eurostat.linked-statistics.org/dic/citizen#DE>	owl:sameAs	<http://dbpedia.org/resource/Germany>.
+<http://eurostat.linked-statistics.org/dic/citizen#DK>	owl:sameAs	<http://dbpedia.org/resource/Denmark>.
+<http://eurostat.linked-statistics.org/dic/citizen#DM>	owl:sameAs	<http://dbpedia.org/resource/Dominica>.
+<http://eurostat.linked-statistics.org/dic/citizen#EC>	owl:sameAs	<http://dbpedia.org/resource/Ecuador>.
+<http://eurostat.linked-statistics.org/dic/citizen#EE>	owl:sameAs	<http://dbpedia.org/resource/Estonia>.
+<http://eurostat.linked-statistics.org/dic/citizen#EG>	owl:sameAs	<http://dbpedia.org/resource/Egypt>.
+<http://eurostat.linked-statistics.org/dic/citizen#ER>	owl:sameAs	<http://dbpedia.org/resource/Eritrea>.
+<http://eurostat.linked-statistics.org/dic/citizen#ET>	owl:sameAs	<http://dbpedia.org/resource/Ethiopia>.
+<http://eurostat.linked-statistics.org/dic/citizen#FI>	owl:sameAs	<http://dbpedia.org/resource/Finland>.
+<http://eurostat.linked-statistics.org/dic/citizen#FJ>	owl:sameAs	<http://dbpedia.org/resource/Fiji>.
+<http://eurostat.linked-statistics.org/dic/citizen#FK>	owl:sameAs	<http://dbpedia.org/resource/Falkland_Islands_(Malvinas)>.
+<http://eurostat.linked-statistics.org/dic/citizen#FM>	owl:sameAs	<http://dbpedia.org/resource/Micronesia,_Federated_States_of>.
+<http://eurostat.linked-statistics.org/dic/citizen#FO>	owl:sameAs	<http://dbpedia.org/resource/Faroe_Islands>.
+<http://eurostat.linked-statistics.org/dic/citizen#GA>	owl:sameAs	<http://dbpedia.org/resource/Gabon>.
+<http://eurostat.linked-statistics.org/dic/citizen#GD>	owl:sameAs	<http://dbpedia.org/resource/Grenada>.
+<http://eurostat.linked-statistics.org/dic/citizen#GE>	owl:sameAs	<http://dbpedia.org/resource/Georgia>.
+<http://eurostat.linked-statistics.org/dic/citizen#GH>	owl:sameAs	<http://dbpedia.org/resource/Ghana>.
+<http://eurostat.linked-statistics.org/dic/citizen#GL>	owl:sameAs	<http://dbpedia.org/resource/Greenland>.
+<http://eurostat.linked-statistics.org/dic/citizen#GM>	owl:sameAs	<http://dbpedia.org/resource/Gambia>.
+<http://eurostat.linked-statistics.org/dic/citizen#GN>	owl:sameAs	<http://dbpedia.org/resource/Guinea>.
+<http://eurostat.linked-statistics.org/dic/citizen#GQ>	owl:sameAs	<http://dbpedia.org/resource/Equatorial_Guinea>.
+<http://eurostat.linked-statistics.org/dic/citizen#GR>	owl:sameAs	<http://dbpedia.org/resource/Greece>.
+<http://eurostat.linked-statistics.org/dic/citizen#GS>	owl:sameAs	<http://dbpedia.org/resource/South_Georgia_and_the_South_Sandwich_Islands>.
+<http://eurostat.linked-statistics.org/dic/citizen#GW>	owl:sameAs	<http://dbpedia.org/resource/Guinea-Bissau>.
+<http://eurostat.linked-statistics.org/dic/citizen#GY>	owl:sameAs	<http://dbpedia.org/resource/Guyana>.
+<http://eurostat.linked-statistics.org/dic/citizen#HN>	owl:sameAs	<http://dbpedia.org/resource/Honduras>.
+<http://eurostat.linked-statistics.org/dic/citizen#HR>	owl:sameAs	<http://dbpedia.org/resource/Croatia>.
+<http://eurostat.linked-statistics.org/dic/citizen#HU>	owl:sameAs	<http://dbpedia.org/resource/Hungary>.
+<http://eurostat.linked-statistics.org/dic/citizen#ID>	owl:sameAs	<http://dbpedia.org/resource/Indonesia>.
+<http://eurostat.linked-statistics.org/dic/citizen#IE>	owl:sameAs	<http://dbpedia.org/resource/Ireland>.
+<http://eurostat.linked-statistics.org/dic/citizen#IL>	owl:sameAs	<http://dbpedia.org/resource/Israel>.
+<http://eurostat.linked-statistics.org/dic/citizen#IN>	owl:sameAs	<http://dbpedia.org/resource/India>.
+<http://eurostat.linked-statistics.org/dic/citizen#IO>	owl:sameAs	<http://dbpedia.org/resource/British_Indian_Ocean_Territory>.
+<http://eurostat.linked-statistics.org/dic/citizen#IQ>	owl:sameAs	<http://dbpedia.org/resource/Iraq>.
+<http://eurostat.linked-statistics.org/dic/citizen#IR>	owl:sameAs	<http://dbpedia.org/resource/Iran,_Islamic_Republic_of>.
+<http://eurostat.linked-statistics.org/dic/citizen#IS>	owl:sameAs	<http://dbpedia.org/resource/Iceland>.
+<http://eurostat.linked-statistics.org/dic/citizen#JO>	owl:sameAs	<http://dbpedia.org/resource/Jordan>.
+<http://eurostat.linked-statistics.org/dic/citizen#JP>	owl:sameAs	<http://dbpedia.org/resource/Japan>.
+<http://eurostat.linked-statistics.org/dic/citizen#KE>	owl:sameAs	<http://dbpedia.org/resource/Kenya>.
+<http://eurostat.linked-statistics.org/dic/citizen#KG>	owl:sameAs	<http://dbpedia.org/resource/Kyrgyzstan>.
+<http://eurostat.linked-statistics.org/dic/citizen#KH>	owl:sameAs	<http://dbpedia.org/resource/Cambodia>.
+<http://eurostat.linked-statistics.org/dic/citizen#KI>	owl:sameAs	<http://dbpedia.org/resource/Kiribati>.
+<http://eurostat.linked-statistics.org/dic/citizen#KM>	owl:sameAs	<http://dbpedia.org/resource/Comoros>.
+<http://eurostat.linked-statistics.org/dic/citizen#KP>	owl:sameAs	<http://dbpedia.org/resource/North_Korea>.
+<http://eurostat.linked-statistics.org/dic/citizen#KR>	owl:sameAs	<http://dbpedia.org/resource/South_Korea>.
+<http://eurostat.linked-statistics.org/dic/citizen#KW>	owl:sameAs	<http://dbpedia.org/resource/Kuwait>.
+<http://eurostat.linked-statistics.org/dic/citizen#KY>	owl:sameAs	<http://dbpedia.org/resource/Cayman_Islands>.
+<http://eurostat.linked-statistics.org/dic/citizen#KZ>	owl:sameAs	<http://dbpedia.org/resource/Kazakhstan>.
+<http://eurostat.linked-statistics.org/dic/citizen#LA>	owl:sameAs	<http://dbpedia.org/resource/Laos>.
+<http://eurostat.linked-statistics.org/dic/citizen#LB>	owl:sameAs	<http://dbpedia.org/resource/Lebanon>.
+<http://eurostat.linked-statistics.org/dic/citizen#LC>	owl:sameAs	<http://dbpedia.org/resource/Saint_Lucia>.
+<http://eurostat.linked-statistics.org/dic/citizen#LK>	owl:sameAs	<http://dbpedia.org/resource/Sri_Lanka>.
+<http://eurostat.linked-statistics.org/dic/citizen#LR>	owl:sameAs	<http://dbpedia.org/resource/Liberia>.
+<http://eurostat.linked-statistics.org/dic/citizen#LT>	owl:sameAs	<http://dbpedia.org/resource/Lithuania>.
+<http://eurostat.linked-statistics.org/dic/citizen#LU>	owl:sameAs	<http://dbpedia.org/resource/Luxembourg>.
+<http://eurostat.linked-statistics.org/dic/citizen#LV>	owl:sameAs	<http://dbpedia.org/resource/Latvia>.
+<http://eurostat.linked-statistics.org/dic/citizen#LY>	owl:sameAs	<http://dbpedia.org/resource/Libya>.
+<http://eurostat.linked-statistics.org/dic/citizen#MA>	owl:sameAs	<http://dbpedia.org/resource/Morocco>.
+<http://eurostat.linked-statistics.org/dic/citizen#MC>	owl:sameAs	<http://dbpedia.org/resource/Monaco>.
+<http://eurostat.linked-statistics.org/dic/citizen#MG>	owl:sameAs	<http://dbpedia.org/resource/Madagascar>.
+<http://eurostat.linked-statistics.org/dic/citizen#MH>	owl:sameAs	<http://dbpedia.org/resource/Marshall_Islands>.
+<http://eurostat.linked-statistics.org/dic/citizen#MK>	owl:sameAs	<http://dbpedia.org/resource/Macedonia>.
+<http://eurostat.linked-statistics.org/dic/citizen#ML>	owl:sameAs	<http://dbpedia.org/resource/Mali>.
+<http://eurostat.linked-statistics.org/dic/citizen#MM>	owl:sameAs	<http://dbpedia.org/resource/Myanmar>.
+<http://eurostat.linked-statistics.org/dic/citizen#MN>	owl:sameAs	<http://dbpedia.org/resource/Mongolia>.
+<http://eurostat.linked-statistics.org/dic/citizen#MQ>	owl:sameAs	<http://dbpedia.org/resource/Martinique>.
+<http://eurostat.linked-statistics.org/dic/citizen#MR>	owl:sameAs	<http://dbpedia.org/resource/Mauritania>.
+<http://eurostat.linked-statistics.org/dic/citizen#MS>	owl:sameAs	<http://dbpedia.org/resource/Montserrat>.
+<http://eurostat.linked-statistics.org/dic/citizen#MT>	owl:sameAs	<http://dbpedia.org/resource/Malta>.
+<http://eurostat.linked-statistics.org/dic/citizen#MU>	owl:sameAs	<http://dbpedia.org/resource/Mauritius>.
+<http://eurostat.linked-statistics.org/dic/citizen#MV>	owl:sameAs	<http://dbpedia.org/resource/Maldives>.
+<http://eurostat.linked-statistics.org/dic/citizen#MW>	owl:sameAs	<http://dbpedia.org/resource/Malawi>.
+<http://eurostat.linked-statistics.org/dic/citizen#MX>	owl:sameAs	<http://dbpedia.org/resource/Mexico>.
+<http://eurostat.linked-statistics.org/dic/citizen#MY>	owl:sameAs	<http://dbpedia.org/resource/Malaysia>.
+<http://eurostat.linked-statistics.org/dic/citizen#MY>	owl:sameAs	<http://dbpedia.org/resource/Malaysia>.
+<http://eurostat.linked-statistics.org/dic/citizen#MZ>	owl:sameAs	<http://dbpedia.org/resource/Mozambique>.
+<http://eurostat.linked-statistics.org/dic/citizen#NA>	owl:sameAs	<http://dbpedia.org/resource/Namibia>.
+<http://eurostat.linked-statistics.org/dic/citizen#NC>	owl:sameAs	<http://dbpedia.org/resource/New_Caledonia>.
+<http://eurostat.linked-statistics.org/dic/citizen#NE>	owl:sameAs	<http://dbpedia.org/resource/Niger>.
+<http://eurostat.linked-statistics.org/dic/citizen#NF>	owl:sameAs	<http://dbpedia.org/resource/Norfolk_Island>.
+<http://eurostat.linked-statistics.org/dic/citizen#NG>	owl:sameAs	<http://dbpedia.org/resource/Nigeria>.
+<http://eurostat.linked-statistics.org/dic/citizen#NI>	owl:sameAs	<http://dbpedia.org/resource/Nicaragua>.
+<http://eurostat.linked-statistics.org/dic/citizen#NP>	owl:sameAs	<http://dbpedia.org/resource/Nepal>.
+<http://eurostat.linked-statistics.org/dic/citizen#NR>	owl:sameAs	<http://dbpedia.org/resource/Nauru>.
+<http://eurostat.linked-statistics.org/dic/citizen#NU>	owl:sameAs	<http://dbpedia.org/resource/Niue>.
+<http://eurostat.linked-statistics.org/dic/citizen#NZ>	owl:sameAs	<http://dbpedia.org/resource/New_Zealand>.
+<http://eurostat.linked-statistics.org/dic/citizen#OM>	owl:sameAs	<http://dbpedia.org/resource/Oman>.
+<http://eurostat.linked-statistics.org/dic/citizen#PA>	owl:sameAs	<http://dbpedia.org/resource/Panama>.
+<http://eurostat.linked-statistics.org/dic/citizen#PE>	owl:sameAs	<http://dbpedia.org/resource/Peru>.
+<http://eurostat.linked-statistics.org/dic/citizen#PF>	owl:sameAs	<http://dbpedia.org/resource/French_Polynesia>.
+<http://eurostat.linked-statistics.org/dic/citizen#PG>	owl:sameAs	<http://dbpedia.org/resource/Papua_New_Guinea>.
+<http://eurostat.linked-statistics.org/dic/citizen#PK>	owl:sameAs	<http://dbpedia.org/resource/Pakistan>.
+<http://eurostat.linked-statistics.org/dic/citizen#PM>	owl:sameAs	<http://dbpedia.org/resource/Saint_Pierre_and_Miquelon>.
+<http://eurostat.linked-statistics.org/dic/citizen#PN>	owl:sameAs	<http://dbpedia.org/resource/Pitcairn>.
+<http://eurostat.linked-statistics.org/dic/citizen#QA>	owl:sameAs	<http://dbpedia.org/resource/Qatar>.
+<http://eurostat.linked-statistics.org/dic/citizen#RO>	owl:sameAs	<http://dbpedia.org/resource/Romania>.
+<http://eurostat.linked-statistics.org/dic/citizen#RU>	owl:sameAs	<http://dbpedia.org/resource/Russian_Federation>.
+<http://eurostat.linked-statistics.org/dic/citizen#RW>	owl:sameAs	<http://dbpedia.org/resource/Rwanda>.
+<http://eurostat.linked-statistics.org/dic/citizen#SA>	owl:sameAs	<http://dbpedia.org/resource/Saudi_Arabia>.
+<http://eurostat.linked-statistics.org/dic/citizen#SB>	owl:sameAs	<http://dbpedia.org/resource/Solomon_Islands>.
+<http://eurostat.linked-statistics.org/dic/citizen#SC>	owl:sameAs	<http://dbpedia.org/resource/Seychelles>.
+<http://eurostat.linked-statistics.org/dic/citizen#SD>	owl:sameAs	<http://dbpedia.org/resource/Sudan>.
+<http://eurostat.linked-statistics.org/dic/citizen#SK>	owl:sameAs	<http://dbpedia.org/resource/Slovakia>.
+<http://eurostat.linked-statistics.org/dic/citizen#SL>	owl:sameAs	<http://dbpedia.org/resource/Sierra_Leone>.
+<http://eurostat.linked-statistics.org/dic/citizen#SM>	owl:sameAs	<http://dbpedia.org/resource/San_Marino>.
+<http://eurostat.linked-statistics.org/dic/citizen#SN>	owl:sameAs	<http://dbpedia.org/resource/Senegal>.
+<http://eurostat.linked-statistics.org/dic/citizen#SO>	owl:sameAs	<http://dbpedia.org/resource/Somalia>.
+<http://eurostat.linked-statistics.org/dic/citizen#SR>	owl:sameAs	<http://dbpedia.org/resource/Suriname>.
+<http://eurostat.linked-statistics.org/dic/citizen#SS>	owl:sameAs	<http://dbpedia.org/resource/South_Sudan>.
+<http://eurostat.linked-statistics.org/dic/citizen#ST>	owl:sameAs	<http://dbpedia.org/resource/Sao_Tome_and_Principe>.
+<http://eurostat.linked-statistics.org/dic/citizen#SV>	owl:sameAs	<http://dbpedia.org/resource/El_Salvador>.
+<http://eurostat.linked-statistics.org/dic/citizen#SY>	owl:sameAs	<http://dbpedia.org/resource/Syrian_Arab_Republic>.
+<http://eurostat.linked-statistics.org/dic/citizen#TC>	owl:sameAs	<http://dbpedia.org/resource/Turks_and_Caicos_Islands>.
+<http://eurostat.linked-statistics.org/dic/citizen#TD>	owl:sameAs	<http://dbpedia.org/resource/Chad>.
+<http://eurostat.linked-statistics.org/dic/citizen#TG>	owl:sameAs	<http://dbpedia.org/resource/Togo>.
+<http://eurostat.linked-statistics.org/dic/citizen#TH>	owl:sameAs	<http://dbpedia.org/resource/Thailand>.
+<http://eurostat.linked-statistics.org/dic/citizen#TJ>	owl:sameAs	<http://dbpedia.org/resource/Tajikistan>.
+<http://eurostat.linked-statistics.org/dic/citizen#TK>	owl:sameAs	<http://dbpedia.org/resource/Tokelau>.
+<http://eurostat.linked-statistics.org/dic/citizen#TL>	owl:sameAs	<http://dbpedia.org/resource/Timor-Leste>.
+<http://eurostat.linked-statistics.org/dic/citizen#TM>	owl:sameAs	<http://dbpedia.org/resource/Turkmenistan>.
+<http://eurostat.linked-statistics.org/dic/citizen#TO>	owl:sameAs	<http://dbpedia.org/resource/Tonga>.
+<http://eurostat.linked-statistics.org/dic/citizen#TR>	owl:sameAs	<http://dbpedia.org/resource/Turkey>.
+<http://eurostat.linked-statistics.org/dic/citizen#TT>	owl:sameAs	<http://dbpedia.org/resource/Trinidad_and_Tobago>.
+<http://eurostat.linked-statistics.org/dic/citizen#TV>	owl:sameAs	<http://dbpedia.org/resource/Tuvalu>.
+<http://eurostat.linked-statistics.org/dic/citizen#TW>	owl:sameAs	<http://dbpedia.org/resource/Taiwan,_Province_of_China>.
+<http://eurostat.linked-statistics.org/dic/citizen#TZ>	owl:sameAs	<http://dbpedia.org/resource/Tanzania,_United_Republic_of>.
+<http://eurostat.linked-statistics.org/dic/citizen#UA>	owl:sameAs	<http://dbpedia.org/resource/Ukraine>.
+<http://eurostat.linked-statistics.org/dic/citizen#UG>	owl:sameAs	<http://dbpedia.org/resource/Uganda>.
+<http://eurostat.linked-statistics.org/dic/citizen#UY>	owl:sameAs	<http://dbpedia.org/resource/Uruguay>.
+<http://eurostat.linked-statistics.org/dic/citizen#UZ>	owl:sameAs	<http://dbpedia.org/resource/Uzbekistan>.
+<http://eurostat.linked-statistics.org/dic/citizen#VC>	owl:sameAs	<http://dbpedia.org/resource/Saint_Vincent_and_the_Grenadines>.
+<http://eurostat.linked-statistics.org/dic/citizen#VE>	owl:sameAs	<http://dbpedia.org/resource/Venezuela,_Bolivarian_Republic_of>.
+<http://eurostat.linked-statistics.org/dic/citizen#VG>	owl:sameAs	<http://dbpedia.org/resource/Virgin_Islands,_British>.
+<http://eurostat.linked-statistics.org/dic/citizen#VN>	owl:sameAs	<http://dbpedia.org/resource/Viet_Nam>.
+<http://eurostat.linked-statistics.org/dic/citizen#WS>	owl:sameAs	<http://dbpedia.org/resource/Samoa>.
+<http://eurostat.linked-statistics.org/dic/citizen#YE>	owl:sameAs	<http://dbpedia.org/resource/Yemen>.
+<http://eurostat.linked-statistics.org/dic/citizen#ZA>	owl:sameAs	<http://dbpedia.org/resource/South_Africa>.
+<http://eurostat.linked-statistics.org/dic/citizen#ZM>	owl:sameAs	<http://dbpedia.org/resource/Zambia>.
+<http://eurostat.linked-statistics.org/dic/citizen#ZW>	owl:sameAs	<http://dbpedia.org/resource/Zimbabwe>.
+		
+<http://eurostat.linked-statistics.org/dic/geo#AD>	owl:sameAs	<http://dbpedia.org/resource/Andorra>.		
+<http://eurostat.linked-statistics.org/dic/geo#AE>	owl:sameAs	<http://dbpedia.org/resource/United_Arab_Emirates>.
+<http://eurostat.linked-statistics.org/dic/geo#AF>	owl:sameAs	<http://dbpedia.org/resource/Afghanistan>.
+<http://eurostat.linked-statistics.org/dic/geo#AG>	owl:sameAs	<http://dbpedia.org/resource/Antigua_and_Barbuda>.
+<http://eurostat.linked-statistics.org/dic/geo#AI>	owl:sameAs	<http://dbpedia.org/resource/Anguilla>.
+<http://eurostat.linked-statistics.org/dic/geo#AM>	owl:sameAs	<http://dbpedia.org/resource/Armenia>.
+<http://eurostat.linked-statistics.org/dic/geo#AO>	owl:sameAs	<http://dbpedia.org/resource/Angola>.
+<http://eurostat.linked-statistics.org/dic/geo#AR>	owl:sameAs	<http://dbpedia.org/resource/Argentina>.
+<http://eurostat.linked-statistics.org/dic/geo#AU>	owl:sameAs	<http://dbpedia.org/resource/Australia>.
+<http://eurostat.linked-statistics.org/dic/geo#AZ>	owl:sameAs	<http://dbpedia.org/resource/Azerbaijan>.
+<http://eurostat.linked-statistics.org/dic/geo#BA>	owl:sameAs	<http://dbpedia.org/resource/Bosnia_and_Herzegovina>.
+<http://eurostat.linked-statistics.org/dic/geo#BB>	owl:sameAs	<http://dbpedia.org/resource/Barbados>.
+<http://eurostat.linked-statistics.org/dic/geo#BD>	owl:sameAs	<http://dbpedia.org/resource/Bangladesh>.
+<http://eurostat.linked-statistics.org/dic/geo#BE>	owl:sameAs	<http://dbpedia.org/resource/Belgium>.
+<http://eurostat.linked-statistics.org/dic/geo#BF>	owl:sameAs	<http://dbpedia.org/resource/Burkina_Faso>.
+<http://eurostat.linked-statistics.org/dic/geo#BG>	owl:sameAs	<http://dbpedia.org/resource/Bulgaria>.
+<http://eurostat.linked-statistics.org/dic/geo#BH>	owl:sameAs	<http://dbpedia.org/resource/Bahrain>.
+<http://eurostat.linked-statistics.org/dic/geo#BI>	owl:sameAs	<http://dbpedia.org/resource/Burundi>.
+<http://eurostat.linked-statistics.org/dic/geo#BJ>	owl:sameAs	<http://dbpedia.org/resource/Benin>.
+<http://eurostat.linked-statistics.org/dic/geo#BM>	owl:sameAs	<http://dbpedia.org/resource/Bermuda>.
+<http://eurostat.linked-statistics.org/dic/geo#BN>	owl:sameAs	<http://dbpedia.org/resource/Brunei_Darussalam>.
+<http://eurostat.linked-statistics.org/dic/geo#BO>	owl:sameAs	<http://dbpedia.org/resource/Bolivia,_Plurinational_State_of>.
+<http://eurostat.linked-statistics.org/dic/geo#BR>	owl:sameAs	<http://dbpedia.org/resource/Brazil>.
+<http://eurostat.linked-statistics.org/dic/geo#BS>	owl:sameAs	<http://dbpedia.org/resource/Bahamas>.
+<http://eurostat.linked-statistics.org/dic/geo#BT>	owl:sameAs	<http://dbpedia.org/resource/Bhutan>.
+<http://eurostat.linked-statistics.org/dic/geo#BW>	owl:sameAs	<http://dbpedia.org/resource/Botswana>.
+<http://eurostat.linked-statistics.org/dic/geo#BY>	owl:sameAs	<http://dbpedia.org/resource/Belarus>.
+<http://eurostat.linked-statistics.org/dic/geo#BZ>	owl:sameAs	<http://dbpedia.org/resource/Belize>.
+<http://eurostat.linked-statistics.org/dic/geo#CA>	owl:sameAs	<http://dbpedia.org/resource/Canada>.
+<http://eurostat.linked-statistics.org/dic/geo#CC>	owl:sameAs	<http://dbpedia.org/resource/Cocos_(Keeling)_Islands>.
+<http://eurostat.linked-statistics.org/dic/geo#CD>	owl:sameAs	<http://dbpedia.org/resource/Congo,_the_Democratic_Republic_of_the>.
+<http://eurostat.linked-statistics.org/dic/geo#CF>	owl:sameAs	<http://dbpedia.org/resource/Central_African_Republic>.
+<http://eurostat.linked-statistics.org/dic/geo#CG>	owl:sameAs	<http://dbpedia.org/resource/Congo>.
+<http://eurostat.linked-statistics.org/dic/geo#CI>	owl:sameAs	<http://dbpedia.org/resource/Cote_dIvoire>.
+<http://eurostat.linked-statistics.org/dic/geo#CK>	owl:sameAs	<http://dbpedia.org/resource/Cook_Islands>.
+<http://eurostat.linked-statistics.org/dic/geo#CL>	owl:sameAs	<http://dbpedia.org/resource/Chile>.
+<http://eurostat.linked-statistics.org/dic/geo#CM>	owl:sameAs	<http://dbpedia.org/resource/Cameroon>.
+<http://eurostat.linked-statistics.org/dic/geo#CN>	owl:sameAs	<http://dbpedia.org/resource/China>.
+<http://eurostat.linked-statistics.org/dic/geo#CO>	owl:sameAs	<http://dbpedia.org/resource/Colombia>.
+<http://eurostat.linked-statistics.org/dic/geo#CR>	owl:sameAs	<http://dbpedia.org/resource/Costa_Rica>.
+<http://eurostat.linked-statistics.org/dic/geo#CU>	owl:sameAs	<http://dbpedia.org/resource/Cuba>.
+<http://eurostat.linked-statistics.org/dic/geo#CV>	owl:sameAs	<http://dbpedia.org/resource/Cape_Verde>.
+<http://eurostat.linked-statistics.org/dic/geo#CZ>	owl:sameAs	<http://dbpedia.org/resource/Czech_Republic>.
+<http://eurostat.linked-statistics.org/dic/geo#DE>	owl:sameAs	<http://dbpedia.org/resource/Germany>.
+<http://eurostat.linked-statistics.org/dic/geo#DK>	owl:sameAs	<http://dbpedia.org/resource/Denmark>.
+<http://eurostat.linked-statistics.org/dic/geo#DM>	owl:sameAs	<http://dbpedia.org/resource/Dominica>.
+<http://eurostat.linked-statistics.org/dic/geo#EC>	owl:sameAs	<http://dbpedia.org/resource/Ecuador>.
+<http://eurostat.linked-statistics.org/dic/geo#EE>	owl:sameAs	<http://dbpedia.org/resource/Estonia>.
+<http://eurostat.linked-statistics.org/dic/geo#EG>	owl:sameAs	<http://dbpedia.org/resource/Egypt>.
+<http://eurostat.linked-statistics.org/dic/geo#ER>	owl:sameAs	<http://dbpedia.org/resource/Eritrea>.
+<http://eurostat.linked-statistics.org/dic/geo#ET>	owl:sameAs	<http://dbpedia.org/resource/Ethiopia>.
+<http://eurostat.linked-statistics.org/dic/geo#FI>	owl:sameAs	<http://dbpedia.org/resource/Finland>.
+<http://eurostat.linked-statistics.org/dic/geo#FJ>	owl:sameAs	<http://dbpedia.org/resource/Fiji>.
+<http://eurostat.linked-statistics.org/dic/geo#FK>	owl:sameAs	<http://dbpedia.org/resource/Falkland_Islands_(Malvinas)>.
+<http://eurostat.linked-statistics.org/dic/geo#FM>	owl:sameAs	<http://dbpedia.org/resource/Micronesia,_Federated_States_of>.
+<http://eurostat.linked-statistics.org/dic/geo#FO>	owl:sameAs	<http://dbpedia.org/resource/Faroe_Islands>.
+<http://eurostat.linked-statistics.org/dic/geo#GA>	owl:sameAs	<http://dbpedia.org/resource/Gabon>.
+<http://eurostat.linked-statistics.org/dic/geo#GD>	owl:sameAs	<http://dbpedia.org/resource/Grenada>.
+<http://eurostat.linked-statistics.org/dic/geo#GE>	owl:sameAs	<http://dbpedia.org/resource/Georgia>.
+<http://eurostat.linked-statistics.org/dic/geo#GH>	owl:sameAs	<http://dbpedia.org/resource/Ghana>.
+<http://eurostat.linked-statistics.org/dic/geo#GL>	owl:sameAs	<http://dbpedia.org/resource/Greenland>.
+<http://eurostat.linked-statistics.org/dic/geo#GM>	owl:sameAs	<http://dbpedia.org/resource/Gambia>.
+<http://eurostat.linked-statistics.org/dic/geo#GN>	owl:sameAs	<http://dbpedia.org/resource/Guinea>.
+<http://eurostat.linked-statistics.org/dic/geo#GQ>	owl:sameAs	<http://dbpedia.org/resource/Equatorial_Guinea>.
+<http://eurostat.linked-statistics.org/dic/geo#GR>	owl:sameAs	<http://dbpedia.org/resource/Greece>.
+<http://eurostat.linked-statistics.org/dic/geo#GS>	owl:sameAs	<http://dbpedia.org/resource/South_Georgia_and_the_South_Sandwich_Islands>.
+<http://eurostat.linked-statistics.org/dic/geo#GW>	owl:sameAs	<http://dbpedia.org/resource/Guinea-Bissau>.
+<http://eurostat.linked-statistics.org/dic/geo#GY>	owl:sameAs	<http://dbpedia.org/resource/Guyana>.
+<http://eurostat.linked-statistics.org/dic/geo#HN>	owl:sameAs	<http://dbpedia.org/resource/Honduras>.
+<http://eurostat.linked-statistics.org/dic/geo#HR>	owl:sameAs	<http://dbpedia.org/resource/Croatia>.
+<http://eurostat.linked-statistics.org/dic/geo#HU>	owl:sameAs	<http://dbpedia.org/resource/Hungary>.
+<http://eurostat.linked-statistics.org/dic/geo#ID>	owl:sameAs	<http://dbpedia.org/resource/Indonesia>.
+<http://eurostat.linked-statistics.org/dic/geo#IE>	owl:sameAs	<http://dbpedia.org/resource/Ireland>.
+<http://eurostat.linked-statistics.org/dic/geo#IL>	owl:sameAs	<http://dbpedia.org/resource/Israel>.
+<http://eurostat.linked-statistics.org/dic/geo#IN>	owl:sameAs	<http://dbpedia.org/resource/India>.
+<http://eurostat.linked-statistics.org/dic/geo#IO>	owl:sameAs	<http://dbpedia.org/resource/British_Indian_Ocean_Territory>.
+<http://eurostat.linked-statistics.org/dic/geo#IQ>	owl:sameAs	<http://dbpedia.org/resource/Iraq>.
+<http://eurostat.linked-statistics.org/dic/geo#IR>	owl:sameAs	<http://dbpedia.org/resource/Iran,_Islamic_Republic_of>.
+<http://eurostat.linked-statistics.org/dic/geo#IS>	owl:sameAs	<http://dbpedia.org/resource/Iceland>.
+<http://eurostat.linked-statistics.org/dic/geo#JO>	owl:sameAs	<http://dbpedia.org/resource/Jordan>.
+<http://eurostat.linked-statistics.org/dic/geo#JP>	owl:sameAs	<http://dbpedia.org/resource/Japan>.
+<http://eurostat.linked-statistics.org/dic/geo#KE>	owl:sameAs	<http://dbpedia.org/resource/Kenya>.
+<http://eurostat.linked-statistics.org/dic/geo#KG>	owl:sameAs	<http://dbpedia.org/resource/Kyrgyzstan>.
+<http://eurostat.linked-statistics.org/dic/geo#KH>	owl:sameAs	<http://dbpedia.org/resource/Cambodia>.
+<http://eurostat.linked-statistics.org/dic/geo#KI>	owl:sameAs	<http://dbpedia.org/resource/Kiribati>.
+<http://eurostat.linked-statistics.org/dic/geo#KM>	owl:sameAs	<http://dbpedia.org/resource/Comoros>.
+<http://eurostat.linked-statistics.org/dic/geo#KP>	owl:sameAs	<http://dbpedia.org/resource/North_Korea>.
+<http://eurostat.linked-statistics.org/dic/geo#KR>	owl:sameAs	<http://dbpedia.org/resource/South_Korea>.
+<http://eurostat.linked-statistics.org/dic/geo#KW>	owl:sameAs	<http://dbpedia.org/resource/Kuwait>.
+<http://eurostat.linked-statistics.org/dic/geo#KY>	owl:sameAs	<http://dbpedia.org/resource/Cayman_Islands>.
+<http://eurostat.linked-statistics.org/dic/geo#KZ>	owl:sameAs	<http://dbpedia.org/resource/Kazakhstan>.
+<http://eurostat.linked-statistics.org/dic/geo#LA>	owl:sameAs	<http://dbpedia.org/resource/Laos>.
+<http://eurostat.linked-statistics.org/dic/geo#LB>	owl:sameAs	<http://dbpedia.org/resource/Lebanon>.
+<http://eurostat.linked-statistics.org/dic/geo#LC>	owl:sameAs	<http://dbpedia.org/resource/Saint_Lucia>.
+<http://eurostat.linked-statistics.org/dic/geo#LK>	owl:sameAs	<http://dbpedia.org/resource/Sri_Lanka>.
+<http://eurostat.linked-statistics.org/dic/geo#LR>	owl:sameAs	<http://dbpedia.org/resource/Liberia>.
+<http://eurostat.linked-statistics.org/dic/geo#LT>	owl:sameAs	<http://dbpedia.org/resource/Lithuania>.
+<http://eurostat.linked-statistics.org/dic/geo#LU>	owl:sameAs	<http://dbpedia.org/resource/Luxembourg>.
+<http://eurostat.linked-statistics.org/dic/geo#LV>	owl:sameAs	<http://dbpedia.org/resource/Latvia>.
+<http://eurostat.linked-statistics.org/dic/geo#LY>	owl:sameAs	<http://dbpedia.org/resource/Libya>.
+<http://eurostat.linked-statistics.org/dic/geo#MA>	owl:sameAs	<http://dbpedia.org/resource/Morocco>.
+<http://eurostat.linked-statistics.org/dic/geo#MC>	owl:sameAs	<http://dbpedia.org/resource/Monaco>.
+<http://eurostat.linked-statistics.org/dic/geo#MG>	owl:sameAs	<http://dbpedia.org/resource/Madagascar>.
+<http://eurostat.linked-statistics.org/dic/geo#MH>	owl:sameAs	<http://dbpedia.org/resource/Marshall_Islands>.
+<http://eurostat.linked-statistics.org/dic/geo#MK>	owl:sameAs	<http://dbpedia.org/resource/Macedonia>.
+<http://eurostat.linked-statistics.org/dic/geo#ML>	owl:sameAs	<http://dbpedia.org/resource/Mali>.
+<http://eurostat.linked-statistics.org/dic/geo#MM>	owl:sameAs	<http://dbpedia.org/resource/Myanmar>.
+<http://eurostat.linked-statistics.org/dic/geo#MN>	owl:sameAs	<http://dbpedia.org/resource/Mongolia>.
+<http://eurostat.linked-statistics.org/dic/geo#MQ>	owl:sameAs	<http://dbpedia.org/resource/Martinique>.
+<http://eurostat.linked-statistics.org/dic/geo#MR>	owl:sameAs	<http://dbpedia.org/resource/Mauritania>.
+<http://eurostat.linked-statistics.org/dic/geo#MS>	owl:sameAs	<http://dbpedia.org/resource/Montserrat>.
+<http://eurostat.linked-statistics.org/dic/geo#MT>	owl:sameAs	<http://dbpedia.org/resource/Malta>.
+<http://eurostat.linked-statistics.org/dic/geo#MU>	owl:sameAs	<http://dbpedia.org/resource/Mauritius>.
+<http://eurostat.linked-statistics.org/dic/geo#MV>	owl:sameAs	<http://dbpedia.org/resource/Maldives>.
+<http://eurostat.linked-statistics.org/dic/geo#MW>	owl:sameAs	<http://dbpedia.org/resource/Malawi>.
+<http://eurostat.linked-statistics.org/dic/geo#MX>	owl:sameAs	<http://dbpedia.org/resource/Mexico>.
+<http://eurostat.linked-statistics.org/dic/geo#MY>	owl:sameAs	<http://dbpedia.org/resource/Malaysia>.
+<http://eurostat.linked-statistics.org/dic/geo#MY>	owl:sameAs	<http://dbpedia.org/resource/Malaysia>.
+<http://eurostat.linked-statistics.org/dic/geo#MZ>	owl:sameAs	<http://dbpedia.org/resource/Mozambique>.
+<http://eurostat.linked-statistics.org/dic/geo#NA>	owl:sameAs	<http://dbpedia.org/resource/Namibia>.
+<http://eurostat.linked-statistics.org/dic/geo#NC>	owl:sameAs	<http://dbpedia.org/resource/New_Caledonia>.
+<http://eurostat.linked-statistics.org/dic/geo#NE>	owl:sameAs	<http://dbpedia.org/resource/Niger>.
+<http://eurostat.linked-statistics.org/dic/geo#NF>	owl:sameAs	<http://dbpedia.org/resource/Norfolk_Island>.
+<http://eurostat.linked-statistics.org/dic/geo#NG>	owl:sameAs	<http://dbpedia.org/resource/Nigeria>.
+<http://eurostat.linked-statistics.org/dic/geo#NI>	owl:sameAs	<http://dbpedia.org/resource/Nicaragua>.
+<http://eurostat.linked-statistics.org/dic/geo#NP>	owl:sameAs	<http://dbpedia.org/resource/Nepal>.
+<http://eurostat.linked-statistics.org/dic/geo#NR>	owl:sameAs	<http://dbpedia.org/resource/Nauru>.
+<http://eurostat.linked-statistics.org/dic/geo#NU>	owl:sameAs	<http://dbpedia.org/resource/Niue>.
+<http://eurostat.linked-statistics.org/dic/geo#NZ>	owl:sameAs	<http://dbpedia.org/resource/New_Zealand>.
+<http://eurostat.linked-statistics.org/dic/geo#OM>	owl:sameAs	<http://dbpedia.org/resource/Oman>.
+<http://eurostat.linked-statistics.org/dic/geo#PA>	owl:sameAs	<http://dbpedia.org/resource/Panama>.
+<http://eurostat.linked-statistics.org/dic/geo#PE>	owl:sameAs	<http://dbpedia.org/resource/Peru>.
+<http://eurostat.linked-statistics.org/dic/geo#PF>	owl:sameAs	<http://dbpedia.org/resource/French_Polynesia>.
+<http://eurostat.linked-statistics.org/dic/geo#PG>	owl:sameAs	<http://dbpedia.org/resource/Papua_New_Guinea>.
+<http://eurostat.linked-statistics.org/dic/geo#PK>	owl:sameAs	<http://dbpedia.org/resource/Pakistan>.
+<http://eurostat.linked-statistics.org/dic/geo#PM>	owl:sameAs	<http://dbpedia.org/resource/Saint_Pierre_and_Miquelon>.
+<http://eurostat.linked-statistics.org/dic/geo#PN>	owl:sameAs	<http://dbpedia.org/resource/Pitcairn>.
+<http://eurostat.linked-statistics.org/dic/geo#QA>	owl:sameAs	<http://dbpedia.org/resource/Qatar>.
+<http://eurostat.linked-statistics.org/dic/geo#RO>	owl:sameAs	<http://dbpedia.org/resource/Romania>.
+<http://eurostat.linked-statistics.org/dic/geo#RU>	owl:sameAs	<http://dbpedia.org/resource/Russian_Federation>.
+<http://eurostat.linked-statistics.org/dic/geo#RW>	owl:sameAs	<http://dbpedia.org/resource/Rwanda>.
+<http://eurostat.linked-statistics.org/dic/geo#SA>	owl:sameAs	<http://dbpedia.org/resource/Saudi_Arabia>.
+<http://eurostat.linked-statistics.org/dic/geo#SB>	owl:sameAs	<http://dbpedia.org/resource/Solomon_Islands>.
+<http://eurostat.linked-statistics.org/dic/geo#SC>	owl:sameAs	<http://dbpedia.org/resource/Seychelles>.
+<http://eurostat.linked-statistics.org/dic/geo#SD>	owl:sameAs	<http://dbpedia.org/resource/Sudan>.
+<http://eurostat.linked-statistics.org/dic/geo#SK>	owl:sameAs	<http://dbpedia.org/resource/Slovakia>.
+<http://eurostat.linked-statistics.org/dic/geo#SL>	owl:sameAs	<http://dbpedia.org/resource/Sierra_Leone>.
+<http://eurostat.linked-statistics.org/dic/geo#SM>	owl:sameAs	<http://dbpedia.org/resource/San_Marino>.
+<http://eurostat.linked-statistics.org/dic/geo#SN>	owl:sameAs	<http://dbpedia.org/resource/Senegal>.
+<http://eurostat.linked-statistics.org/dic/geo#SO>	owl:sameAs	<http://dbpedia.org/resource/Somalia>.
+<http://eurostat.linked-statistics.org/dic/geo#SR>	owl:sameAs	<http://dbpedia.org/resource/Suriname>.
+<http://eurostat.linked-statistics.org/dic/geo#SS>	owl:sameAs	<http://dbpedia.org/resource/South_Sudan>.
+<http://eurostat.linked-statistics.org/dic/geo#ST>	owl:sameAs	<http://dbpedia.org/resource/Sao_Tome_and_Principe>.
+<http://eurostat.linked-statistics.org/dic/geo#SV>	owl:sameAs	<http://dbpedia.org/resource/El_Salvador>.
+<http://eurostat.linked-statistics.org/dic/geo#SY>	owl:sameAs	<http://dbpedia.org/resource/Syrian_Arab_Republic>.
+<http://eurostat.linked-statistics.org/dic/geo#TC>	owl:sameAs	<http://dbpedia.org/resource/Turks_and_Caicos_Islands>.
+<http://eurostat.linked-statistics.org/dic/geo#TD>	owl:sameAs	<http://dbpedia.org/resource/Chad>.
+<http://eurostat.linked-statistics.org/dic/geo#TG>	owl:sameAs	<http://dbpedia.org/resource/Togo>.
+<http://eurostat.linked-statistics.org/dic/geo#TH>	owl:sameAs	<http://dbpedia.org/resource/Thailand>.
+<http://eurostat.linked-statistics.org/dic/geo#TJ>	owl:sameAs	<http://dbpedia.org/resource/Tajikistan>.
+<http://eurostat.linked-statistics.org/dic/geo#TK>	owl:sameAs	<http://dbpedia.org/resource/Tokelau>.
+<http://eurostat.linked-statistics.org/dic/geo#TL>	owl:sameAs	<http://dbpedia.org/resource/Timor-Leste>.
+<http://eurostat.linked-statistics.org/dic/geo#TM>	owl:sameAs	<http://dbpedia.org/resource/Turkmenistan>.
+<http://eurostat.linked-statistics.org/dic/geo#TO>	owl:sameAs	<http://dbpedia.org/resource/Tonga>.
+<http://eurostat.linked-statistics.org/dic/geo#TR>	owl:sameAs	<http://dbpedia.org/resource/Turkey>.
+<http://eurostat.linked-statistics.org/dic/geo#TT>	owl:sameAs	<http://dbpedia.org/resource/Trinidad_and_Tobago>.
+<http://eurostat.linked-statistics.org/dic/geo#TV>	owl:sameAs	<http://dbpedia.org/resource/Tuvalu>.
+<http://eurostat.linked-statistics.org/dic/geo#TW>	owl:sameAs	<http://dbpedia.org/resource/Taiwan,_Province_of_China>.
+<http://eurostat.linked-statistics.org/dic/geo#TZ>	owl:sameAs	<http://dbpedia.org/resource/Tanzania,_United_Republic_of>.
+<http://eurostat.linked-statistics.org/dic/geo#UA>	owl:sameAs	<http://dbpedia.org/resource/Ukraine>.
+<http://eurostat.linked-statistics.org/dic/geo#UG>	owl:sameAs	<http://dbpedia.org/resource/Uganda>.
+<http://eurostat.linked-statistics.org/dic/geo#UY>	owl:sameAs	<http://dbpedia.org/resource/Uruguay>.
+<http://eurostat.linked-statistics.org/dic/geo#UZ>	owl:sameAs	<http://dbpedia.org/resource/Uzbekistan>.
+<http://eurostat.linked-statistics.org/dic/geo#VC>	owl:sameAs	<http://dbpedia.org/resource/Saint_Vincent_and_the_Grenadines>.
+<http://eurostat.linked-statistics.org/dic/geo#VE>	owl:sameAs	<http://dbpedia.org/resource/Venezuela,_Bolivarian_Republic_of>.
+<http://eurostat.linked-statistics.org/dic/geo#VG>	owl:sameAs	<http://dbpedia.org/resource/Virgin_Islands,_British>.
+<http://eurostat.linked-statistics.org/dic/geo#VN>	owl:sameAs	<http://dbpedia.org/resource/Viet_Nam>.
+<http://eurostat.linked-statistics.org/dic/geo#WS>	owl:sameAs	<http://dbpedia.org/resource/Samoa>.
+<http://eurostat.linked-statistics.org/dic/geo#YE>	owl:sameAs	<http://dbpedia.org/resource/Yemen>.
+<http://eurostat.linked-statistics.org/dic/geo#ZA>	owl:sameAs	<http://dbpedia.org/resource/South_Africa>.
+<http://eurostat.linked-statistics.org/dic/geo#ZM>	owl:sameAs	<http://dbpedia.org/resource/Zambia>.
+<http://eurostat.linked-statistics.org/dic/geo#ZW>	owl:sameAs	<http://dbpedia.org/resource/Zimbabwe>.
+
+
+
+citizen:AD	skos:broader	dbpedia:Unitary_state .
+citizen:AE	skos:broader	dbpedia:Federation .
+citDim:AF	skos:broader	dbpedia:Unitary_state .
+citizen:AM	skos:broader	dbpedia:Semi-presidential_system .
+citizen:AR	skos:broader	dbpedia:Federal_republic .
+citizen:AU	skos:broader	dbpedia:Federalism .
+citizen:AZ	skos:broader	dbpedia:Unitary_state .
+citizen:BA	skos:broader	dbpedia:Federal_republic .
+citizen:BB	skos:broader	dbpedia:Unitary_state .
+citizen:BD	skos:broader	dbpedia:Unitary_state .
+citizen:BG	skos:broader	dbpedia:Unitary_state .
+citizen:BH	skos:broader	dbpedia:Unitary_state .
+citizen:BI	skos:broader	dbpedia:Presidential_system .
+citizen:BJ	skos:broader	dbpedia:Presidential_system .
+citizen:BR	skos:broader	dbpedia:Federalism .
+citizen:BT	skos:broader	dbpedia:Unitary_state .
+citizen:BW	skos:broader	dbpedia:Unitary_state .
+citizen:BY	skos:broader	dbpedia:Unitary_state .
+citizen:BZ	skos:broader	dbpedia:Unitary_state .
+citizen:CF	skos:broader	dbpedia:Provisional_government .
+citizen:CL	skos:broader	dbpedia:Unitary_state .
+citizen:CM	skos:broader	dbpedia:Dominant-party_system .
+citizen:CN	skos:broader	dbpedia:Single-party_state .
+citizen:CO	skos:broader	dbpedia:Unitary_state .
+citizen:CR	skos:broader	dbpedia:Unitary_state .
+citizen:CU	skos:broader	dbpedia:Single-party_state .
+citizen:CV	skos:broader	dbpedia:Parliamentary_republic .
+citizen:CZ	skos:broader	dbpedia:Parliamentary_republic .
+citizen:DE	skos:broader	dbpedia:Federalism .
+citizen:DM	skos:broader	dbpedia:Unitary_state .
+citizen:EC	skos:broader	dbpedia:Unitary_state .
+citizen:EE	skos:broader	dbpedia:Parliamentary_republic .
+citizen:ER	skos:broader	dbpedia:Single-party_state .
+citizen:ET	skos:broader	dbpedia:Federal_republic .
+citizen:FI	skos:broader	dbpedia:Parliamentary_republic .
+citizen:GA	skos:broader	dbpedia:Presidential_system .
+citizen:GD	skos:broader	dbpedia:Parliamentary_system .
+citizen:GN	skos:broader	dbpedia:Presidential_system .
+citizen:GQ	skos:broader	dbpedia:Unitary_state .
+citizen:GW	skos:broader	dbpedia:Unitary_state .
+citizen:GY	skos:broader	dbpedia:Unitary_state .
+citizen:HN	skos:broader	dbpedia:Republic .
+citizen:HR	skos:broader	dbpedia:Republic .
+citizen:HU	skos:broader	dbpedia:Parliamentary_republic .
+citizen:ID	skos:broader	dbpedia:Unitary_state .
+citizen:IL	skos:broader	dbpedia:Unitary_state .
+citizen:IQ	skos:broader	dbpedia:Federation .
+citizen:IS	skos:broader	dbpedia:Unitary_state .
+citizen:JP	skos:broader	dbpedia:Unitary_state .
+citizen:KG	skos:broader	dbpedia:Unitary .
+citizen:KH	skos:broader	dbpedia:Unitary_state .
+citizen:KI	skos:broader	dbpedia:Parliamentary_republic .
+citizen:KM	skos:broader	dbpedia:Federation .
+citizen:KP	skos:broader	dbpedia:Single-party_state .	
+citizen:KZ	skos:broader	dbpedia:Unitary_state .
+citizen:LA	skos:broader	dbpedia:Single-party_state .
+citizen:LB	skos:broader	dbpedia:Unitary_state .
+citizen:LC	skos:broader	dbpedia:Constitutional_monarchy .
+citizen:LK	skos:broader	dbpedia:Unitary_state .
+citizen:LT	skos:broader	dbpedia:Unitary_state .
+citizen:LU	skos:broader	dbpedia:Unitary_state .
+citizen:LV	skos:broader	dbpedia:Parliamentary_republic .
+citizen:LY	skos:broader	dbpedia:Unitary_state .
+citizen:MC	skos:broader	dbpedia:Unitary_state .
+citizen:MG	skos:broader	dbpedia:Semi-presidential_system .
+citizen:MH	skos:broader	dbpedia:Unitary_state .
+citizen:MN	skos:broader	dbpedia:Unitary_state .
+citizen:MR	skos:broader	dbpedia:Semi-presidential_system .
+citizen:MU	skos:broader	dbpedia:Parliamentary_republic .
+citizen:MV	skos:broader	dbpedia:Unitary_state .
+citizen:MW	skos:broader	dbpedia:Unitary_state .
+citizen:MY	skos:broader	dbpedia:Federal_monarchy .
+citizen:MZ	skos:broader	dbpedia:Unitary_state .
+citDim:NA	skos:broader	dbpedia:Unitary_state .
+citizen:NE	skos:broader	dbpedia:Unitary_state .
+citizen:NG	skos:broader	dbpedia:Federalism .
+citizen:NI	skos:broader	dbpedia:Unitary_state .
+citizen:NP	skos:broader	dbpedia:Parliamentary_system .
+citizen:NR	skos:broader	dbpedia:Parliamentary_republic .
+citizen:NZ	skos:broader	dbpedia:Unitary_state .
+citizen:OM	skos:broader	dbpedia:Unitary_state .
+citizen:PA	skos:broader	dbpedia:Unitary_state .
+citizen:PE	skos:broader	dbpedia:Unitary_state .
+citDim:SA	skos:broader	dbpedia:Unitary_state .
+citizen:ZM	skos:broader	dbpedia:Presidential_system .
+citizen:SO	skos:broader	dbpedia:Federal_Government_of_Somalia .
+citizen:YE	skos:broader	dbpedia:Unitary_state .
+citizen:SM	skos:broader	dbpedia:Unitary_state .
+citizen:TV	skos:broader	dbpedia:Constitutional_monarchy .
+citizen:TD	skos:broader	dbpedia:Dominant-party_system .
+citizen:TO	skos:broader	dbpedia:Unitary_state .
+citizen:SC	skos:broader	dbpedia:Unitary_state .
+citizen:SS	skos:broader	dbpedia:Federal_republic .
+citizen:SB	skos:broader	dbpedia:Unitary_state .
+citizen:WS	skos:broader	dbpedia:Unitary_state .
+citizen:UA	skos:broader	dbpedia:Unitary_state .
+citizen:TR	skos:broader	dbpedia:Unitary_state .
+citizen:QA	skos:broader	dbpedia:Unitary_state .
+citizen:SR	skos:broader	dbpedia:Unitary_state .
+citizen:TJ	skos:broader	dbpedia:Unitary_state .
+citizen:PK	skos:broader	dbpedia:Federal_republic .
+citizen:ZA	skos:broader	dbpedia:Liberal_democracy .
+citizen:SV	skos:broader	dbpedia:Unitary_state .
+citizen:VC	skos:broader	dbpedia:Constitutional_monarchy .
+citizen:TM	skos:broader	dbpedia:Dominant-party_system .
+citizen:TH	skos:broader	dbpedia:Unitary_state .
+citizen:UZ	skos:broader	dbpedia:Unitary_state .
+citizen:SL	skos:broader	dbpedia:Presidential_system .
+citizen:TG	skos:broader	dbpedia:Presidential_system .
+citizen:SK	skos:broader	dbpedia:Parliamentary_republic .
+citizen:UY	skos:broader	dbpedia:Unitary_state .
+citizen:ZW	skos:broader	dbpedia:Presidential_system .
+
+citizen:AD	schema:countryName	"Andorra"@en .
+citizen:AE	schema:countryName	"United Arab Emirates"@en .
+citizen:AF	schema:countryName	"Afghanistan"@en .
+citizen:AG	schema:countryName	"Antigua and Barbuda"@en .
+citizen:AL	schema:countryName	"Albania"@en .
+citizen:AM	schema:countryName	"Armenia"@en .
+citizen:AO	schema:countryName	"Angola"@en .
+citizen:AR	schema:countryName	"Argentina"@en .
+citizen:AT	schema:countryName	"Austria"@en .
+citizen:AU	schema:countryName	"Australia"@en .
+citizen:AZ	schema:countryName	"Azerbaijan"@en .
+citizen:BA	schema:countryName	"Bosnia and Herzegovina"@en .
+citizen:BB	schema:countryName	"Barbados"@en .
+citizen:BD	schema:countryName	"Bangladesh"@en .
+citizen:BE	schema:countryName	"Belgium"@en .
+citizen:BF	schema:countryName	"Burkina Faso"@en .
+citizen:BG	schema:countryName	"Bulgaria"@en .
+citizen:BH	schema:countryName	"Bahrain"@en .
+citizen:BI	schema:countryName	"Burundi"@en .
+citizen:BJ	schema:countryName	"Benin"@en .
+citizen:BN	schema:countryName	"Brunei Darussalam"@en .
+citizen:BO	schema:countryName	"Bolivia"@en .
+citizen:BR	schema:countryName	"Brazil"@en .
+citizen:BS	schema:countryName	"Bahamas"@en .
+citizen:BT	schema:countryName	"Bhutan"@en .
+citizen:BW	schema:countryName	"Botswana"@en .
+citizen:BY	schema:countryName	"Belarus"@en .
+citizen:BZ	schema:countryName	"Belize"@en .
+citizen:CA	schema:countryName	"Canada"@en .
+citizen:CD	schema:countryName	"Democratic Republic of the Congo"@en .
+citizen:CF	schema:countryName	"Central African Republic"@en .
+citizen:CG	schema:countryName	"Congo"@en .
+citizen:CH	schema:countryName	"Switzerland"@en .
+citizen:CI	schema:countryName	"C\u00F4te d'Ivoire"@en .
+citizen:CL	schema:countryName	"Chile"@en .
+citizen:CM	schema:countryName	"Cameroon"@en .
+citizen:CN	schema:countryName	"China (including Hong Kong)"@en .
+citizen:CO	schema:countryName	"Colombia"@en .
+citizen:CR	schema:countryName	"Costa Rica"@en .
+citizen:CU	schema:countryName	"Cuba"@en .
+citizen:CV	schema:countryName	"Cape Verde"@en .
+citizen:CY	schema:countryName	"Cyprus"@en .
+citizen:CZ	schema:countryName	"Czech Republic"@en .
+citizen:DE	schema:countryName	"Germany (including  former GDR from 1991)"@en .
+citizen:DJ	schema:countryName	"Djibouti"@en .
+citizen:DK	schema:countryName	"Denmark"@en .
+citizen:DM	schema:countryName	"Dominica"@en .
+citizen:DO	schema:countryName	"Dominican Republic"@en .
+citizen:DZ	schema:countryName	"Algeria"@en .
+citizen:EC	schema:countryName	"Ecuador"@en .
+citizen:EE	schema:countryName	"Estonia"@en .
+citizen:EG	schema:countryName	"Egypt"@en .
+citizen:EH	schema:countryName	"Western Sahara"@en .
+citizen:EL	schema:countryName	"Greece"@en .
+citizen:ER	schema:countryName	"Eritrea"@en .
+citizen:ES	schema:countryName	"Spain"@en .
+citizen:ET	schema:countryName	"Ethiopia"@en .
+citizen:EU27	schema:countryName	"European Union (27 countries)"@en .
+citizen:EXT_EU27	schema:countryName	"Extra EU-27"@en .
+citizen:FI	schema:countryName	"Finland"@en .
+citizen:FJ	schema:countryName	"Fiji"@en .
+citizen:FM	schema:countryName	"Federated States of Micronesia"@en .
+citizen:FR	schema:countryName	"France"@en .
+citizen:GA	schema:countryName	"Gabon"@en .
+citizen:GD	schema:countryName	"Grenada"@en .
+citizen:GE	schema:countryName	"Georgia"@en .
+citizen:GH	schema:countryName	"Ghana"@en .
+citizen:GM	schema:countryName	"Gambia, The"@en .
+citizen:GN	schema:countryName	"Guinea"@en .
+citizen:GQ	schema:countryName	"Equatorial Guinea"@en .
+citizen:GT	schema:countryName	"Guatemala"@en .
+citizen:GW	schema:countryName	"Guinea-Bissau"@en .
+citizen:GY	schema:countryName	"Guyana"@en .
+citizen:HN	schema:countryName	"Honduras"@en .
+citizen:HR	schema:countryName	"Croatia"@en .
+citizen:HT	schema:countryName	"Haiti"@en .
+citizen:HU	schema:countryName	"Hungary"@en .
+citizen:ID	schema:countryName	"Indonesia"@en .
+citizen:IE	schema:countryName	"Ireland"@en .
+citizen:IL	schema:countryName	"Israel"@en .
+citizen:IN	schema:countryName	"India"@en .
+citizen:IQ	schema:countryName	"Iraq"@en .
+citizen:IR	schema:countryName	"Iran"@en .
+citizen:IS	schema:countryName	"Iceland"@en .
+citizen:IT	schema:countryName	"Italy"@en .
+citizen:JM	schema:countryName	"Jamaica"@en .
+citizen:JO	schema:countryName	"Jordan"@en .
+citizen:JP	schema:countryName	"Japan"@en .
+citizen:KE	schema:countryName	"Kenya"@en .
+citizen:KG	schema:countryName	"Kyrgyzstan"@en .
+citizen:KH	schema:countryName	"Cambodia"@en .
+citizen:KI	schema:countryName	"Kiribati"@en .
+citizen:KM	schema:countryName	"Comoros"@en .
+citizen:KN	schema:countryName	"Saint Kitts and Nevis"@en .
+citizen:KP	schema:countryName	"North Korea"@en .
+citizen:KR	schema:countryName	"South Korea"@en .
+citizen:KW	schema:countryName	"Kuwait"@en .
+citizen:KZ	schema:countryName	"Kazakhstan"@en .
+citizen:LA	schema:countryName	"Laos"@en .
+citizen:LB	schema:countryName	"Lebanon"@en .
+citizen:LC	schema:countryName	"Saint Lucia"@en .
+citizen:LI	schema:countryName	"Liechtenstein"@en .
+citizen:LK	schema:countryName	"Sri Lanka"@en .
+citizen:LR	schema:countryName	"Liberia"@en .
+citizen:LS	schema:countryName	"Lesotho"@en .
+citizen:LT	schema:countryName	"Lithuania"@en .
+citizen:LU	schema:countryName	"Luxembourg"@en .
+citizen:LV	schema:countryName	"Latvia"@en .
+citizen:LY	schema:countryName	"Libya"@en .
+citizen:MA	schema:countryName	"Morocco"@en .
+citizen:MC	schema:countryName	"Monaco"@en .
+citizen:MD	schema:countryName	"Moldova"@en .
+citizen:ME	schema:countryName	"Montenegro"@en .
+citizen:MG	schema:countryName	"Madagascar"@en .
+citizen:MH	schema:countryName	"Marshall Islands"@en .
+citizen:MK	schema:countryName	"Former Yugoslav Republic of Macedonia, the"@en .
+citizen:ML	schema:countryName	"Mali"@en .
+citizen:MM	schema:countryName	"Burma/Myanmar"@en .
+citizen:MN	schema:countryName	"Mongolia"@en .
+citizen:MR	schema:countryName	"Mauritania"@en .
+citizen:MT	schema:countryName	"Malta"@en .
+citizen:MU	schema:countryName	"Mauritius"@en .
+citizen:MV	schema:countryName	"Maldives"@en .
+citizen:MW	schema:countryName	"Malawi"@en .
+citizen:MX	schema:countryName	"Mexico"@en .
+citizen:MY	schema:countryName	"Malaysia"@en .
+citizen:MZ	schema:countryName	"Mozambique"@en .
+citizen:NA	schema:countryName	"Namibia"@en .
+citizen:NE	schema:countryName	"Niger"@en .
+citizen:NG	schema:countryName	"Nigeria"@en .
+citizen:NI	schema:countryName	"Nicaragua"@en .
+citizen:NL	schema:countryName	"Netherlands"@en .
+citizen:NO	schema:countryName	"Norway"@en .
+citizen:NP	schema:countryName	"Nepal"@en .
+citizen:NR	schema:countryName	"Nauru"@en .
+citizen:NZ	schema:countryName	"New Zealand"@en .
+citizen:OM	schema:countryName	"Oman"@en .
+citizen:PA	schema:countryName	"Panama"@en .
+citizen:PE	schema:countryName	"Peru"@en .
+citizen:PG	schema:countryName	"Papua New Guinea"@en .
+citizen:PK	schema:countryName	"Pakistan"@en .
+citizen:PL	schema:countryName	"Poland"@en .
+citizen:PS	schema:countryName	"Palestinian territory"@en .
+citizen:PT	schema:countryName	"Portugal"@en .
+citizen:PW	schema:countryName	"Palau"@en .
+citizen:PY	schema:countryName	"Paraguay"@en .
+citizen:QA	schema:countryName	"Qatar"@en .
+citizen:RO	schema:countryName	"Romania"@en .
+citizen:RS	schema:countryName	"Serbia"@en .
+citizen:RU	schema:countryName	"Russia"@en .
+citizen:RW	schema:countryName	"Rwanda"@en .
+citizen:SA	schema:countryName	"Saudi Arabia"@en .
+citizen:SB	schema:countryName	"Solomon Islands"@en .
+citizen:SC	schema:countryName	"Seychelles"@en .
+citizen:SD	schema:countryName	"Sudan"@en .
+citizen:SE	schema:countryName	"Sweden"@en .
+citizen:SG	schema:countryName	"Singapore"@en .
+citizen:SI	schema:countryName	"Slovenia"@en .
+citizen:SK	schema:countryName	"Slovakia"@en .
+citizen:SL	schema:countryName	"Sierra Leone"@en .
+citizen:SM	schema:countryName	"San Marino"@en .
+citizen:SN	schema:countryName	"Senegal"@en .
+citizen:SO	schema:countryName	"Somalia"@en .
+citizen:SR	schema:countryName	"Suriname"@en .
+citizen:SS	schema:countryName	"South Sudan"@en .
+citizen:ST	schema:countryName	"S\u00E3o Tom\u00E9 and Pr\u00EDncipe"@en .
+citizen:STLS	schema:countryName	"Stateless"@en .
+citizen:SV	schema:countryName	"El Salvador"@en .
+citizen:SY	schema:countryName	"Syria"@en .
+citizen:SZ	schema:countryName	"Swaziland"@en .
+citizen:TD	schema:countryName	"Chad"@en .
+citizen:TG	schema:countryName	"Togo"@en .
+citizen:TH	schema:countryName	"Thailand"@en .
+citizen:TJ	schema:countryName	"Tajikistan"@en .
+citizen:TL	schema:countryName	"Timor-Leste"@en .
+citizen:TM	schema:countryName	"Turkmenistan"@en .
+citizen:TN	schema:countryName	"Tunisia"@en .
+citizen:TO	schema:countryName	"Tonga"@en .
+citizen:TR	schema:countryName	"Turkey"@en .
+citizen:TT	schema:countryName	"Trinidad and Tobago"@en .
+citizen:TV	schema:countryName	"Tuvalu"@en .
+citizen:TW	schema:countryName	"Taiwan"@en .
+citizen:TZ	schema:countryName	"Tanzania"@en .
+citizen:UA	schema:countryName	"Ukraine"@en .
+citizen:UG	schema:countryName	"Uganda"@en .
+citizen:UK	schema:countryName	"United Kingdom"@en .
+citizen:UK_OCT	schema:countryName	"British overseas countries and territories"@en .
+citizen:US	schema:countryName	"United States"@en .
+citizen:UY	schema:countryName	"Uruguay"@en .
+citizen:UZ	schema:countryName	"Uzbekistan"@en .
+citizen:VA	schema:countryName	"Vatican City State"@en .
+citizen:VC	schema:countryName	"Saint Vincent and the Grenadines"@en .
+citizen:VE	schema:countryName	"Venezuela"@en .
+citizen:VN	schema:countryName	"Vietnam"@en .
+citizen:VU	schema:countryName	"Vanuatu"@en .
+citizen:WS	schema:countryName	"Samoa"@en .
+citizen:XK	schema:countryName	"Kosovo (under United Nations Security Council Resolution 1244/99)"@en .
+citizen:YE	schema:countryName	"Yemen"@en .
+citizen:ZA	schema:countryName	"South Africa"@en .
+citizen:ZM	schema:countryName	"Zambia"@en .
+citizen:ZW	schema:countryName	"Zimbabwe"@en .
+
+geo:AT skos:broader dbpedia:Federal_republic .
+geo:BE  skos:broader	dbpedia:Monarchy .
+geo:BG	skos:broader	dbpedia:Unitary_state .
+geo:CH  skos:broader	dbpedia:Federation .
+geo:CY  skos:broader	dbpedia:Unitary_state .
+geo:CZ	skos:broader	dbpedia:Parliamentary_republic .
+geo:DE	skos:broader	dbpedia:Federalism .
+geo:DK  skos:broader	dbpedia:Parliamentary_republic .
+geo:EE	skos:broader	dbpedia:Parliamentary_republic .
+geo:EL  skos:broader	dbpedia:Unitary_state .
+geo:ES  skos:broader	dbpedia:Monarchy .
+geo:FI	skos:broader	dbpedia:Parliamentary_republic .
+geo:FR  skos:broader	dbpedia:Unitary_state .
+geo:HU	skos:broader	dbpedia:Parliamentary_republic .
+geo:IE  skos:broader	dbpedia:Parliamentary_republic .
+geo:IS	skos:broader	dbpedia:Unitary_state .
+geo:IT  skos:broader	dbpedia:Unitary_state .
+geo:LI  skos:broader	dbpedia:Monarchy .
+geo:LT	skos:broader	dbpedia:Unitary_state .
+geo:LU	skos:broader	dbpedia:Unitary_state .
+geo:LV	skos:broader	dbpedia:Parliamentary_republic .
+geo:MT  skos:broader	dbpedia:Unitary_state .
+geo:NL  skos:broader	dbpedia:Unitary_state .
+geo:NO  skos:broader	dbpedia:Unitary_state .
+geo:PL  skos:broader	dbpedia:Parliamentary_republic .
+geo:PT  skos:broader	dbpedia:Unitary_state .
+geo:RO  skos:broader	dbpedia:Parliamentary_republic .
+geo:SE  skos:broader	dbpedia:Parliamentary_republic .
+geo:SI  skos:broader	dbpedia:Republic .
+geo:SK	skos:broader	dbpedia:Parliamentary_republic .
+geo:UK  skos:broader	dbpedia:Unitary_state .
+
+
+geo:AT	schema:countryName	"Austria"@en .
+geo:BE	schema:countryName	"Belgium"@en .
+geo:BG	schema:countryName	"Bulgaria"@en .
+geo:CH	schema:countryName	"Switzerland"@en .
+geo:CY	schema:countryName	"Cyprus"@en .
+geo:CZ	schema:countryName	"Czech Republic"@en .
+geo:DE	schema:countryName	"Germany (including  former GDR from 1991)"@en .
+geo:DK	schema:countryName	"Denmark"@en .
+geo:EE	schema:countryName	"Estonia"@en .
+geo:EL	schema:countryName	"Greece"@en .
+geo:ES	schema:countryName	"Spain"@en .
+geo:EU27	schema:countryName	"European Union (27 countries)"@en .
+geo:FI	schema:countryName	"Finland"@en .
+geo:FR	schema:countryName	"France"@en .
+geo:HU	schema:countryName	"Hungary"@en .
+geo:IE	schema:countryName	"Ireland"@en .
+geo:IS	schema:countryName	"Iceland"@en .
+geo:IT	schema:countryName	"Italy"@en .
+geo:LI	schema:countryName	"Liechtenstein"@en .
+geo:LT	schema:countryName	"Lithuania"@en .
+geo:LU	schema:countryName	"Luxembourg"@en .
+geo:LV	schema:countryName	"Latvia"@en .
+geo:MT	schema:countryName	"Malta"@en .
+geo:NL	schema:countryName	"Netherlands"@en .
+geo:NO	schema:countryName	"Norway"@en .
+geo:PL	schema:countryName	"Poland"@en .
+geo:PT	schema:countryName	"Portugal"@en .
+geo:RO	schema:countryName	"Romania"@en .
+geo:SE	schema:countryName	"Sweden"@en .
+geo:SI	schema:countryName	"Slovenia"@en .
+geo:SK	schema:countryName	"Slovakia"@en .
+geo:UK	schema:countryName	"United Kingdom"@en .
+
+
+dbpedia:Parliamentary_republic	qb4o:memberOf	schema:governmentType ;
+	skos:broader	desDim:TOTAL ;
+	skos:prefLabel	"Parliamentary republic"@en ;
+	skos:notation	"Parliamentary republic"@en .
+dbpedia:Unitary_state	qb4o:memberOf	schema:governmentType ;
+	skos:broader	desDim:TOTAL ;
+	skos:prefLabel	"Unitary state"@en ;
+	skos:notation	"Unitary state"@en .
+dbpedia:Federalism	qb4o:memberOf	schema:governmentType ;
+	skos:broader	desDim:TOTAL ;
+	skos:prefLabel	"Federalism"@en ;
+	skos:notation	"Federalism"@en .
+
+
+dbpedia:Federal_Government_of_Somalia	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Federal Government of Somalia"@en ;
+	skos:notation	"Federal Government of Somalia"@en .
+dbpedia:Republic	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Republic"@en ;
+	skos:notation	"Republic"@en .
+dbpedia:Federation	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Federation"@en ;
+	skos:notation	"Federation"@en .
+dbpedia:Parliamentary_republic	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Parliamentary republic"@en ;
+	skos:notation	"Parliamentary republic"@en .
+dbpedia:Constitutional_monarchy	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Constitutional monarchy"@en ;
+	skos:notation	"Constitutional monarchy"@en .
+dbpedia:Unitary_state	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Unitary state"@en ;
+	skos:notation	"Unitary state"@en .
+dbpedia:Single-party_state	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Single-party state"@en ;
+	skos:notation	"Single-party state"@en .
+dbpedia:Federal_republic	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Federal republic"@en ;
+	skos:notation	"Federal republic"@en .
+dbpedia:Presidential_system	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Presidential system"@en ;
+	skos:notation	"Presidential system"@en .
+dbpedia:Parliamentary_system	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Parliamentary system"@en ;
+	skos:notation	"Parliamentary system"@en .
+dbpedia:Federalism	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Federalism"@en ;
+	skos:notation	"Federalism"@en .
+dbpedia:Dominant-party_system	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Dominant-party system"@en ;
+	skos:notation	"Dominant-party system"@en .
+dbpedia:Provisional_government	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Provisional government"@en ;
+	skos:notation	"Provisional government"@en .
+dbpedia:Federal_monarchy	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Federal monarchy"@en ;
+	skos:notation	"Federal monarchy"@en .
+dbpedia:Semi-presidential_system	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Semi-presidential system"@en ;
+	skos:notation	"Semi-presidential system"@en .
+dbpedia:Heredity	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Heredity"@en ;
+	skos:notation	"Heredity"@en .
+dbpedia:Juche	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Juche"@en ;
+	skos:notation	"Juche"@en .
+dbpedia:Unitary	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Unitary"@en ;
+	skos:notation	"Unitary"@en .
+dbpedia:Liberal_democracy	qb4o:memberOf	schema:governmentType ;
+	skos:broader	citDim:TOTAL ;
+	skos:prefLabel	"Liberal democracy"@en ;
+	skos:notation	"Liberal democracy"@en .

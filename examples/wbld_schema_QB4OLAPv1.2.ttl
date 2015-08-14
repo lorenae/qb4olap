@@ -1,0 +1,156 @@
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:	<http://www.w3.org/2004/02/skos/core#> .
+@prefix property:	<http://worldbank.270a.info/property/> .
+@prefix classification: <http://worldbank.270a.info/classification/>.
+@prefix indicator: <http://worldbank.270a.info/classification/indicator/>.
+@prefix dataset:   <http://worldbank.270a.info/dataset/>.
+@prefix sdmx-dimension:	<http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix dct:      <http://purl.org/dc/terms/> .
+
+@prefix qb:       <http://purl.org/linked-data/cube#>.
+@prefix qb4o:	  <http://purl.org/qb4olap/cubes#> .
+
+#QB4OLAP schema 
+@prefix schema: <http://www.fing.edu.uy/inco/cubes/schemas/world-bank-indicators#> .
+
+schema:QB4O_CM_MKT_LCAP_CD
+	a qb:DataStructureDefinition ;
+	qb:component [ qb:measure sdmx-measure:obsValue; 
+	               qb4o:aggregateFunction qb4o:Sum; 
+	               rdfs:seeAlso indicator:CM.MKT.LCAP.CD ] ;
+	qb:component [ qb4o:level sdmx-dimension:refArea  ] ;
+	qb:component [ qb4o:level sdmx-dimension:refPeriod ] ;
+	dct:conformsTo <http://purl.org/qb4olap/cubes_v1.2>.
+	
+
+sdmx-measure:obsValue a qb:MeasureProperty.
+
+dataset:CM.MKT.LCAP.CD qb:structure schema:QB4O_CM_MKT_LCAP_CD;
+    dct:title       "Market capitalization of listed companies (current US dollars)"@en;
+    dct:identifier  "CM.MKT.LCAP.CD";
+    dct:source	<http://api.worldbank.org/en/countries/all/indicators/CM.MKT.LCAP.CD?format=xml>;
+    rdfs:label      "Market capitalization of listed companies (current US dollars)"@en;
+    rdfs:comment    "Market capitalization of listed companies (current US dollars)"@en;
+    dct:description "Market capitalization of listed companies (current US dollars)"@en.
+
+#Define each dimension and declare its hierarchies
+schema:geoDim a qb:DimensionProperty ;
+  rdfs:label "Geographical dimension"@en;
+  qb4o:hasHierarchy schema:geoHier, schema:lendingHier, schema:incomeHier.
+  
+schema:timeDim a qb:DimensionProperty ;
+  rdfs:label "Time dimension"@en;
+  qb4o:hasHierarchy schema:timeHier.
+  
+#Define each hierarchy, declare to which dimension belongs and which levels it contains
+schema:geoHier a qb4o:Hierarchy ; 
+   rdfs:label "Geographical Hierarchy"@en ;
+   qb4o:inDimension schema:geoDim;
+   qb4o:hasLevel sdmx-dimension:refArea, schema:region, schema:geoAll.
+   
+schema:lendingHier a qb4o:Hierarchy ; 
+   rdfs:label "Lending type Hierarchy"@en ;
+   qb4o:inDimension schema:geoDim;
+   qb4o:hasLevel sdmx-dimension:refArea, schema:lendingtype, schema:geoAll.   
+      
+schema:incomeHier a qb4o:Hierarchy ; 
+   rdfs:label "Income level Hierarchy"@en ;
+   qb4o:inDimension schema:geoDim;
+   qb4o:hasLevel sdmx-dimension:refArea, schema:income, schema:geoAll.   
+   
+schema:timeHier a qb4o:Hierarchy ; 
+   rdfs:label "Time Hierarchy"@en ;
+   qb4o:inDimension schema:timeDim;
+   qb4o:hasLevel sdmx-dimension:refPeriod, schema:timeAll.
+   
+# Define base levels 
+
+#geoDim
+sdmx-dimension:refArea a qb4o:LevelProperty;
+   rdfs:label "country level"@en;
+   qb4o:hasAttribute schema:countryName,schema:capitalCity .
+   
+schema:countryName  a qb4o:LevelAttribute;
+	rdfs:label "Country name"@en ;
+	qb4o:inLevel sdmx-dimension:refArea;
+  rdfs:range xsd:string .
+	
+schema:capitalCity  a qb4o:LevelAttribute;
+	rdfs:label "Country capital city"@en ;
+	qb4o:inLevel sdmx-dimension:refArea;
+  rdfs:range xsd:string .
+   
+#timeDim   
+sdmx-dimension:refPeriod a qb4o:LevelProperty;
+   rdfs:label "year level"@en;
+   qb4o:hasAttribute schema:yearNum .
+   
+schema:yearNum  a qb4o:LevelAttribute;
+	rdfs:label "Year number"@en ;
+	qb4o:inLevel sdmx-dimension:refPeriod;
+  rdfs:range xsd:positiveInteger .
+	   
+
+# Define each other level
+schema:region a qb4o:LevelProperty; 
+  rdfs:label "Geographical regions"@en;
+  qb4o:hasAttribute schema:regionName.
+  
+schema:regionName  a qb4o:LevelAttribute;
+	rdfs:label "Region name"@en ;
+	qb4o:inLevel schema:region;
+  rdfs:range xsd:string .  
+  
+schema:lendingtype a qb4o:LevelProperty; 
+  rdfs:label "Lending type level"@en;
+  qb4o:hasAttribute schema:lendingName.
+ 
+schema:lendingName  a qb4o:LevelAttribute;
+	rdfs:label "Lending type"@en ;
+	qb4o:inLevel schema:lendingtype;
+  rdfs:range xsd:string .    
+  
+schema:income a qb4o:LevelProperty; 
+  rdfs:label "Income level"@en;
+  qb4o:hasAttribute schema:incomeName.
+  
+schema:incomeName  a qb4o:LevelAttribute;
+	rdfs:label "Income level"@en ;
+	qb4o:inLevel schema:income;
+  rdfs:range xsd:string .
+	  
+schema:geoAll a qb4o:LevelProperty; 
+  rdfs:label "All reference areas"@en;
+  qb4o:hasAttribute schema:allName.
+
+schema:timeAll a qb4o:LevelProperty; 
+  rdfs:label "All reference periods"@en;
+  qb4o:hasAttribute schema:allName.
+  
+schema:allName  a qb4o:LevelAttribute;
+	rdfs:label "All name"@en ;
+	qb4o:inLevel schema:geoAll, schema:timeAll;
+  rdfs:range xsd:string .     
+  
+  
+  
+  
+#define hierarchy steps (parent-child relationships)
+_:hs1 a qb4o:HierarchyStep; qb4o:inHierarchy schema:geoHier; qb4o:childLevel sdmx-dimension:refArea; qb4o:parentLevel schema:region; 
+qb4o:pcCardinality qb4o:ManyToOne.
+_:hs2 a qb4o:HierarchyStep; qb4o:inHierarchy schema:geoHier; qb4o:childLevel schema:region; qb4o:parentLevel schema:geoAll; 
+qb4o:pcCardinality qb4o:ManyToOne.
+
+_:hs3 a qb4o:HierarchyStep; qb4o:inHierarchy schema:lendingHier; qb4o:childLevel sdmx-dimension:refArea; qb4o:parentLevel schema:lendingtype; 
+qb4o:pcCardinality qb4o:ManyToOne.
+_:hs4 a qb4o:HierarchyStep; qb4o:inHierarchy schema:lendingHier; qb4o:childLevel schema:lendingtype; qb4o:parentLevel schema:geoAll; 
+qb4o:pcCardinality qb4o:ManyToOne.
+
+_:hs5 a qb4o:HierarchyStep; qb4o:inHierarchy schema:incomeHier; qb4o:childLevel sdmx-dimension:refArea; qb4o:parentLevel schema:income; 
+qb4o:pcCardinality qb4o:ManyToOne.
+_:hs6 a qb4o:HierarchyStep; qb4o:inHierarchy schema:incomeHier; qb4o:childLevel schema:income; qb4o:parentLevel schema:geoAll; 
+qb4o:pcCardinality qb4o:ManyToOne. 
+
+_:hs7 a qb4o:HierarchyStep; qb4o:inHierarchy schema:timeHier; qb4o:childLevel sdmx-dimension:refPeriod; qb4o:parentLevel schema:timeAll; 
+qb4o:pcCardinality qb4o:ManyToOne.
