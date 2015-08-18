@@ -23,3 +23,6 @@ Our [wiki](https://github.com/lorenae/qb4olap/wiki) contains a detailed descript
 
 Check our [QB4OLAP-tools](https://github.com/lorenae/qb4olap-tools) project to see some examples of what can be done with this vocabulary.
 
+#Examples
+
+The [examples](https://github.com/lorenae/qb4olap/tree/master/examples) folder contains ttl files that represent the schema and instances of different cubes in QB4OLAP
