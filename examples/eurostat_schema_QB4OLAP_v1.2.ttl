@@ -55,7 +55,7 @@ schema:migr_asyappctzmQB4O
       qb:component [ qb4o:level property:citizen ; qb4o:cardinality qb4o:ManyToOne       ] ;
       qb:component [ qb4o:level property:asyl_app ; qb4o:cardinality qb4o:ManyToOne      ] ;
       skos:notation "migr_asyappctzm_DSD";
-      dcterms:conformsTo <http://purl.org/qb4olap/cubes_v1.2>.
+      dct:conformsTo <http://purl.org/qb4olap/cubes_v1.2>.
 
 
 #states that eurostat instances are described by the schema defined in QB4OLAP
