@@ -1,0 +1,667 @@
+#----------------------------------------------------------------------------
+
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:      <http://purl.org/dc/terms/> .
+
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix qb4o: <http://purl.org/qb4olap/cubes#> .
+@prefix nw: <http://dwbook.org/cubes/schemas/northwind#> .
+
+#----------------------------------------------------------------------------
+# -- Cube definition 
+
+nw:Northwind a qb:DataStructureDefinition ;
+ 
+  #qb4olap version
+  dct:conformsTo <http://purl.org/qb4olap/cubes_v1.2>;
+
+  # Lowest level for each dimension in the cube
+  qb:component [qb4o:level nw:employee ; qb4o:cardinality qb4o:ManyToOne ] ;
+  qb:component [qb4o:level nw:orderDate ; qb4o:cardinality qb4o:ManyToOne ] ;
+  qb:component [qb4o:level nw:dueDate ; qb4o:cardinality qb4o:ManyToOne ] ;
+  qb:component [qb4o:level nw:shippedDate ; qb4o:cardinality qb4o:ManyToOne ] ;
+  qb:component [qb4o:level nw:product ; qb4o:cardinality qb4o:ManyToOne ] ;
+  qb:component [qb4o:level nw:order ; qb4o:cardinality qb4o:OneToOne ] ;
+  qb:component [qb4o:level nw:shipper ; qb4o:cardinality qb4o:ManyToOne ] ;
+  qb:component [qb4o:level nw:supplier ; qb4o:cardinality qb4o:ManyToOne ] ;
+  qb:component [qb4o:level nw:customer ; qb4o:cardinality qb4o:ManyToOne ] ;
+
+  # Measures in the cube
+  qb:component [qb:measure nw:quantity ; qb4o:aggregateFunction qb4o:sum] ;
+  qb:component [qb:measure nw:unitPrice ; qb4o:aggregateFunction qb4o:avg] ;
+  qb:component [qb:measure nw:discount ; qb4o:aggregateFunction qb4o:avg] ;
+  qb:component [qb:measure nw:salesAmount ; qb4o:aggregateFunction qb4o:sum] ;
+  qb:component [qb:measure nw:freight ; qb4o:aggregateFunction qb4o:sum] ;
+  qb:component [qb:measure nw:netAmount ; qb4o:aggregateFunction qb4o:sum] .
+
+#----------------------------------------------------------------------------
+# -- Measure definition  
+
+nw:quantity a rdf:Property , qb:MeasureProperty ;
+    rdfs:label "Quantity"@en ; 
+	rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range xsd:positiveInteger .
+
+nw:unitPrice a rdf:Property , qb:MeasureProperty ;
+    rdfs:label "Unit Price"@en ; 
+	rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range xsd:decimal .
+    
+nw:discount a rdf:Property , qb:MeasureProperty ;
+    rdfs:label "Discount"@en ; 
+	rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range xsd:decimal .
+    
+nw:salesAmount a rdf:Property , qb:MeasureProperty ;
+    rdfs:label "Sales Amount"@en ; 
+	rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range xsd:decimal .
+    
+nw:freight a rdf:Property , qb:MeasureProperty ;
+    rdfs:label "Freight"@en ; 
+	rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range xsd:decimal .
+    
+nw:netAmount a rdf:Property , qb:MeasureProperty ;
+    rdfs:label "Net Amount"@en ; 
+	rdfs:subPropertyOf sdmx-measure:obsValue ;
+    rdfs:range xsd:decimal .
+
+#----------------------------------------------------------------------------
+# -- Employee dimension definition  
+
+nw:employeeDim a rdf:Property , qb:DimensionProperty ; 
+	rdfs:label "Employee Dimension"@en ;
+	qb4o:hasHierarchy nw:supervision , nw:territories .
+
+# -- Supervision hierarchy 
+	
+nw:supervision a qb4o:HierarchyProperty ; rdfs:label "Supervision Hierarchy"@en ;
+	qb4o:inDimension nw:employeeDim ;
+    qb4o:hasLevel nw:employee .
+
+_:supervision_hs1 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:supervision ;
+    qb4o:childLevel nw:employee ; qb4o:parentLevel nw:employee ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+	
+# -- Territories hierarchy 
+
+nw:territories a qb4o:HierarchyProperty ; rdfs:label "Territories Hierarchy"@en ;
+	qb4o:inDimension nw:employeeDim ;
+    qb4o:hasLevel nw:employee , nw:city , nw:state , nw:region , nw:country , nw:continent .
+
+_:territories_hs1 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:territories ;
+    qb4o:childLevel nw:employee ; qb4o:parentLevel nw:city ;
+    qb4o:pcCardinality qb4o:ManyToMany .
+_:territories_hs2 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:territories ;
+    qb4o:childLevel nw:city ; qb4o:parentLevel nw:state ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:territories_hs3 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:territories ;
+    qb4o:childLevel nw:city ; qb4o:parentLevel nw:country ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:territories_hs4 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:territories ;
+    qb4o:childLevel nw:state ; qb4o:parentLevel nw:region ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:territories_hs5 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:territories ;
+    qb4o:childLevel nw:state ; qb4o:parentLevel nw:country ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:territories_hs6 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:territories ;
+    qb4o:childLevel nw:region ; qb4o:parentLevel nw:country ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:territories_hs7 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:territories ;
+    qb4o:childLevel nw:country ; qb4o:parentLevel nw:continent ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+	
+# -- Employee level
+
+nw:employee a qb4o:LevelProperty ; 
+	rdfs:label "Employee Level"@en ;
+	qb4o:hasAttribute nw:employeeID ;
+	qb4o:hasAttribute nw:firstName ;
+	qb4o:hasAttribute nw:lastName ;
+	qb4o:hasAttribute nw:title ;
+	qb4o:hasAttribute nw:birthDate ;
+	qb4o:hasAttribute nw:hireDate ;
+	qb4o:hasAttribute nw:addressStreet ;
+	qb4o:hasAttribute nw:addressCity ;
+	qb4o:hasAttribute nw:addressRegion ;
+	qb4o:hasAttribute nw:addressPostalCode ;
+	qb4o:hasAttribute nw:addressCountry ;
+	skos:broader nw:city , nw:employee .
+
+nw:employeeID a qb4o:LevelAttribute ; 
+    rdfs:label "Employee ID"@en ; 
+	rdfs:range xsd:positiveInteger .
+nw:firstName a qb4o:LevelAttribute ; 
+    rdfs:label "First Name"@en ; 
+	rdfs:range xsd:string .
+nw:lastName a qb4o:LevelAttribute ; 
+    rdfs:label "Last Name"@en ; 
+	rdfs:range xsd:string .
+nw:title a qb4o:LevelAttribute ; 
+    rdfs:label "Title"@en ; 
+	rdfs:range xsd:string .
+nw:birthDate a qb4o:LevelAttribute ; 
+    rdfs:label "Birth Date"@en ; 
+	rdfs:range xsd:date .
+nw:hireDate a qb4o:LevelAttribute ; 
+    rdfs:label "Hire Date"@en ; 
+	rdfs:range xsd:date .
+nw:addressStreet a qb4o:LevelAttribute ; 
+    rdfs:label "Address Street"@en ; 
+	rdfs:range xsd:string .
+nw:addressCity a qb4o:LevelAttribute ; 
+    rdfs:label "Address City"@en ; 
+	rdfs:range xsd:string .
+nw:addressRegion a qb4o:LevelAttribute ; 
+    rdfs:label "Address Region"@en ; 
+	rdfs:range xsd:string .
+nw:addressPostalCode a qb4o:LevelAttribute ; 
+    rdfs:label "Address Postal Code"@en ; 
+	rdfs:range xsd:string .
+nw:addressCountry a qb4o:LevelAttribute ; 
+    rdfs:label "Address Country"@en ; 
+	rdfs:range xsd:string .
+
+# -- City level
+
+nw:city a qb4o:LevelProperty ; 
+	rdfs:label "City Level"@en ;
+	qb4o:hasAttribute nw:cityName ;
+	skos:broader nw:state, nw:country .
+
+# -- State level
+
+nw:cityName a qb4o:LevelAttribute ; 
+    rdfs:label "City Name"@en ; 
+	rdfs:range xsd:string .
+
+nw:state a qb4o:LevelProperty ; 
+	rdfs:label "State Level"@en ;
+	qb4o:hasAttribute nw:stateName ;
+	qb4o:hasAttribute nw:englishStateName ;
+	qb4o:hasAttribute nw:stateType ;
+	qb4o:hasAttribute nw:stateCode ;
+	qb4o:hasAttribute nw:stateCapital ;
+	skos:broader nw:region, nw:country .
+
+nw:stateName a qb4o:LevelAttribute ; 
+    rdfs:label "State Name"@en ; 
+	rdfs:range xsd:string .
+nw:englishStateName a qb4o:LevelAttribute ; 
+    rdfs:label "English State Name"@en ; 
+	rdfs:range xsd:string .
+nw:stateType a qb4o:LevelAttribute ; 
+    rdfs:label "State Type"@en ; 
+	rdfs:range xsd:string .
+nw:stateCode a qb4o:LevelAttribute ; 
+    rdfs:label "State Code"@en ; 
+	rdfs:range xsd:string .
+nw:stateCapital a qb4o:LevelAttribute ; 
+    rdfs:label "State Capital"@en ; 
+	rdfs:range xsd:string .
+
+# -- Region level
+
+nw:region a qb4o:LevelProperty ; 
+	rdfs:label "Region Level"@en ;
+	qb4o:hasAttribute nw:regionCode ;
+	qb4o:hasAttribute nw:regionName ;
+	skos:broader nw:country .
+
+nw:regionCode a qb4o:LevelAttribute ; 
+    rdfs:label "Region Code"@en ; 
+	rdfs:range xsd:string .
+nw:regionName a qb4o:LevelAttribute ; 
+    rdfs:label "Region Name"@en ; 
+	rdfs:range xsd:string .
+
+# -- Country level
+
+nw:country a qb4o:LevelProperty ; 
+	rdfs:label "Country Level"@en ;
+	qb4o:hasAttribute nw:countryName ;
+	qb4o:hasAttribute nw:countryCode ;
+	qb4o:hasAttribute nw:countryCapital ;
+	qb4o:hasAttribute nw:population ;
+	qb4o:hasAttribute nw:subdivision ;
+	skos:broader nw:continent .
+	
+nw:countryName a qb4o:LevelAttribute ; 
+    rdfs:label "Country Name"@en ; 
+	rdfs:range xsd:string .
+nw:countryCode a qb4o:LevelAttribute ; 
+    rdfs:label "Country Code"@en ; 
+	rdfs:range xsd:string .
+nw:countryCapital a qb4o:LevelAttribute ; 
+    rdfs:label "Country Capital"@en ; 
+	rdfs:range xsd:string .
+nw:population a qb4o:LevelAttribute ; 
+    rdfs:label "Population"@en ; 
+	rdfs:range xsd:positiveInteger .
+nw:subdivision a qb4o:LevelAttribute ; 
+    rdfs:label "Subdivision"@en ; 
+	rdfs:range xsd:string .
+
+# -- Continent level
+
+nw:continent a qb4o:LevelProperty ;
+    rdfs:label "Continent Level"@en ;
+    qb4o:hasAttribute nw:continentName .
+
+nw:continentName a qb4o:LevelAttribute ; 
+    rdfs:label "Continent Name"@en ; 
+	rdfs:range xsd:string .
+
+#----------------------------------------------------------------------------
+# -- OrderDate dimension definition  
+
+nw:orderDateDim a rdf:Property , qb:DimensionProperty ; 
+	rdfs:label "Order Date Dimension"@en ; 
+	rdfs:subPropertyOf sdmx-dimension:refPeriod ;
+	qb:concept sdmx-concept:refPeriod ;
+	qb4o:hasHierarchy nw:calendar . 
+	
+# -- Order Date Calendar hierarchy 
+
+nw:calendarorderdate a qb4o:HierarchyProperty ; rdfs:label "Calendar Hierarchy"@en ;
+	qb4o:inDimension nw:orderDateDim ;
+    qb4o:hasLevel nw:orderDate, nw:month , nw:quarter , nw:semester , nw:year .
+
+_:calendarorderdate_hs1 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendarorderdate ;
+    qb4o:childLevel nw:orderDate; qb4o:parentLevel nw:month ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:calendarorderdate_hs2 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendarorderdate ;
+    qb4o:childLevel nw:month ; qb4o:parentLevel nw:quarter ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:calendarorderdate_hs3 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendarorderdate ;
+    qb4o:childLevel nw:quarter ; qb4o:parentLevel nw:semester ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:calendarorderdate_hs4 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendarorderdate ;
+    qb4o:childLevel nw:semester ; qb4o:parentLevel nw:year ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+    
+# -- Due Date Calendar hierarchy 
+
+nw:calendarduedate a qb4o:HierarchyProperty ; rdfs:label "Calendar Hierarchy"@en ;
+	qb4o:inDimension nw:dueDateDim ;
+    qb4o:hasLevel nw:dueDate, nw:month , nw:quarter , nw:semester , nw:year .
+    
+_:calendarduedate_hs1 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendarduedate ;
+    qb4o:childLevel nw:dueDate; qb4o:parentLevel nw:month ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:calendarduedate_hs2 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendarduedate ;
+    qb4o:childLevel nw:month ; qb4o:parentLevel nw:quarter ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:calendarduedate_hs3 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendarduedate ;
+    qb4o:childLevel nw:quarter ; qb4o:parentLevel nw:semester ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:calendarduedate_hs4 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendarduedate ;
+    qb4o:childLevel nw:semester ; qb4o:parentLevel nw:year ;
+    qb4o:pcCardinality qb4o:ManyToOne .    
+
+# -- Shipped Date Calendar hierarchy 
+
+nw:calendardshippeddate a qb4o:HierarchyProperty ; rdfs:label "Calendar Hierarchy"@en ;
+	qb4o:inDimension nw:shippedDateDim ;
+    qb4o:hasLevel  nw:shippedDate , nw:month , nw:quarter , nw:semester , nw:year .
+
+_:calendardshippeddate_hs1 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendardshippeddate ;
+    qb4o:childLevel nw:shippedDate; qb4o:parentLevel nw:month ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:calendardshippeddate_hs2 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendardshippeddate ;
+    qb4o:childLevel nw:month ; qb4o:parentLevel nw:quarter ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:calendardshippeddate_hs3 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendardshippeddate ;
+    qb4o:childLevel nw:quarter ; qb4o:parentLevel nw:semester ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:calendardshippeddate_hs4 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendardshippeddate ;
+    qb4o:childLevel nw:semester ; qb4o:parentLevel nw:year ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+
+
+	
+# -- Time level
+
+nw:orderDate a qb4o:LevelProperty ; 
+	rdfs:label "Time Level"@en ;
+	qb4o:hasAttribute nw:date ;
+	qb4o:hasAttribute nw:dayNoWeek ;
+	qb4o:hasAttribute nw:dayNameWeek ;
+	qb4o:hasAttribute nw:dayNoMonth ;
+	qb4o:hasAttribute nw:dayNoYear ;
+	qb4o:hasAttribute nw:weekNoYear ;
+	skos:broader nw:month .
+	
+nw:dueDate a qb4o:LevelProperty ; 
+	rdfs:label "Time Level"@en ;
+	qb4o:hasAttribute nw:date ;
+	qb4o:hasAttribute nw:dayNoWeek ;
+	qb4o:hasAttribute nw:dayNameWeek ;
+	qb4o:hasAttribute nw:dayNoMonth ;
+	qb4o:hasAttribute nw:dayNoYear ;
+	qb4o:hasAttribute nw:weekNoYear ;
+	skos:broader nw:month .
+	
+nw:shippedDate a qb4o:LevelProperty ; 
+	rdfs:label "Time Level"@en ;
+	qb4o:hasAttribute nw:date ;
+	qb4o:hasAttribute nw:dayNoWeek ;
+	qb4o:hasAttribute nw:dayNameWeek ;
+	qb4o:hasAttribute nw:dayNoMonth ;
+	qb4o:hasAttribute nw:dayNoYear ;
+	qb4o:hasAttribute nw:weekNoYear ;
+	skos:broader nw:month .		
+
+nw:date a qb4o:LevelAttribute ;
+    rdfs:label "Date YYYY-MM-DD"@en ;
+	rdfs:range xsd:date .
+nw:dayNoWeek a qb4o:LevelAttribute ; 
+    rdfs:label "Day Number of Week"@en ; 
+	rdfs:range xsd:positiveInteger .
+nw:dayNameWeek a qb4o:LevelAttribute ; 
+    rdfs:label "Day Name of Week"@en ; 
+	rdfs:range xsd:string .
+nw:dayNoMonth a qb4o:LevelAttribute ; 
+    rdfs:label "Day Number of Month"@en ; 
+	rdfs:range xsd:positiveInteger .
+nw:dayNoYear a qb4o:LevelAttribute ; 
+    rdfs:label "Day Number of Year"@en ; 
+	rdfs:range xsd:positiveInteger .
+nw:weekNoYear a qb4o:LevelAttribute ; 
+    rdfs:label "Week Number of Week"@en ; 
+	rdfs:range xsd:positiveInteger .
+
+# -- Month level
+
+nw:month a qb4o:LevelProperty ; 
+	rdfs:label "Month Level"@en ;
+	qb4o:hasAttribute nw:monthNo ;
+	qb4o:hasAttribute nw:monthName ;
+	skos:broader nw:quarter .
+
+nw:monthNo a qb4o:LevelAttribute ; 
+    rdfs:label "Month Number"@en ; 
+	rdfs:range xsd:positiveInteger .
+nw:monthName a qb4o:LevelAttribute ; 
+    rdfs:label "Month Name"@en ; 
+	rdfs:range xsd:string .
+
+# -- Quarter level
+
+nw:quarter a qb4o:LevelProperty ; 
+	rdfs:label "Quarter Level"@en ;
+	qb4o:hasAttribute nw:quarterNo ;
+	skos:broader nw:semester .
+
+nw:quarterNo a qb4o:LevelAttribute ; 
+    rdfs:label "Quarter Number"@en ; 
+	rdfs:range xsd:positiveInteger .
+
+# -- Semester level
+
+nw:semester a qb4o:LevelProperty ; 
+	rdfs:label "Semester Level"@en ;
+	qb4o:hasAttribute nw:semesterNo ;
+	skos:broader nw:year .
+
+nw:semesterNo a qb4o:LevelAttribute ; 
+    rdfs:label "Semester Number"@en ; 
+	rdfs:range xsd:positiveInteger .
+
+# -- Year level
+
+nw:year a qb4o:LevelProperty , qb4o:TopLevel ; 
+	rdfs:label "Year Level"@en ;
+	qb4o:hasAttribute nw:yearNo .
+
+nw:yearNo a qb4o:LevelAttribute ; 
+    rdfs:label "Year Number"@en ; 
+	rdfs:range xsd:positiveInteger .
+
+#----------------------------------------------------------------------------
+# -- DueDate dimension definition 
+
+nw:dueDateDim a rdf:Property , qb:DimensionProperty ;
+	rdfs:label "Due Date Dimension"@en ; 
+	rdfs:subPropertyOf sdmx-dimension:refPeriod ;
+	qb:concept sdmx-concept:refPeriod ;
+	qb4o:hasHierarchy nw:calendar .
+
+#----------------------------------------------------------------------------
+# -- ShippedDate dimension definition 
+
+nw:shippedDateDim a rdf:Property , qb:DimensionProperty ;
+	rdfs:label "Shipped Date Dimension"@en ; 
+	rdfs:subPropertyOf sdmx-dimension:refPeriod ;
+	qb:concept sdmx-concept:refPeriod ;
+	qb4o:hasHierarchy nw:calendar .
+
+#----------------------------------------------------------------------------
+# -- Product dimension definition 
+
+nw:productDim a rdf:Property , qb:DimensionProperty ;
+	rdfs:label "Product Dimension"@en ;
+	qb4o:hasHierarchy nw:categories .
+	
+# -- Categories hierarchy 
+
+nw:categories a qb4o:HierarchyProperty ; rdfs:label "Categories Hierarchy"@en ;
+	qb4o:inDimension nw:productDim ;
+    qb4o:hasLevel nw:product , nw:category .
+
+_:categories_hs1 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:categories ;
+    qb4o:childLevel nw:product ; qb4o:parentLevel nw:category ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+	
+# -- Product level
+
+nw:product a qb4o:LevelProperty ; 
+	rdfs:label "Product Level"@en ;
+	qb4o:hasAttribute nw:productID ;
+	qb4o:hasAttribute nw:productName ;
+	qb4o:hasAttribute nw:quantityPerUnit ;
+	qb4o:hasAttribute nw:productUnitPrice ; 
+	qb4o:hasAttribute nw:discontinued ; 
+	skos:broader nw:category .
+
+nw:productID a qb4o:LevelAttribute ;
+	rdfs:label "Product ID"@en ; 
+	rdfs:range xsd:positiveInteger .
+nw:productName a qb4o:LevelAttribute ;
+	rdfs:label "Product Name"@en ; 
+	rdfs:range xsd:string .
+nw:quantityPerUnit a qb4o:LevelAttribute ;
+	rdfs:label "Quantity per Unit"@en ; 
+	rdfs:range xsd:string .
+nw:productUnitPrice a qb4o:LevelAttribute ;
+	rdfs:label "Product Unit Price"@en ; 
+	rdfs:range xsd:decimal .
+nw:discontinued a qb4o:LevelAttribute ;
+	rdfs:label "Discontinued"@en ; 
+	rdfs:range xsd:positiveInteger .
+	
+nw:category a qb4o:LevelProperty ;
+	rdfs:label "Category Level"@en ;
+	qb4o:hasAttribute nw:categoryID ; 
+	qb4o:hasAttribute nw:categoryName ; 
+	qb4o:hasAttribute nw:description .
+
+# -- Category level
+
+nw:categoryID a qb4o:LevelAttribute ;
+	rdfs:label "Category ID"@en ; 
+	rdfs:range xsd:positiveInteger .
+nw:categoryName a qb4o:LevelAttribute ;
+	rdfs:label "Category Name"@en ; 
+	rdfs:range xsd:string .
+nw:description a qb4o:LevelAttribute ; 
+	rdfs:label "Description"@en ; 
+	rdfs:range xsd:string .
+
+#----------------------------------------------------------------------------
+# -- Order dimension definition 
+
+nw:orderDim a rdf:Property , qb:DimensionProperty ; 
+	rdfs:label "Order Dimension"@en .
+	
+nw:orderHierarchy a qb4o:HierarchyProperty ;
+    rdfs:label "Order Hierarchy"@en ;
+    qb4o:inDimension nw:orderDim ;
+    qb4o:hasLevel nw:order.	
+
+# -- Order level
+
+nw:order a qb4o:LevelProperty ; 
+	rdfs:label "Order Level"@en ;
+	qb4o:hasAttribute nw:orderNo ;
+	qb4o:hasAttribute nw:orderLineNo .
+
+nw:orderNo a qb4o:LevelAttribute ;
+	rdfs:label "Order Number"@en ; 
+	rdfs:range xsd:positiveInteger .
+nw:orderLineNo a qb4o:LevelAttribute ;
+	rdfs:label "Order Line Number"@en ; 
+	rdfs:range xsd:positiveInteger .
+
+#----------------------------------------------------------------------------
+# -- Shipper dimension definition 
+
+nw:shipperDim a rdf:Property , qb:DimensionProperty ;
+	rdfs:label "Shipper Dimension"@en .
+	
+nw:shipperHierarchy a qb4o:HierarchyProperty ;
+    rdfs:label "Shipper Hierarchy"@en ;
+    qb4o:inDimension nw:shipperDim ;
+    qb4o:hasLevel nw:shipper.	
+
+# -- Shipper level
+
+nw:shipper a qb4o:LevelProperty ; 
+	rdfs:label "Shipper Level"@en ;
+	qb4o:hasAttribute nw:shipperID ;
+	qb4o:hasAttribute nw:companyName .
+
+nw:shipperID a qb4o:LevelAttribute ;
+	rdfs:label "Shipper ID"@en ; 
+	rdfs:range xsd:positiveInteger .
+nw:companyName a qb4o:LevelAttribute ;
+	rdfs:label "Company Name"@en ; 
+	rdfs:range xsd:string .
+	
+#----------------------------------------------------------------------------
+# -- Customer dimension definition 
+
+nw:customerDim a rdf:Property , qb:DimensionProperty ; 
+	rdfs:label "Customer Dimension"@en ;
+	qb4o:hasHierarchy nw:customerGeography .
+
+# -- customerGeography hierarchy 
+	
+nw:customerGeography a qb4o:HierarchyProperty ; 
+    rdfs:label "Customer Geography Hierarchy"@en ;
+	qb4o:inDimension nw:customerDim ;
+    qb4o:hasLevel nw:customer , nw:city , nw:state , nw:region , nw:country , nw:continent .
+
+_:customerGeography_hs1 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:customerGeography ;
+    qb4o:childLevel nw:customer ; qb4o:parentLevel nw:city ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:customerGeography_hs2 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:customerGeography ;
+    qb4o:childLevel nw:city ; qb4o:parentLevel nw:state ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:customerGeography_hs3 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:customerGeography ;
+    qb4o:childLevel nw:city ; qb4o:parentLevel nw:country ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:customerGeography_hs4 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:customerGeography ;
+    qb4o:childLevel nw:state ; qb4o:parentLevel nw:region ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:customerGeography_hs5 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:customerGeography ;
+    qb4o:childLevel nw:state ; qb4o:parentLevel nw:country ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:customerGeography_hs6 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:customerGeography ;
+    qb4o:childLevel nw:region ; qb4o:parentLevel nw:country ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:customerGeography_hs7 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:customerGeography ;
+    qb4o:childLevel nw:country ; qb4o:parentLevel nw:continent ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+
+# -- Customer level
+
+nw:customer a qb4o:LevelProperty ; 
+	rdfs:label "Customer Level"@en ;
+	qb4o:hasAttribute nw:customerID;
+	qb4o:hasAttribute nw:companyName ;
+	qb4o:hasAttribute nw:addressStreet ;
+	qb4o:hasAttribute nw:addressPostalCode ;
+	skos:broader nw:city .
+
+nw:customerID a qb4o:LevelAttribute ; 
+    rdfs:label "Customer ID"@en ; 
+	rdfs:range xsd:positiveInteger .
+	
+#----------------------------------------------------------------------------
+# -- Supplier dimension definition 
+
+nw:supplierDim a rdf:Property , qb:DimensionProperty ; 
+	rdfs:label "Supplier Dimension"@en ;
+	qb4o:hasHierarchy nw:supplierGeography .
+
+# -- SupplierGeography hierarchy 
+	
+nw:supplierGeography a qb4o:HierarchyProperty ; 
+    rdfs:label "Supplier Geography Hierarchy"@en ;
+	qb4o:inDimension nw:supplierDim ;
+    qb4o:hasLevel nw:supplier , nw:city , nw:state , nw:region , nw:country , nw:continent .
+
+_:supplierGeography_hs1 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:supplierGeography ;
+    qb4o:childLevel nw:supplier ; qb4o:parentLevel nw:city ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:supplierGeography_hs2 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:supplierGeography ;
+    qb4o:childLevel nw:city ; qb4o:parentLevel nw:state ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:supplierGeography_hs3 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:supplierGeography ;
+    qb4o:childLevel nw:city ; qb4o:parentLevel nw:country ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:supplierGeography_hs4 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:supplierGeography ;
+    qb4o:childLevel nw:state ; qb4o:parentLevel nw:region ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:supplierGeography_hs5 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:supplierGeography ;
+    qb4o:childLevel nw:state ; qb4o:parentLevel nw:country ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:supplierGeography_hs6 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:supplierGeography ;
+    qb4o:childLevel nw:region ; qb4o:parentLevel nw:country ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+_:supplierGeography_hs7 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:supplierGeography ;
+    qb4o:childLevel nw:country ; qb4o:parentLevel nw:continent ;
+    qb4o:pcCardinality qb4o:ManyToOne .
+
+# -- Supplier level
+	
+nw:supplier a qb4o:LevelProperty ; 
+	rdfs:label "Supplier Level"@en ;
+	qb4o:hasAttribute nw:supplierID;
+	qb4o:hasAttribute nw:companyName ;
+	qb4o:hasAttribute nw:addressStreet ;
+	qb4o:hasAttribute nw:addressPostalCode ;
+	skos:broader nw:city .
+
+nw:supplierID a qb4o:LevelAttribute ; 
+    rdfs:label "Supplier ID"@en ; 
+	rdfs:range xsd:positiveInteger .
+
+#----------------------------------------------------------------------------
+
+
+
+<http://dwbook.org/cubes/instances/northwind#dataset1> qb:structure nw:Northwind;
+    dct:title       "Nortwind DW example"@en;
+    rdfs:label      "Nortwind DW example"@en;
+    rdfs:comment    "Nortwind DW example"@en;
+    dct:description "Nortwind DW example"@en.
+

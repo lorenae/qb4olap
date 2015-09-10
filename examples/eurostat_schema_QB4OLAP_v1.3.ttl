@@ -1,0 +1,284 @@
+@prefix cc:             <http://creativecommons.org/ns#> .
+@prefix dcterms:        <http://purl.org/dc/terms/> .
+@prefix foaf:           <http://xmlns.com/foaf/0.1/> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix void:           <http://rdfs.org/ns/void#> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#>.
+@prefix dct:      <http://purl.org/dc/terms/> .
+
+@prefix sdmx:           <http://purl.org/linked-data/sdmx#> .
+@prefix sdmx-code:      <http://purl.org/linked-data/sdmx/2009/code#> .
+@prefix sdmx-concept:   <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-measure:   <http://purl.org/linked-data/sdmx/2009/measure#> .
+
+@prefix age:            <http://eurostat.linked-statistics.org/dic/age#> .
+@prefix citizen:        <http://eurostat.linked-statistics.org/dic/citizen#> .
+@prefix concept:        <http://eurostat.linked-statistics.org/concept#> .
+@prefix dic:            <http://eurostat.linked-statistics.org/dic/> .
+@prefix geo:            <http://eurostat.linked-statistics.org/dic/geo#> .
+@prefix sex:            <http://eurostat.linked-statistics.org/dic/sex#> .
+@prefix title:          <http://eurostat.linked-statistics.org/title#> .
+@prefix property:       <http://eurostat.linked-statistics.org/property#> .
+
+@prefix qb:             <http://purl.org/linked-data/cube#> .
+@prefix qb4o:           <http://purl.org/qb4olap/cubes#> .
+@prefix time:           <http://purl.org/qb4olap/dimensions/time#> .
+
+@prefix schema: <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#> .
+@prefix data: <http://eurostat.linked-statistics.org/data/>.
+@prefix instances: <http://www.fing.edu.uy/inco/cubes/instances/migr_asyapp> .
+@prefix ageDim: <http://www.fing.edu.uy/inco/cubes/dims/migr_asyapp/age#> .
+@prefix citDim: <http://www.fing.edu.uy/inco/cubes/dims/migr_asyapp/citizen#> .
+@prefix desDim: <http://www.fing.edu.uy/inco/cubes/dims/migr_asyapp/destination#> .
+@prefix timDim: <http://www.fing.edu.uy/inco/cubes/dims/migr_asyapp/time#> .
+@prefix sexDim: <http://www.fing.edu.uy/inco/cubes/dims/migr_asyapp/sex#> .
+@prefix appDim: <http://www.fing.edu.uy/inco/cubes/dims/migr_asyapp/appType#> .
+
+
+@prefix ns1:    <http://eurostat.linked-statistics.org/dic/geo#> .
+@prefix dbpedia:    <http://dbpedia.org/resource/> .
+@prefix ns3:    <http://purl.org/qb4olap/cubes#> .
+@prefix ns4:    <http://www.fing.edu.uy/inco/cubes/schemas/migr_asyapp#> .
+
+
+schema:migr_asyappctzmQB4O13
+      rdf:type qb:DataStructureDefinition ;
+      qb:component [ qb:measure sdmx-measure:obsValue; qb4o:aggregateFunction qb4o:sum ] ;
+      qb:component [ qb4o:level property:age ; qb4o:cardinality qb4o:ManyToOne         ] ;
+      qb:component [ qb4o:level sdmx-dimension:refPeriod ; qb4o:cardinality qb4o:ManyToOne ] ;
+      qb:component [ qb4o:level property:sex ; qb4o:cardinality qb4o:ManyToOne           ] ;
+      qb:component [ qb4o:level property:geo ; qb4o:cardinality qb4o:ManyToOne          ] ;
+      qb:component [ qb4o:level property:citizen ; qb4o:cardinality qb4o:ManyToOne       ] ;
+      qb:component [ qb4o:level property:asyl_app ; qb4o:cardinality qb4o:ManyToOne      ] ;
+      skos:notation "migr_asyappctzm_DSD" ;
+      dcterms:conformsTo <http://purl.org/qb4olap/cubes>.
+
+
+#states that eurostat instances are described by the schema defined in QB4OLAP
+data:migr_asyappctzm qb:structure schema:migr_asyappctzmQB4O13;
+    dct:title       "Asylum and first time asylum applicants to European countries by citizenship, age and sex Monthly data"@en;
+    dct:source  <http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=migr_asyappctzm>;
+    rdfs:label      "Asylum and first time asylum applicants to European countries by citizenship, age and sex Monthly data"@en;
+    rdfs:comment    "Asylum and first time asylum applicants to European countries by citizenship, age and sex Monthly data"@en;
+    dct:description "Asylum and first time asylum applicants to European countries by citizenship, age and sex Monthly data"@en.
+
+
+#-----------------------------------------------------------------------------------------------------
+# -- Measures definition
+
+sdmx-measure:obsValue a qb:MeasureProperty;
+    rdfs:label "Number of applications"@en;
+    rdfs:range xsd:integer .
+
+#-----------------------------------------------------------------------------------------------------
+# -- Dimensions definition
+
+# AGE dimension
+
+schema:ageDim a qb:DimensionProperty ;
+ rdfs:label "Age class dimension"@en ;
+ qb4o:hasHierarchy schema:ageHier.
+
+schema:ageHier a qb4o:Hierarchy ;
+   rdfs:label "Age Hierarchy"@en ;
+   qb4o:inDimension schema:ageDim;
+   qb4o:hasLevel property:age.
+
+property:age a qb4o:LevelProperty;
+   rdfs:label "Age class"@en;
+   qb4o:hasAttribute schema:ageGroup.
+
+schema:ageGroup  a qb4o:LevelAttribute;
+    rdfs:label "Age group"@en ;
+    rdfs:range xsd:string .
+
+#-----------------------------------------------------------------------------------------------------
+# TIME dimension
+
+schema:timeDim a qb:DimensionProperty ;
+ rdfs:label "Time dimension"@en ;
+ qb4o:hasHierarchy schema:timeHier.
+
+#dimension hierarchies
+schema:timeHier a qb4o:Hierarchy ;
+   rdfs:label "Time Hierarchy"@en ;
+   qb4o:inDimension schema:timeDim;
+   qb4o:hasLevel sdmx-dimension:refPeriod, schema:year.
+
+#hierarchy levels and attributes
+sdmx-dimension:refPeriod a qb4o:LevelProperty;
+   rdfs:label "Month level"@en;
+   qb4o:hasAttribute schema:monthName.
+
+schema:monthName  a qb4o:LevelAttribute;
+    rdfs:label "Month name"@en ;
+    rdfs:range xsd:string.
+
+schema:year a qb4o:LevelProperty;
+   rdfs:label "Year"@en;
+   qb4o:hasAttribute schema:yearNum.
+
+schema:yearNum  a qb4o:LevelAttribute;
+    rdfs:label "Year number"@en ;
+    rdfs:range xsd:integer.
+
+#rollup relationships
+schema:inYear a qb4o:RollupProperty.
+
+#hierarchy steps
+_:ih21 a qb4o:HierarchyStep;
+  qb4o:inHierarchy schema:timeHier;
+  qb4o:childLevel sdmx-dimension:refPeriod;
+  qb4o:parentLevel schema:year;
+  qb4o:pcCardinality qb4o:OneToMany;
+  qb4o:rollup schema:inYear.
+
+#-----------------------------------------------------------------------------------------------------
+# SEX dimension
+
+schema:sex a qb:DimensionProperty;
+   rdfs:label "Sex"@en ;
+   qb4o:hasHierarchy schema:sexHier.
+
+schema:sexHier a qb4o:Hierarchy ;
+   rdfs:label "Sex Hierarchy"@en ;
+   qb4o:inDimension schema:sex;
+   qb4o:hasLevel property:sex.
+
+property:sex a qb4o:LevelProperty;
+  rdfs:label "Sex"@en;
+  qb4o:hasAttribute schema:sexName.
+
+schema:sexName  a qb4o:LevelAttribute;
+    rdfs:label "Sex"@en ;
+    rdfs:range xsd:string.
+
+#-----------------------------------------------------------------------------------------------------
+# Application destination dimension
+
+schema:destinationDim a qb:DimensionProperty ;
+  rdfs:label "Asylum geographical destination dimension"@en;
+  qb4o:hasHierarchy schema:destinationGeoHier, schema:destinationGovHier.
+
+# dimension hierarchies
+schema:destinationGeoHier a qb4o:Hierarchy ;
+   rdfs:label "Asylum destination  Geographical Hierarchy"@en ;
+   qb4o:inDimension schema:destinationDim;
+   qb4o:hasLevel property:geo, schema:continent.
+
+schema:destinationGovHier a qb4o:Hierarchy ;
+   rdfs:label "Asylum destination Government Hierarchy"@en ;
+   qb4o:inDimension schema:destinationDim;
+   qb4o:hasLevel property:geo, schema:governmentType.
+
+#hierarchy levels and attributes
+
+property:geo a qb4o:LevelProperty;
+  rdfs:label "Country of asylum application"@en;
+  qb4o:hasAttribute schema:countryName.
+
+schema:countryName  a qb4o:LevelAttribute;
+    rdfs:label "Country name"@en ;
+    rdfs:range xsd:string.
+
+schema:continent a qb4o:LevelProperty;
+  rdfs:label "Continent"@en;
+  qb4o:hasAttribute schema:continentName.
+
+schema:continentName  a qb4o:LevelAttribute;
+    rdfs:label "Continent name"@en ;
+    rdfs:range xsd:string.
+
+schema:governmentType a qb4o:LevelProperty;
+  rdfs:label "Government Type"@en;
+  qb4o:hasAttribute schema:governmentName .
+
+schema:governmentName  a qb4o:LevelAttribute;
+    rdfs:label "Government type  name"@en ;
+    rdfs:range xsd:string.
+
+#rollup relationships
+schema:inContinent a qb4o:RollupProperty.
+schema:hasGovType a qb4o:RollupProperty.
+
+
+#hierarchy steps
+_:ih41 a qb4o:HierarchyStep;
+  qb4o:inHierarchy schema:destinationGeoHier;
+  qb4o:childLevel property:geo;
+  qb4o:parentLevel schema:continent;
+  qb4o:pcCardinality qb4o:OneToMany;
+  qb4o:rollup schema:inContinent.
+
+_:ih42 a qb4o:HierarchyStep;
+  qb4o:inHierarchy schema:destinationGovHier;
+  qb4o:childLevel property:geo;
+  qb4o:parentLevel schema:governmentType;
+  qb4o:pcCardinality qb4o:OneToMany;
+  qb4o:rollup schema:hasGovType.
+
+
+#-----------------------------------------------------------------------
+# Application citizenship dimension
+
+schema:citizenshipDim a qb:DimensionProperty ;
+  rdfs:label "Applicant citizenship dimension"@en;
+  qb4o:hasHierarchy schema:citizenshipGeoHier, schema:citizenshipGovHier.
+
+# dimension hierarchies
+schema:citizenshipGeoHier a qb4o:Hierarchy ;
+   rdfs:label "Applicant citizenship Geo Hierarchy"@en ;
+   qb4o:inDimension schema:citizenshipDim;
+   qb4o:hasLevel property:citizen, schema:continent.
+
+schema:citizenshipGovHier a qb4o:Hierarchy ;
+   rdfs:label "Applicant citizenship Government Hierarchy"@en ;
+   qb4o:inDimension schema:citizenshipDim;
+   qb4o:hasLevel property:citizen, schema:governmentType.
+
+#hierarchy levels and attributes
+property:citizen a qb4o:LevelProperty;
+  rdfs:label "Country of citizenship"@en;
+  qb4o:hasAttribute schema:countryName.
+
+#hierarchy steps
+_:ih43 a qb4o:HierarchyStep;
+  qb4o:inHierarchy schema:citizenshipGeoHier;
+  qb4o:childLevel property:citizen;
+  qb4o:parentLevel schema:continent;
+  qb4o:pcCardinality qb4o:OneToMany;
+  qb4o:rollup schema:inContinent.
+
+_:ih44 a qb4o:HierarchyStep;
+  qb4o:inHierarchy schema:citizenshipGovHier;
+  qb4o:childLevel property:citizen;
+  qb4o:parentLevel schema:governmentType;
+  qb4o:pcCardinality qb4o:OneToMany;
+  qb4o:rollup schema:hasGovType.
+
+#-----------------------------------------------------------------------------------------------------
+# Type of applicant
+
+
+schema:asylappDim a qb:DimensionProperty;
+   rdfs:label "Type of applicant dimension"@en .
+
+# dimension hierarchies
+schema:asylappHier a qb4o:Hierarchy ;
+   rdfs:label "Type of applicant hierarchy"@en ;
+   qb4o:inDimension schema:asylappDim;
+   qb4o:hasLevel property:asyl_app, schema:asylappAll .
+
+#hierarchy levels and attributes
+property:asyl_app a qb4o:LevelProperty;
+  rdfs:label "Type of applicant"@en;
+  qb4o:hasAttribute schema:asylappName.
+
+schema:asylappName  a qb4o:LevelAttribute;
+    rdfs:label "Type of applicant"@en;
+    rdfs:range xsd:string.
+
