@@ -19,11 +19,7 @@
 nw:Northwind a qb:DataStructureDefinition ;
  
   #qb4olap version
-<<<<<<< HEAD
   dct:conformsTo <http://purl.org/qb4olap/cubes_v1.2>;
-=======
-  dcterms:conformsTo <http://purl.org/qb4olap/cubes_v1.2>;
->>>>>>> 000a4f0cde6e173c9c9179b9daa0e94caa7f80fc
 
   # Lowest level for each dimension in the cube
   qb:component [qb4o:level nw:employee ; qb4o:cardinality qb4o:ManyToOne ] ;
