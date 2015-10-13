@@ -132,8 +132,7 @@ nw:employee a qb4o:LevelProperty ;
 	qb4o:hasAttribute nw:addressCity ;
 	qb4o:hasAttribute nw:addressRegion ;
 	qb4o:hasAttribute nw:addressPostalCode ;
-	qb4o:hasAttribute nw:addressCountry ;
-	skos:broader nw:city , nw:employee .
+	qb4o:hasAttribute nw:addressCountry.
 
 nw:employeeID a qb4o:LevelAttribute ; 
     rdfs:label "Employee ID"@en ; 
@@ -173,8 +172,7 @@ nw:addressCountry a qb4o:LevelAttribute ;
 
 nw:city a qb4o:LevelProperty ; 
 	rdfs:label "City Level"@en ;
-	qb4o:hasAttribute nw:cityName ;
-	skos:broader nw:state, nw:country .
+	qb4o:hasAttribute nw:cityName .
 
 # -- State level
 
@@ -188,8 +186,7 @@ nw:state a qb4o:LevelProperty ;
 	qb4o:hasAttribute nw:englishStateName ;
 	qb4o:hasAttribute nw:stateType ;
 	qb4o:hasAttribute nw:stateCode ;
-	qb4o:hasAttribute nw:stateCapital ;
-	skos:broader nw:region, nw:country .
+	qb4o:hasAttribute nw:stateCapital .
 
 nw:stateName a qb4o:LevelAttribute ; 
     rdfs:label "State Name"@en ; 
@@ -212,8 +209,7 @@ nw:stateCapital a qb4o:LevelAttribute ;
 nw:region a qb4o:LevelProperty ; 
 	rdfs:label "Region Level"@en ;
 	qb4o:hasAttribute nw:regionCode ;
-	qb4o:hasAttribute nw:regionName ;
-	skos:broader nw:country .
+	qb4o:hasAttribute nw:regionName.
 
 nw:regionCode a qb4o:LevelAttribute ; 
     rdfs:label "Region Code"@en ; 
@@ -230,8 +226,7 @@ nw:country a qb4o:LevelProperty ;
 	qb4o:hasAttribute nw:countryCode ;
 	qb4o:hasAttribute nw:countryCapital ;
 	qb4o:hasAttribute nw:population ;
-	qb4o:hasAttribute nw:subdivision ;
-	skos:broader nw:continent .
+	qb4o:hasAttribute nw:subdivision .
 	
 nw:countryName a qb4o:LevelAttribute ; 
     rdfs:label "Country Name"@en ; 
@@ -336,8 +331,7 @@ nw:orderDate a qb4o:LevelProperty ;
 	qb4o:hasAttribute nw:dayNameWeek ;
 	qb4o:hasAttribute nw:dayNoMonth ;
 	qb4o:hasAttribute nw:dayNoYear ;
-	qb4o:hasAttribute nw:weekNoYear ;
-	skos:broader nw:month .
+	qb4o:hasAttribute nw:weekNoYear .
 	
 nw:dueDate a qb4o:LevelProperty ; 
 	rdfs:label "Time Level"@en ;
@@ -346,8 +340,7 @@ nw:dueDate a qb4o:LevelProperty ;
 	qb4o:hasAttribute nw:dayNameWeek ;
 	qb4o:hasAttribute nw:dayNoMonth ;
 	qb4o:hasAttribute nw:dayNoYear ;
-	qb4o:hasAttribute nw:weekNoYear ;
-	skos:broader nw:month .
+	qb4o:hasAttribute nw:weekNoYear .
 	
 nw:shippedDate a qb4o:LevelProperty ; 
 	rdfs:label "Time Level"@en ;
@@ -356,8 +349,7 @@ nw:shippedDate a qb4o:LevelProperty ;
 	qb4o:hasAttribute nw:dayNameWeek ;
 	qb4o:hasAttribute nw:dayNoMonth ;
 	qb4o:hasAttribute nw:dayNoYear ;
-	qb4o:hasAttribute nw:weekNoYear ;
-	skos:broader nw:month .		
+	qb4o:hasAttribute nw:weekNoYear .		
 
 nw:date a qb4o:LevelAttribute ;
     rdfs:label "Date YYYY-MM-DD"@en ;
@@ -383,8 +375,7 @@ nw:weekNoYear a qb4o:LevelAttribute ;
 nw:month a qb4o:LevelProperty ; 
 	rdfs:label "Month Level"@en ;
 	qb4o:hasAttribute nw:monthNo ;
-	qb4o:hasAttribute nw:monthName ;
-	skos:broader nw:quarter .
+	qb4o:hasAttribute nw:monthName .
 
 nw:monthNo a qb4o:LevelAttribute ; 
     rdfs:label "Month Number"@en ; 
@@ -397,8 +388,7 @@ nw:monthName a qb4o:LevelAttribute ;
 
 nw:quarter a qb4o:LevelProperty ; 
 	rdfs:label "Quarter Level"@en ;
-	qb4o:hasAttribute nw:quarterNo ;
-	skos:broader nw:semester .
+	qb4o:hasAttribute nw:quarterNo.
 
 nw:quarterNo a qb4o:LevelAttribute ; 
     rdfs:label "Quarter Number"@en ; 
@@ -408,8 +398,7 @@ nw:quarterNo a qb4o:LevelAttribute ;
 
 nw:semester a qb4o:LevelProperty ; 
 	rdfs:label "Semester Level"@en ;
-	qb4o:hasAttribute nw:semesterNo ;
-	skos:broader nw:year .
+	qb4o:hasAttribute nw:semesterNo.
 
 nw:semesterNo a qb4o:LevelAttribute ; 
     rdfs:label "Semester Number"@en ; 
@@ -468,8 +457,7 @@ nw:product a qb4o:LevelProperty ;
 	qb4o:hasAttribute nw:productName ;
 	qb4o:hasAttribute nw:quantityPerUnit ;
 	qb4o:hasAttribute nw:productUnitPrice ; 
-	qb4o:hasAttribute nw:discontinued ; 
-	skos:broader nw:category .
+	qb4o:hasAttribute nw:discontinued.
 
 nw:productID a qb4o:LevelAttribute ;
 	rdfs:label "Product ID"@en ; 
@@ -598,8 +586,7 @@ nw:customer a qb4o:LevelProperty ;
 	qb4o:hasAttribute nw:customerID;
 	qb4o:hasAttribute nw:companyName ;
 	qb4o:hasAttribute nw:addressStreet ;
-	qb4o:hasAttribute nw:addressPostalCode ;
-	skos:broader nw:city .
+	qb4o:hasAttribute nw:addressPostalCode.
 
 nw:customerID a qb4o:LevelAttribute ; 
     rdfs:label "Customer ID"@en ; 
@@ -648,8 +635,7 @@ nw:supplier a qb4o:LevelProperty ;
 	qb4o:hasAttribute nw:supplierID;
 	qb4o:hasAttribute nw:companyName ;
 	qb4o:hasAttribute nw:addressStreet ;
-	qb4o:hasAttribute nw:addressPostalCode ;
-	skos:broader nw:city .
+	qb4o:hasAttribute nw:addressPostalCode.
 
 nw:supplierID a qb4o:LevelAttribute ; 
     rdfs:label "Supplier ID"@en ; 
