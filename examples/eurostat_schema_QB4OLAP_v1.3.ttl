@@ -112,11 +112,15 @@ schema:timeHier a qb4o:Hierarchy ;
 #hierarchy levels and attributes
 sdmx-dimension:refPeriod a qb4o:LevelProperty;
    rdfs:label "Month level"@en;
-   qb4o:hasAttribute schema:monthName.
+   qb4o:hasAttribute schema:monthName,schema:yearMonthNum.
 
 schema:monthName  a qb4o:LevelAttribute;
     rdfs:label "Month name"@en ;
     rdfs:range xsd:string.
+    
+schema:yearMonthNum  a qb4o:LevelAttribute;
+    rdfs:label "YearMonth as a number"@en ;
+    rdfs:range xsd:integer.
 
 schema:year a qb4o:LevelProperty;
    rdfs:label "Year"@en;
