@@ -261,7 +261,7 @@ nw:orderDateDim a rdf:Property , qb:DimensionProperty ;
 	rdfs:label "Order Date Dimension"@en ; 
 	rdfs:subPropertyOf sdmx-dimension:refPeriod ;
 	qb:concept sdmx-concept:refPeriod ;
-	qb4o:hasHierarchy nw:calendar . 
+	qb4o:hasHierarchy nw:calendarorderdate . 
 	
 # -- Order Date Calendar hierarchy 
 
@@ -281,8 +281,17 @@ _:calendarorderdate_hs3 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendarorder
 _:calendarorderdate_hs4 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendarorderdate ;
     qb4o:childLevel nw:semester ; qb4o:parentLevel nw:year ;
     qb4o:pcCardinality qb4o:ManyToOne .
-    
-# -- Due Date Calendar hierarchy 
+
+#----------------------------------------------------------------------------
+# -- DueDate dimension definition  
+
+nw:dueDateDim a rdf:Property , qb:DimensionProperty ; 
+	rdfs:label "Due Date Dimension"@en ; 
+	rdfs:subPropertyOf sdmx-dimension:refPeriod ;
+	qb:concept sdmx-concept:refPeriod ;
+	qb4o:hasHierarchy nw:calendarduedate . 
+	
+# -- DueDate Calendar hierarchy 
 
 nw:calendarduedate a qb4o:HierarchyProperty ; rdfs:label "Calendar Hierarchy"@en ;
 	qb4o:inDimension nw:dueDateDim ;
@@ -300,6 +309,15 @@ _:calendarduedate_hs3 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendarduedate
 _:calendarduedate_hs4 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendarduedate ;
     qb4o:childLevel nw:semester ; qb4o:parentLevel nw:year ;
     qb4o:pcCardinality qb4o:ManyToOne .    
+
+#----------------------------------------------------------------------------
+# -- Shipped Date dimension definition  
+
+nw:shippedDateDim a rdf:Property , qb:DimensionProperty ; 
+	rdfs:label "Shipped Date Dimension"@en ; 
+	rdfs:subPropertyOf sdmx-dimension:refPeriod ;
+	qb:concept sdmx-concept:refPeriod ;
+	qb4o:hasHierarchy nw:calendarshippeddate . 
 
 # -- Shipped Date Calendar hierarchy 
 
@@ -319,7 +337,6 @@ _:calendardshippeddate_hs3 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendards
 _:calendardshippeddate_hs4 a qb4o:HierarchyStep ; qb4o:inHierarchy nw:calendardshippeddate ;
     qb4o:childLevel nw:semester ; qb4o:parentLevel nw:year ;
     qb4o:pcCardinality qb4o:ManyToOne .
-
 
 	
 # -- Time level
