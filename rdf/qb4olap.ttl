@@ -222,7 +222,7 @@ qb4o:LevelProperty rdf:type rdfs:Class, owl:Class ;
 ### http://purl.org/qb4olap/cubes#RollupProperty
 qb4o:RollupProperty rdf:type rdfs:Class, owl:Class ;
 		rdfs:label "Rollup property"@en ;
-		rdfs:subClassOf owl:TransitiveProperty; ;
+		rdfs:subClassOf owl:TransitiveProperty;
 		rdfs:comment "The class of properties which represent the rollup relationships."@en ;
 		rdfs:isDefinedBy <http://purl.org/qb4olap/cubes> .		
 
